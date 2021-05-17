@@ -7,7 +7,7 @@ const routes = [
     name: "Index",
     component: Index,
     meta: {
-      title: "atlier ameni アトリエあめに",
+      title: "atelier ameni アトリエあめに",
       desc: "フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
     },
   },
@@ -20,7 +20,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
     meta: {
-      title: "プロフィール | atlier ameni アトリエあめに",
+      title: "プロフィール | atelier ameni アトリエあめに",
       desc: "フロントエンドエンジニア・イラストレーターあめにのプロフィールページです。一日のスケジュールなどをご紹介します。",
     },
   },
@@ -30,7 +30,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "illust" */ "../views/Illust.vue"),
     meta: {
-      title: "イラスト | atlier ameni アトリエあめに",
+      title: "イラスト | atelier ameni アトリエあめに",
       desc: "イラストレーターあめにのイラストポートフォリオページです",
     },
   },
@@ -40,7 +40,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "frontend" */ "../views/Frontend.vue"),
     meta: {
-      title: "フロントエンド | atlier ameni アトリエあめに",
+      title: "フロントエンド | atelier ameni アトリエあめに",
       desc: "フロントエンドエンジニアあめにのスキルや構築で使用するツールなど。",
     },
   },
@@ -50,7 +50,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "contact" */ "../views/Contact.vue"),
     meta: {
-      title: "お問い合わせ | atlier ameni アトリエあめに",
+      title: "お問い合わせ | atelier ameni アトリエあめに",
       desc: "フロント構築や、イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
   },
