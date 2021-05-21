@@ -1,13 +1,11 @@
 <template>
-  <div class="contact otherpage">
-    <Navigation :isOtherPage="true"></Navigation>
-    <div class="otherpage__inner">
-      <h1 class="contact__heading heading otherpage__heading">CONTACT</h1>
-
+  <section class="contact section wave wave--pink">
+    <div class="section__inner">
+      <h2 class="prof__heading heading">CONTACT</h2>
       <p class="contact__title">
         イラスト制作のご依頼、ご相談はこちらのメールフォームからお問い合わせください。
       </p>
-      <p class="contact__btn btn btn--red">
+      <p class="contact__btn btn btn--red bottom-line--pink">
         <router-link to="/illcontact"
           >イラスト専用 / メールフォームへ</router-link
         >
@@ -21,29 +19,31 @@
         >
       </p>
     </div>
-    <Footer :styleType="2"></Footer>
-  </div>
+  </section>
 </template>
 
 <script>
-import setMetaDesc from "@/mixin/setMetaDesc";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-
 export default {
-  mixins: [setMetaDesc],
-  components: {
-    Navigation,
-    Footer,
-  },
+  name: "Contact",
 };
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.contact {
-  .nav {
-    margin-top: 30px;
+.wave {
+  &--white {
+    &:after {
+      background-image: url("../../assets/img/common/bg_wave_white.svg");
+    }
   }
+  &--pink {
+    &:after {
+      background-image: url("../../assets/img/common/bg_wave_pink.svg");
+    }
+  }
+}
+.contact {
+  background-color: #f9f2ef;
   &__title {
     font-size: 16px;
     line-height: 30px;
@@ -52,9 +52,6 @@ export default {
   &__btn {
     margin-bottom: 30px;
     padding-bottom: 30px;
-  }
-  &__heading {
-    margin-bottom: 70px;
   }
 }
 </style>

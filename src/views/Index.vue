@@ -1,56 +1,89 @@
 <template>
-  <!-- ▽ main section -->
-  <section
-    :class="{
-      main: true,
-      section: true,
-      'is-minH': isMinH,
-      'is-no-canvas': !isCvs,
-    }"
-  >
-    <div class="main__container">
-      <h1 class="main__logo">
-        <img src="../assets/logo.svg" alt="アトリエあめに atelier ameni" />
-      </h1>
-      <p class="main__lead">
-        フロントエンドエンジニア・イラストレーター
-        あめにのポートフォリオサイトです。
-      </p>
-      <ul class="main__nav">
-        <li><router-link to="/">Index</router-link></li>
-        <li><router-link to="/profile">Profile</router-link></li>
-        <li><router-link to="/illust">Illust</router-link></li>
-        <li><router-link to="/frontend">Frontend</router-link></li>
-        <li><router-link to="/contact">contact</router-link></li>
-      </ul>
-    </div>
-    <div class="cvs-wrap">
-      <canvas class="cvs"></canvas>
-    </div>
-  </section>
-  <div class="index__container">
-    <!-- ▽ prof section -->
-    <section class="prof section">prof</section>
+  <div class="index">
+    <Navigation :isOtherPage="false"></Navigation>
 
-    <!-- ▽ illust section -->
-    <section class="illust section">illust</section>
+    <section
+      :class="{
+        main: true,
+        section: true,
+        'is-minH': isMinH,
+        'is-no-canvas': !isCvs,
+      }"
+    >
+      <div class="main__container">
+        <h1 class="main__logo">
+          <img
+            src="../assets/img/common/logo.svg"
+            alt="アトリエあめに atelier ameni"
+          />
+        </h1>
+        <p class="main__lead">
+          フロントエンドエンジニア・イラストレーター
+          あめにのポートフォリオサイトです。
+        </p>
+        <ul class="main__nav">
+          <li class="main__nav-li">
+            <router-link to="/" active-class="current" exact>Index</router-link>
+          </li>
+          <li class="main__nav-li">
+            <router-link to="/profile">Profile</router-link>
+          </li>
+          <li class="main__nav-li">
+            <router-link to="/frontend">Frontend</router-link>
+          </li>
+          <li class="main__nav-li">
+            <router-link to="/illust">Illust</router-link>
+          </li>
+          <li class="main__nav-li">
+            <router-link to="/contact">contact</router-link>
+          </li>
+        </ul>
+        <img src="../assets/img/index/work.svg" class="main__work-img" />
+        <img src="../assets/img/index/deco1.svg" class="main__deco-img--1" />
+        <img src="../assets/img/index/deco2.svg" class="main__deco-img--2" />
+        <p class="main__scroll">scroll</p>
+      </div>
+      <div class="cvs-wrap">
+        <transition :css="false" @before-enter="beforeEnter" @enter="enter">
+          <canvas class="cvs" v-show="isShowCvs"></canvas>
+        </transition>
+      </div>
+    </section>
 
-    <!-- ▽ frontend section -->
-    <section class="frontend section">frontend</section>
+    <Profile></Profile>
+    <Frontend></Frontend>
+    <Illust></Illust>
+    <Contact></Contact>
 
-    <!-- ▽ contact section -->
-    <section class="contact section">contact</section>
+    <Footer :styleType="1"></Footer>
   </div>
 </template>
 
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
 import Point from "@/components/Point";
-import $ from "jquery";
+import Navigation from "@/components/Navigation";
+import Profile from "@/components/index/Profile";
+import Frontend from "@/components/index/Frontend";
+import Illust from "@/components/index/Illust";
+import Contact from "@/components/index/Contact";
+import Footer from "@/components/Footer";
+import UpdateAnim from "@/components/UpdateAnim";
+import DotImgSrc from "@/assets/img/index/dot.svg";
+import { gsap } from "gsap";
+// import $ from "jquery";
 
 export default {
   name: "Index",
   mixins: [setMetaDesc],
+  components: {
+    Navigation,
+    Footer,
+    Profile,
+    Frontend,
+    Illust,
+    Contact,
+  },
   data() {
     return {
       isMinH: false,
@@ -58,20 +91,19 @@ export default {
       stage: {},
       ctx: {},
       particles: [],
-      point1: { x: 0, y: 0, speed: 0.04, radius: 0 },
-      point2: { x: 0, y: 0, speed: 0.03, radius: 0 },
-      point3: { x: 0, y: 0, speed: 0.04, radius: 0 },
-      point4: { x: 0, y: 0, speed: 0.03, radius: 0 },
+      particleNum: 8,
+      dotImgSrc: DotImgSrc,
+      dotImg: {},
+      isShowCvs: false,
     };
   },
   mounted() {
-    console.log($);
     //各sctionの高さを設定
-    //750より小さければそれ以上コンテンツを可変しない
+    //800より小さければそれ以上コンテンツを可変しない
     this.winH = window.innerHeight;
-    if (this.winH < 750) {
+    if (this.winH < 800) {
       this.isMinH = true;
-      this.winH = "750px";
+      this.winH = "900px";
     }
     //canvasの設定
     this.stage = document.querySelector("canvas");
@@ -81,6 +113,8 @@ export default {
       this.ctx = this.stage.getContext("2d");
       this.initStage();
     }
+    //resize event
+    window.addEventListener("resize", this.onResize);
   },
   methods: {
     initStage() {
@@ -95,7 +129,7 @@ export default {
         if (700 < stageH && stageH < 900) {
           _stageH = stageH;
         } else if (700 > stageH) {
-          _stageH = 750;
+          _stageH = 800;
         } else {
           _stageH = 900;
         }
@@ -108,88 +142,217 @@ export default {
     },
     initCanvas() {
       //動く円のもとになる点を作る
-      const particleNum = 8;
       const stageW = this.stage.width;
       const margin = 24;
       const halfW = stageW / 2;
       const radius = halfW - margin / 2;
       const center = {
-        x: halfW + margin / 2,
-        y: halfW + margin / 2,
+        x: halfW,
+        y: halfW,
       };
-      for (var i = 0; i < particleNum; i++) {
-        let degree = Math.floor(360 / particleNum) * i;
-        let point = new Point(center, radius, degree, margin);
-        this.particles.push(point);
-      }
-      this.renderCircle();
+      //背景ドット画像の読み込み
+      this.dotImg = new Image();
+      this.dotImg.src = this.dotImgSrc;
+      const _this = this;
+      this.dotImg.onload = function () {
+        //main circleの設定
+        for (var i = 0; i < _this.particleNum; i++) {
+          let degree = Math.floor(360 / _this.particleNum) * i;
+          let point = new Point(center, radius, degree, margin);
+          _this.particles.push(point);
+        }
+        _this.isShowCvs = true;
+        _this.renderCircle();
+      };
     },
     renderCircle() {
-      //window.requestAnimationFrame(this.renderCircle.bind(this));
+      window.requestAnimationFrame(this.renderCircle.bind(this));
       this.ctx.clearRect(0, 0, this.stage.width, this.stage.height);
-      // dy => 波形
+      //===========================
+      // background dot
+      //===========================
+      this.ctx.beginPath();
+      //背景画像を配置
+      this.ctx.globalCompositeOperation = "source-over";
+      this.ctx.drawImage(
+        this.dotImg,
+        0,
+        0,
+        this.stage.width,
+        this.stage.height
+      );
+      //マスクをかける
+      this.ctx.globalCompositeOperation = "destination-in";
+      this.ctx.beginPath();
+      //アニメーションの動きの位置を更新
+      for (let i = 0; i < this.particleNum - 1; i++) {
+        let point = this.particles[i];
+        point = new UpdateAnim(point, point.animType, point.radius, point.dis);
+        this.particles[i] = point;
+      }
+      this.ctx.moveTo(
+        (this.particles[0].shadowMoveX + this.particles[7].shadowMoveX) / 2,
+        (this.particles[0].shadowMoveY + this.particles[7].shadowMoveY) / 2
+      );
+      for (let i = 0; i < this.particleNum - 1; i++) {
+        let x = this.particles[i].shadowMoveX;
+        let y = this.particles[i].shadowMoveY;
+        let _x = this.particles[0].shadowMoveX;
+        let _y = this.particles[0].shadowMoveY;
+        if (this.particles[i + 1]) {
+          _x = (x + this.particles[i + 1].shadowMoveX) / 2;
+          _y = (y + this.particles[i + 1].shadowMoveY) / 2;
+        }
+        this.ctx.quadraticCurveTo(x, y, _x, _y);
+      }
+      this.ctx.quadraticCurveTo(
+        this.particles[7].shadowMoveX,
+        this.particles[7].shadowMoveY,
+        (this.particles[7].shadowMoveX + this.particles[0].shadowMoveX) / 2,
+        (this.particles[7].shadowMoveY + this.particles[0].shadowMoveY) / 2
+      );
+      this.ctx.closePath();
+      this.ctx.fill();
 
-      this.particles[0].dy = Math.floor(
-        Math.sin(this.particles[0].radius) * 30
-      );
-      this.particles[1].dy = Math.floor(
-        Math.cos(this.particles[1].radius) * 25
-      );
-      this.particles[2].dy = Math.floor(
-        Math.sin(this.particles[2].radius) * 30
-      );
-      this.particles[3].dy = Math.floor(
-        Math.cos(this.particles[3].radius) * 20
-      );
+      //===========================
+      // main circle
+      //===========================
+      this.ctx.globalCompositeOperation = "source-over";
       this.ctx.fillStyle = "rgba(255,255,255,1)";
       this.ctx.beginPath();
-      //
-      this.ctx.moveTo(
-        this.particles[0].x + this.particles[0].dy,
-        this.particles[0].y + this.particles[0].dy
-      );
-      for (let i = 1; i < this.particles.length; i++) {
-        this.particles[i].dy = Math.floor(
-          Math.sin(this.particles[i].radius) * 25
-        );
-        this.particles[i].radius += this.particles[i].speed;
-        let x = this.particles[i].x + this.particles[i].dy;
-        let y = this.particles[i].y + this.particles[i].dy;
-        console.log(this.particles[i].dy);
-        this.ctx.lineTo(x, y);
+      //アニメーションの動きの位置を更新
+      for (let i = 0; i < this.particleNum - 1; i++) {
+        let point = this.particles[i];
+        point = new UpdateAnim(point, point.animType, point.radius, point.dis);
+        this.particles[i] = point;
       }
+      this.ctx.moveTo(
+        (this.particles[0].moveX + this.particles[7].moveX) / 2,
+        (this.particles[0].moveY + this.particles[7].moveY) / 2
+      );
+      for (let i = 0; i < this.particleNum - 1; i++) {
+        let x = this.particles[i].moveX;
+        let y = this.particles[i].moveY;
+        let _x = this.particles[0].moveX;
+        let _y = this.particles[0].moveY;
+        if (this.particles[i + 1]) {
+          _x = (x + this.particles[i + 1].moveX) / 2;
+          _y = (y + this.particles[i + 1].moveY) / 2;
+        }
+        this.ctx.quadraticCurveTo(x, y, _x, _y);
+      }
+      this.ctx.quadraticCurveTo(
+        this.particles[7].moveX,
+        this.particles[7].moveY,
+        (this.particles[7].moveX + this.particles[0].moveX) / 2,
+        (this.particles[7].moveY + this.particles[0].moveY) / 2
+      );
       this.ctx.closePath();
       this.ctx.fill();
     },
+    beforeEnter(el) {
+      gsap.set(el, {
+        duration: 0,
+        translateY: 30,
+      });
+    },
+    enter(el, done) {
+      const logo = document.getElementsByClassName("main__logo");
+      const lead = document.getElementsByClassName("main__lead");
+      const nav = document.getElementsByClassName("main__nav-li");
+      const workImg = document.getElementsByClassName("main__work-img");
+      const obj1 = document.getElementsByClassName("main__deco-img--1");
+      const obj2 = document.getElementsByClassName("main__deco-img--2");
+      const scroll = document.getElementsByClassName("main__scroll");
+      gsap.to(el, {
+        duration: 0.2,
+        translateY: -30,
+        opacity: 0.8,
+        ease: "CircIn",
+      });
+      gsap.to(el, {
+        delay: 0.3,
+        duration: 0.5,
+        translateY: 0,
+        opacity: 1,
+        ease: "easeInOut",
+        onComplete: done,
+      });
+      gsap.to(logo, {
+        delay: 0.4,
+        duration: 0.5,
+        opacity: 1,
+        ease: "CircIn",
+      });
+      gsap.to(lead, {
+        delay: 0.5,
+        duration: 0.5,
+        opacity: 1,
+        ease: "CircIn",
+      });
+      gsap.to(nav, {
+        delay: 0.6,
+        duration: 0.2,
+        opacity: 1,
+        translateY: 0,
+        ease: "Back.easeOuteaseOut.config(1.71.7)",
+        stagger: {
+          from: "start",
+          amount: 0.4,
+        },
+      });
+      gsap.to(workImg, {
+        delay: 0.8,
+        duration: 0.2,
+        opacity: 0.8,
+        translateY: -10,
+        ease: "CircIn",
+      });
+      gsap.to(workImg, {
+        delay: 1.1,
+        duration: 0.3,
+        opacity: 1,
+        translateY: 0,
+        ease: "CircIn",
+      });
+      gsap.to(obj1, {
+        delay: 1.2,
+        duration: 0.6,
+        opacity: 1,
+        ease: "CircIn",
+      });
+      gsap.to(obj2, {
+        delay: 1.4,
+        duration: 0.6,
+        opacity: 1,
+        ease: "CircIn",
+      });
+      gsap.to(scroll, {
+        delay: 1.6,
+        duration: 0.3,
+        opacity: 1,
+        ease: "CircIn",
+      });
+    },
+    //-------------------
+    // window resize
+    //-------------------
+    onResize() {
+      setTimeout(() => {
+        this.isResize = true;
+      }, 300);
+    },
   },
 };
-
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-
-// export default {
-//   name: "Index",
-//   components: {
-//     HelloWorld,
-//   },
-// };
 </script>
 
-<style lang="scss" scoped>
-.section {
-  height: 100vh;
-  min-height: 750px;
-}
+<style lang="scss">
+@import "@/assets/scss/common.scss";
 .is-minH {
-  height: 750px;
+  height: 800px;
 }
 .index {
-  &__container {
-    position: relative;
-    height: 100vh;
-    z-index: 1000;
-    box-sizing: border-box;
-  }
+  position: relative;
 }
 .main {
   width: 100%;
@@ -199,19 +362,19 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #f9f2ef;
-  position: absolute;
   z-index: 100;
-  min-height: 750px;
-  top: 0;
+  min-height: 800px;
   &__container {
     height: 530px;
     position: relative;
     z-index: 100;
+    margin-top: -20px;
   }
   &__logo {
     width: 160px;
     height: auto;
     margin: 0 auto 20px auto;
+    opacity: 0;
   }
   &__lead {
     position: relative;
@@ -220,11 +383,12 @@ export default {
     position: relative;
     margin-bottom: 35px;
     font-size: 12px;
+    opacity: 0;
     &:before {
       content: "";
       width: 100%;
       height: 10px;
-      background-color: #fef9ec;
+      background-color: #f5f8ed;
       display: inline-block;
       position: absolute;
       bottom: 0;
@@ -237,22 +401,36 @@ export default {
       "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
     font-size: 16px;
     font-weight: 200;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     width: auto;
     display: flex;
     justify-content: center;
     > li {
-      padding: 0 7px;
+      padding: 0 9px;
+      opacity: 0;
+      transform: translateY(10px);
       a {
         display: inline-block;
         color: #333333;
-        padding: 5px;
+        padding: 5px 5px 7px 5px;
         overflow: hidden;
         &:before {
-          height: 1px;
-          background-color: #777777;
+          height: 5px;
+          background-color: #fbf2ec;
           width: 90%;
           transform: translateX(-100%);
+          transition-duration: 0.5s;
+          transition-timing-function: ease-in;
+        }
+        &:after {
+          height: 100%;
+          width: 90%;
+          position: absolute;
+          bottom: 5px;
+          content: "";
+          border-bottom: #f9ece4 1px solid;
+          left: 5%;
+          transform: translateX(0);
           transition-duration: 0.5s;
           transition-timing-function: ease-in;
         }
@@ -262,14 +440,91 @@ export default {
             transform: translateX(5%);
             transition: all 0.35s ease-in-out;
           }
+          &:after {
+            transform: translateX(100%);
+            transition: all 0.35s ease-in-out;
+            border-bottom: #fff 1px solid;
+          }
+        }
+        &.current {
+          opacity: 0.5;
+          cursor: default;
+          &:before {
+            display: none;
+          }
+          &:after {
+            display: none;
+          }
         }
       }
     }
   }
-}
-.prof {
-  background-color: #d3f4ce;
-  margin-top: 100vh;
+  &__work-img {
+    width: 180px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    margin-left: -90px;
+    opacity: 0;
+  }
+  &__deco-img--1 {
+    position: absolute;
+    left: 50%;
+    bottom: 95px;
+    width: 290px;
+    margin-left: -150px;
+    opacity: 0;
+    animation-name: fuwafuwa1;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+  }
+  &__deco-img--2 {
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    margin-left: -240px;
+    bottom: 110px;
+    opacity: 0;
+    animation-name: fuwafuwa2;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+  }
+  &__scroll {
+    font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+      "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    font-weight: 200;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -50px;
+    text-align: center;
+    color: #7a6150;
+    font-size: 14px;
+    letter-spacing: 2px;
+    width: 100px;
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 32px;
+    text-indent: 2px;
+    opacity: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 25px;
+      width: 30px;
+      left: 50%;
+      margin-left: -15px;
+      top: 0;
+      background-image: url("../assets/img/index/arrow.svg");
+      background-repeat: no-repeat;
+      background-size: 30px 30px;
+    }
+  }
 }
 .cvs-wrap {
   width: 100%;
@@ -291,5 +546,23 @@ export default {
   position: absolute;
   display: block;
   z-index: 0;
+  opacity: 0;
+  margin-top: -20px;
+}
+@keyframes fuwafuwa1 {
+  0% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes fuwafuwa2 {
+  0% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
 }
 </style>

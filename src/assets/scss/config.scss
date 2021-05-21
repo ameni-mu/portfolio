@@ -8,33 +8,3 @@
 @import "@/assets/scss/mixin/_common.scss";
 @import "@/assets/scss/mixin/_mediaquery.scss";
 @import "@/assets/scss/mixin/_vwsize.scss";
-
-a,
-a:hover,
-a:active,
-a:visited {
-  color: #e04569;
-}
-a {
-  display: inline;
-  position: relative;
-  text-decoration: none;
-  z-index: 1;
-  &:before {
-    content: "";
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 7px;
-    z-index: -1;
-    display: inline-block;
-    background-color: #f8eaef;
-    opacity: 0;
-  }
-}
-a:hover {
-  &:before {
-    opacity: 1;
-  }
-}

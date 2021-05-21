@@ -1,0 +1,48 @@
+@charset "utf-8";
+// ===========================
+//
+// wave
+//
+// ===========================
+
+.wave {
+  color: #666666;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-size: 250px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  &--white {
+    &:before {
+      background-color: #f9f2ef;
+    }
+    &:after {
+      //このURLだと画像を読み込めないので後で調べる
+      //background-image: url("/img/bg_wave_white.svg");
+    }
+  }
+  &--pink {
+    &:before {
+      background-color: #fff;
+    }
+    &:after {
+      //background-image: url("/img/bg_wave_pink.svg");
+    }
+  }
+}

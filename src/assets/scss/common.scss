@@ -1,0 +1,252 @@
+@charset "utf-8";
+// ===========================
+//
+// common
+//
+// ===========================
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #ea9f80;
+}
+a {
+  display: inline;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+  text-decoration: none;
+  &:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 7px;
+    z-index: -1;
+    display: inline-block;
+    background-color: #fef3ec;
+    opacity: 0;
+  }
+}
+a:hover {
+  &:before {
+    opacity: 1;
+  }
+}
+.raleway {
+  font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+.wave {
+  &:before {
+    content: "";
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-size: 250px auto;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  &--white {
+    &:before {
+      background-color: #f9f2ef;
+    }
+    &:after {
+      background-image: url("../assets/img/common/bg_wave_white.svg");
+    }
+  }
+  &--pink {
+    &:before {
+      background-color: #fff;
+    }
+    &:after {
+      background-image: url("../assets/img/common/bg_wave_pink.svg");
+    }
+  }
+}
+
+.heading {
+  font-size: 40px;
+  @extend .raleway;
+  letter-spacing: 4px;
+  padding-left: 50px;
+  position: relative;
+  margin-bottom: 40px;
+  &:before {
+    width: 35px;
+    content: "";
+    height: 1px;
+    border-bottom: solid 1px #666666;
+    position: absolute;
+    left: 0;
+    top: 19px;
+  }
+}
+.morelink {
+  text-align: right;
+  > a {
+    display: inline-block;
+    padding: 8px 25px 8px 15px;
+    border-radius: 10px;
+    border: 1px solid #ea9f80;
+    background-color: #ffffff;
+    &:after {
+      content: "";
+      background-image: url("../assets/img/common/arrow_right.svg");
+      background-repeat: no-repeat;
+      background-size: 18px auto;
+      background-position: right -3px;
+      position: absolute;
+      width: 18px;
+      height: 21px;
+    }
+    &:before {
+      display: none;
+    }
+  }
+}
+.bottom-line {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f2f0ef;
+  &--pink {
+    border-bottom: 1px solid #e8e3e1;
+  }
+}
+.btn {
+  text-align: left;
+  > a {
+    display: inline-block;
+    padding: 14px 40px 14px 25px;
+    border-radius: 10px;
+    background-color: #ea9f80;
+    &:after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: 18px auto;
+      background-position: right -3px;
+      position: absolute;
+      width: 18px;
+      height: 21px;
+      right: 14px;
+      top: 14px;
+    }
+    &:before {
+      display: none;
+    }
+  }
+  &--red {
+    > a {
+      color: #ffffff;
+      &:after {
+        background-image: url("../assets/img/common/arrow_right_white.svg");
+      }
+    }
+  }
+  &--normal {
+    > a {
+      color: #ea9f80;
+      background-color: #ffffff;
+      border: 1px solid #ea9f80;
+      &:after {
+        background-image: url("../assets/img/common/arrow_right.svg");
+      }
+    }
+  }
+}
+.section {
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__inner {
+    width: 1100px;
+    height: 460px;
+    padding-left: 300px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+}
+.otherpage {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  &:before {
+    content: "";
+    width: 450px;
+    height: 470px;
+    background-size: 470px auto;
+    background-repeat: no-repeat;
+    background-position: left top;
+    position: absolute;
+    right: -100px;
+    top: -70px;
+    background-image: url("../assets/img/common/deco_bg_dot1.svg");
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    width: 650px;
+    height: 611px;
+    background-size: 650px auto;
+    background-repeat: no-repeat;
+    background-position: left top;
+    position: absolute;
+    left: -130px;
+    bottom: -160px;
+    background-image: url("../assets/img/common/deco_bg_dot2.svg");
+    z-index: -1;
+  }
+  &__inner {
+    width: 1100px;
+    padding-left: 300px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 90px;
+    padding-bottom: 250px;
+  }
+  .nav {
+    background-color: inherit;
+  }
+  &__heading {
+    padding-bottom: 20px;
+    &:after {
+      content: "";
+      border-bottom: 3px solid #f2f0ef;
+      width: 100%;
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+.icon-link {
+  display: inline-block;
+  background-image: url("../assets/img/common/list_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
+  box-sizing: border-box;
+  margin-right: 25px;
+  padding: 4px 0 4px 20px;
+  &:after {
+    z-index: -1;
+  }
+}

@@ -9,7 +9,9 @@
     "fix:js": "vue-cli-service lint --fix --ext .js,.vue src"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
+    "gsap": "^3.6.1",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.0.0",

@@ -54,11 +54,42 @@ const routes = [
       desc: "フロント構築や、イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
   },
+  {
+    path: "/frontcontact",
+    name: "FrontContact",
+    component: () =>
+      import(
+        /* webpackChunkName: "frontcontact" */ "../views/FrontContact.vue"
+      ),
+    meta: {
+      title: "お問い合わせ | atelier ameni アトリエあめに",
+      desc: "フロント構築のご依頼やお問い合わせはこちらのページからお願いします。",
+    },
+  },
+  {
+    path: "/illcontact",
+    name: "IllustContact",
+    component: () =>
+      import(
+        /* webpackChunkName: "illustcontact" */ "../views/IllustContact.vue"
+      ),
+    meta: {
+      title: "お問い合わせ | atelier ameni アトリエあめに",
+      desc: "イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
+    },
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { left: 0, top: 0 };
+    }
+  },
 });
 
 export default router;
