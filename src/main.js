@@ -11,7 +11,6 @@ const app = createApp(App).use(animateCss).use(store).use(router);
 //スクロールに合わせて追従させる
 app.directive("onScrollIndexNav", {
   beforeMount(el, binding) {
-    console.log("scrollEvent");
     let f = function (e) {
       if (binding.value(e, el)) {
         window.removeEventListener("scroll", f);

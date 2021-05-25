@@ -1,7 +1,6 @@
 <template>
   <transition name="fade" tag="div" :class="{ noAnim: isOtherPage }">
     <section
-      v-onScrollIndexNav="onScroll"
       class="nav"
       v-show="isNavigationShow"
     >
@@ -42,7 +41,7 @@
 
 <script>
 export default {
-  name: "Navigation",
+  name: "AmeniNav",
   props: ["isOtherPage"],
   data() {
     return {
@@ -64,15 +63,19 @@ export default {
     if (this.isOtherPage) {
       this.isNavigationShow = true;
     }
+    this.onScroll();
     this.onResize();
   },
   methods: {
     onScroll() {
       if (this.isOtherPage) return;
       if (!this.isNavSetting) {
-        setTimeout(() => {
-          this.setNav();
-        }, 100);
+        const _this = this;
+        window.addEventListener("scroll", function(){
+          setTimeout(() => {
+            _this.setNav();
+          }, 100);
+        });
       }
     },
     onResize() {

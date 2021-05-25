@@ -1,6 +1,6 @@
 <template>
   <div class="contact otherpage">
-    <Navigation :isOtherPage="true"></Navigation>
+    <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="otherpage__inner">
       <h1 class="contact__heading heading otherpage__heading">
         イラスト制作のお問い合わせ
@@ -11,12 +11,12 @@
 
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
-import Navigation from "@/components/Navigation";
+import AmeniNav from "@/components/AmeniNav";
 
 export default {
   mixins: [setMetaDesc],
   components: {
-    Navigation,
+    AmeniNav,
   },
 };
 </script>

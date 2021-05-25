@@ -1,6 +1,6 @@
 <template>
   <div class="front otherpage">
-    <Navigation :isOtherPage="true"></Navigation>
+    <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="front__inner otherpage__inner">
       <h1 class="front__heading heading otherpage__heading">Front-end</h1>
       <p class="front__lead">
@@ -96,13 +96,13 @@
 
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
-import Navigation from "@/components/Navigation";
+import AmeniNav from "@/components/AmeniNav";
 import Footer from "@/components/Footer";
 
 export default {
   mixins: [setMetaDesc],
   components: {
-    Navigation,
+    AmeniNav,
     Footer,
   },
 };

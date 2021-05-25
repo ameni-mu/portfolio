@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <Navigation :isOtherPage="false"></Navigation>
+    <AmeniNav :isOtherPage="false"></AmeniNav>
 
     <section
       :class="{
@@ -62,7 +62,7 @@
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
 import Point from "@/components/Point";
-import Navigation from "@/components/Navigation";
+import AmeniNav from "@/components/AmeniNav";
 import Profile from "@/components/index/Profile";
 import Frontend from "@/components/index/Frontend";
 import Illust from "@/components/index/Illust";
@@ -77,7 +77,7 @@ export default {
   name: "Index",
   mixins: [setMetaDesc],
   components: {
-    Navigation,
+    AmeniNav,
     Footer,
     Profile,
     Frontend,

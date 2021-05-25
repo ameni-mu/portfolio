@@ -1,16 +1,18 @@
 <template>
   <div class="profile otherpage">
-    <Navigation :isOtherPage="true"></Navigation>
+    <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="profile__inner otherpage__inner">
       <h1 class="profile__heading heading otherpage__heading">PROFILE</h1>
-      <p class="profile__name">あめに</p>
-      <p class="profile__name-title">
-        フロントエンドエンジニア、イラストレーター
-      </p>
-      <p class="profile__text text">
-        新潟県出身 神奈川県在住。<br />
-        育児と仕事の両立を求めて働き方を模索しています。
-      </p>
+      <div class="profile__block">
+        <p class="profile__name">あめに</p>
+        <p class="profile__name-title">
+          フロントエンドエンジニア、イラストレーター
+        </p>
+        <p class="profile__text text">
+          新潟県出身 神奈川県在住。<br />
+          育児と仕事の両立を求めて働き方を模索しています。
+        </p>
+      </div>
       <!-- <ul class="profile__pagelink">
         <li>
           <a href="#koremade">これまで</a>
@@ -19,43 +21,45 @@
           <a href="#koremade">一日のスケジュール</a>
         </li>
       </ul> -->
-      <h2 class="profile__secondary-heading">簡単な経歴</h2>
-      <ul class="profile__career">
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2007</span></p>
-          <p class="profile__ca-detail">
-            独学でweb制作を学び、フリーランスでイラスト制作やweb制作を請け負う
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2009</span></p>
-          <p class="profile__ca-detail">
-            デジハリオンラインスクールWebデザイナー講座受講<br />
-            webデザイナー、コーダーとして会社勤務<br>
-            株式会社クスールでAS3を学ぶ<br>
-            フリー素材配布サイト「ガーリー素材」を運営
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2012</span></p>
-          <p class="profile__ca-detail">
-            フロントエンドエンジニアに転職。<br />
-            様々な企業を転々とし色々な開発に携わらせていただく。
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2015</span></p>
-          <p class="profile__ca-detail">
-            著書「Girls’ Design Materials」SBクリエイティブ様より刊行
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2019</span></p>
-          <p class="profile__ca-detail">
-            妊娠出産を機に育児との両立を目指してフリーランスへ
-          </p>
-        </li>
-      </ul>
+      <div class="profile__block">
+        <h2 class="profile__secondary-heading">簡単な経歴</h2>
+        <ul class="profile__career">
+          <li class="profile__career-li">
+            <p class="profile__year"><span>2007</span></p>
+            <p class="profile__ca-detail">
+              独学でweb制作を学び、フリーランスでイラスト制作やweb制作を請け負う
+            </p>
+          </li>
+          <li class="profile__career-li">
+            <p class="profile__year"><span>2009</span></p>
+            <p class="profile__ca-detail">
+              デジハリオンラインスクールWebデザイナー講座受講<br />
+              webデザイナー、コーダーとして会社勤務<br />
+              株式会社クスールでAS3を学ぶ<br />
+              フリー素材配布サイト「ガーリー素材」を運営
+            </p>
+          </li>
+          <li class="profile__career-li">
+            <p class="profile__year"><span>2012</span></p>
+            <p class="profile__ca-detail">
+              フロントエンドエンジニアに転職。<br />
+              様々な企業を転々とし色々な開発に携わらせていただく。
+            </p>
+          </li>
+          <li class="profile__career-li">
+            <p class="profile__year"><span>2015</span></p>
+            <p class="profile__ca-detail">
+              著書「Girls’ Design Materials」SBクリエイティブ様より刊行
+            </p>
+          </li>
+          <li class="profile__career-li">
+            <p class="profile__year"><span>2019</span></p>
+            <p class="profile__ca-detail">
+              妊娠出産を機に育児との両立を目指してフリーランスへ
+            </p>
+          </li>
+        </ul>
+      </div>
 
       <h2 class="profile__secondary-heading">平日のスケジュール</h2>
       <p class="profile__sup">
@@ -102,13 +106,13 @@
 
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
-import Navigation from "@/components/Navigation";
+import AmeniNav from "@/components/AmeniNav";
 import Footer from "@/components/Footer";
 
 export default {
   mixins: [setMetaDesc],
   components: {
-    Navigation,
+    AmeniNav,
     Footer,
   },
 };
