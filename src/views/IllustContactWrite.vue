@@ -341,8 +341,7 @@ export default {
       e.preventDefault();
 
       const attention = document.getElementById("attentionCheck");
-      this.$store.state.inputData.illustForm.attentionCheck =
-        attention.checked;
+      this.$store.state.inputData.illustForm.attentionCheck = attention.checked;
       if (attention.checked === true) {
         this.isAttentionChecked = false;
       } else {
@@ -352,7 +351,7 @@ export default {
         if (val.valid == false || !attention.checked) {
           this.isError = true;
         } else {
-          if(attention.checked) {
+          if (attention.checked) {
             this.isError = false;
             this.setStore();
           }

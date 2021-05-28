@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   components: {},
   computed: {
@@ -111,9 +113,41 @@ export default {
   methods: {
     sendMail(e) {
       e.preventDefault();
-      const sendUrl = 'https://atelier-ameni.com/illust_mail_send.php';
+      const sendUrl = "https://atelier-ameni.com/illust_mail_send.php";
       console.log(sendUrl);
-      console.log('送信');
+      console.log("送信");
+
+      let params = new URLSearchParams();
+      params.append("companyName", this.companyName);
+      params.append("clientName", this.clientName);
+      params.append("mailAddress", this.mailAddress);
+      params.append("deadDate", this.deadDate);
+      params.append("media", this.media);
+      params.append("illustUseYesNo", this.illustUseYesNo);
+      params.append("budget", this.budget);
+      params.append("term", this.term);
+      params.append("message", this.message);
+      params.append("attentionCheck", this.attentionCheck);
+
+      axios
+        .post(sendUrl, params)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          // エラーを受け取る
+          console.log(error);
+        });
+      // axios
+      //   .post(sendUrl, params)
+      //   .then((response) => {
+      //     console.log(response.data);
+      //   })
+      //   .catch((error) => {
+      //     if (error.response) {
+      //       console.log(error);
+      //     }
+      //   });
     },
   },
 };

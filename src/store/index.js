@@ -4,7 +4,7 @@ export default createStore({
   state: {
     inputData: {
       illustForm: {
-        companyName: "test",
+        companyName: "企業名",
         clientName: "test",
         mailAddress: "tset@ci.jp",
         deadDate: "test",
