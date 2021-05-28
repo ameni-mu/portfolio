@@ -77,6 +77,23 @@ const routes = [
       title: "お問い合わせ | atelier ameni アトリエあめに",
       desc: "イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
+    props: true,
+    children: [
+      {
+        path: "illconfirm",
+        component: () =>
+          import(
+            /* webpackChunkName: "illcontactConfirm" */ "../views/IllustContactConfirm.vue"
+          ),
+      },
+      {
+        path: "illcontactwrite",
+        component: () =>
+          import(
+            /* webpackChunkName: "illcontactConfirm" */ "../views/IllustContactWrite.vue"
+          ),
+      },
+    ],
   },
 ];
 
@@ -84,11 +101,15 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+      };
+    }
     if (savedPosition) {
       return savedPosition;
-    } else {
-      return { left: 0, top: 0 };
     }
+    return { left: 0, top: 0 };
   },
 });
 

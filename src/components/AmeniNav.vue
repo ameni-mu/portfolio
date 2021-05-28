@@ -1,9 +1,6 @@
 <template>
   <transition name="fade" tag="div" :class="{ noAnim: isOtherPage }">
-    <section
-      class="nav"
-      v-show="isNavigationShow"
-    >
+    <section class="nav" v-show="isNavigationShow">
       <h1 class="nav__logo">
         <img
           src="../assets/img/common/logo.svg"
@@ -71,7 +68,7 @@ export default {
       if (this.isOtherPage) return;
       if (!this.isNavSetting) {
         const _this = this;
-        window.addEventListener("scroll", function(){
+        window.addEventListener("scroll", function () {
           setTimeout(() => {
             _this.setNav();
           }, 100);

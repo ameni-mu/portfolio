@@ -8,7 +8,7 @@
         イラスト制作のご依頼、ご相談はこちらのメールフォームからお問い合わせください。
       </p>
       <p class="contact__btn btn btn--red">
-        <router-link to="/illcontact"
+        <router-link to="/illcontact/illcontactwrite"
           >イラスト専用 / メールフォームへ</router-link
         >
       </p>

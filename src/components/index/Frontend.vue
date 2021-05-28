@@ -32,18 +32,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.wave {
-  &--white {
-    &:after {
-      background-image: url("../../assets/img/common/bg_wave_white.svg");
-    }
-  }
-  &--pink {
-    &:after {
-      background-image: url("../../assets/img/common/bg_wave_pink.svg");
-    }
-  }
-}
 .frontend {
   background-color: #f9f2ef;
   &.section {

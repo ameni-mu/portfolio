@@ -348,206 +348,207 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/common.scss";
+@import "@/assets/scss/contact.scss";
 .is-minH {
   height: 800px;
 }
 .index {
   position: relative;
-}
-.main {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f9f2ef;
-  z-index: 100;
-  min-height: 800px;
-  &__container {
-    height: 530px;
-    position: relative;
-    z-index: 100;
-    margin-top: -20px;
-  }
-  &__logo {
-    width: 160px;
-    height: auto;
-    margin: 0 auto 20px auto;
-    opacity: 0;
-  }
-  &__lead {
-    position: relative;
-    padding-bottom: 5px;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 35px;
-    font-size: 12px;
-    opacity: 0;
-    &:before {
-      content: "";
-      width: 100%;
-      height: 10px;
-      background-color: #f5f8ed;
-      display: inline-block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-    }
-  }
-  &__nav {
-    font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
-      "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
-    font-size: 16px;
-    font-weight: 200;
-    letter-spacing: 3px;
-    width: auto;
+  .main {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
     display: flex;
     justify-content: center;
-    > li {
-      padding: 0 9px;
+    align-items: center;
+    background-color: #f9f2ef;
+    z-index: 100;
+    min-height: 800px;
+    &__container {
+      height: 530px;
+      position: relative;
+      z-index: 100;
+      margin-top: -20px;
+    }
+    &__logo {
+      width: 160px;
+      height: auto;
+      margin: 0 auto 20px auto;
       opacity: 0;
-      transform: translateY(10px);
-      a {
+    }
+    &__lead {
+      position: relative;
+      padding-bottom: 5px;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 35px;
+      font-size: 12px;
+      opacity: 0;
+      &:before {
+        content: "";
+        width: 100%;
+        height: 10px;
+        background-color: #f5f8ed;
         display: inline-block;
-        color: #333333;
-        padding: 5px 5px 7px 5px;
-        overflow: hidden;
-        &:before {
-          height: 5px;
-          background-color: #fbf2ec;
-          width: 90%;
-          transform: translateX(-100%);
-          transition-duration: 0.5s;
-          transition-timing-function: ease-in;
-        }
-        &:after {
-          height: 100%;
-          width: 90%;
-          position: absolute;
-          bottom: 5px;
-          content: "";
-          border-bottom: #f9ece4 1px solid;
-          left: 5%;
-          transform: translateX(0);
-          transition-duration: 0.5s;
-          transition-timing-function: ease-in;
-        }
-        &:hover {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+    &__nav {
+      font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+        "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+      font-size: 16px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      width: auto;
+      display: flex;
+      justify-content: center;
+      > li {
+        padding: 0 9px;
+        opacity: 0;
+        transform: translateY(10px);
+        a {
+          display: inline-block;
           color: #333333;
+          padding: 5px 5px 7px 5px;
+          overflow: hidden;
           &:before {
-            transform: translateX(5%);
-            transition: all 0.35s ease-in-out;
+            height: 5px;
+            background-color: #fbf2ec;
+            width: 90%;
+            transform: translateX(-100%);
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in;
           }
           &:after {
-            transform: translateX(100%);
-            transition: all 0.35s ease-in-out;
-            border-bottom: #fff 1px solid;
+            height: 100%;
+            width: 90%;
+            position: absolute;
+            bottom: 5px;
+            content: "";
+            border-bottom: #f9ece4 1px solid;
+            left: 5%;
+            transform: translateX(0);
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in;
           }
-        }
-        &.current {
-          opacity: 0.5;
-          cursor: default;
-          &:before {
-            display: none;
+          &:hover {
+            color: #333333;
+            &:before {
+              transform: translateX(5%);
+              transition: all 0.35s ease-in-out;
+            }
+            &:after {
+              transform: translateX(100%);
+              transition: all 0.35s ease-in-out;
+              border-bottom: #fff 1px solid;
+            }
           }
-          &:after {
-            display: none;
+          &.current {
+            opacity: 0.5;
+            cursor: default;
+            &:before {
+              display: none;
+            }
+            &:after {
+              display: none;
+            }
           }
         }
       }
     }
-  }
-  &__work-img {
-    width: 180px;
-    height: auto;
-    position: absolute;
-    left: 50%;
-    bottom: 50px;
-    margin-left: -90px;
-    opacity: 0;
-  }
-  &__deco-img--1 {
-    position: absolute;
-    left: 50%;
-    bottom: 95px;
-    width: 290px;
-    margin-left: -150px;
-    opacity: 0;
-    animation-name: fuwafuwa1;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 1.5s;
-  }
-  &__deco-img--2 {
-    position: absolute;
-    left: 50%;
-    width: 500px;
-    margin-left: -240px;
-    bottom: 110px;
-    opacity: 0;
-    animation-name: fuwafuwa2;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 1.5s;
-  }
-  &__scroll {
-    font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
-      "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
-    font-weight: 200;
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    margin-left: -50px;
-    text-align: center;
-    color: #7a6150;
-    font-size: 14px;
-    letter-spacing: 2px;
-    width: 100px;
-    height: 50px;
-    box-sizing: border-box;
-    padding-top: 32px;
-    text-indent: 2px;
-    opacity: 0;
-    &:before {
-      content: "";
+    &__work-img {
+      width: 180px;
+      height: auto;
       position: absolute;
-      height: 25px;
-      width: 30px;
       left: 50%;
-      margin-left: -15px;
-      top: 0;
-      background-image: url("../assets/img/index/arrow.svg");
-      background-repeat: no-repeat;
-      background-size: 30px 30px;
+      bottom: 50px;
+      margin-left: -90px;
+      opacity: 0;
+    }
+    &__deco-img--1 {
+      position: absolute;
+      left: 50%;
+      bottom: 95px;
+      width: 290px;
+      margin-left: -150px;
+      opacity: 0;
+      animation-name: fuwafuwa1;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-duration: 1.5s;
+    }
+    &__deco-img--2 {
+      position: absolute;
+      left: 50%;
+      width: 500px;
+      margin-left: -240px;
+      bottom: 110px;
+      opacity: 0;
+      animation-name: fuwafuwa2;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-duration: 1.5s;
+    }
+    &__scroll {
+      font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+        "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+      font-weight: 200;
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      margin-left: -50px;
+      text-align: center;
+      color: #7a6150;
+      font-size: 14px;
+      letter-spacing: 2px;
+      width: 100px;
+      height: 50px;
+      box-sizing: border-box;
+      padding-top: 32px;
+      text-indent: 2px;
+      opacity: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 25px;
+        width: 30px;
+        left: 50%;
+        margin-left: -15px;
+        top: 0;
+        background-image: url("../assets/img/index/arrow.svg");
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+      }
     }
   }
-}
-.cvs-wrap {
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-  min-width: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-.cvs {
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-  min-width: 700px;
-  max-width: 900px;
-  max-height: 900px;
-  position: absolute;
-  display: block;
-  z-index: 0;
-  opacity: 0;
-  margin-top: -20px;
+  .cvs-wrap {
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+  .cvs {
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    min-width: 700px;
+    max-width: 900px;
+    max-height: 900px;
+    position: absolute;
+    display: block;
+    z-index: 0;
+    opacity: 0;
+    margin-top: -20px;
+  }
 }
 @keyframes fuwafuwa1 {
   0% {

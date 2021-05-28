@@ -9,7 +9,7 @@ a,
 a:hover,
 a:active,
 a:visited {
-  color: #ea9f80;
+  color: #e08c69;
 }
 a {
   display: inline;
@@ -89,6 +89,14 @@ a.altText:hover {
     }
   }
 }
+.wave-line {
+  padding-bottom: 80px;
+  //border-bottom: 1px solid #f2f0ef;
+  background-image: url("../assets/img/common/bg_wave_line.svg");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 250px auto;
+}
 
 .heading {
   font-size: 40px;
@@ -113,7 +121,7 @@ a.altText:hover {
     display: inline-block;
     padding: 8px 25px 8px 15px;
     border-radius: 10px;
-    border: 1px solid #ea9f80;
+    border: 1px solid #e08c69;
     background-color: #ffffff;
     &:after {
       content: "";
@@ -144,7 +152,7 @@ a.altText:hover {
     display: inline-block;
     padding: 14px 40px 14px 25px;
     border-radius: 10px;
-    background-color: #ea9f80;
+    background-color: #e08c69;
     &:after {
       content: "";
       background-repeat: no-repeat;
@@ -154,7 +162,8 @@ a.altText:hover {
       width: 18px;
       height: 21px;
       right: 14px;
-      top: 14px;
+      top: 50%;
+      margin-top: -8px;
     }
     &:before {
       display: none;
@@ -170,9 +179,9 @@ a.altText:hover {
   }
   &--normal {
     > a {
-      color: #ea9f80;
+      color: #e08c69;
       background-color: #ffffff;
-      border: 1px solid #ea9f80;
+      border: 1px solid #e08c69;
       &:after {
         background-image: url("../assets/img/common/arrow_right.svg");
       }

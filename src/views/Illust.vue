@@ -3,11 +3,21 @@
     <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="illust__inner otherpage__inner">
       <h1 class="illust__heading heading otherpage__heading">ILLUST</h1>
-      <p class="illust__text">
-        2019年より、フリーランスとしてクライアントワークのお仕事をさせていただいております。
-      </p>
+      <div class="illust__text wave-line">
+        <p class="illust__prof">
+          2019年より、フリーランスとしてクライアントワークのお仕事をさせていただいております。<br />
+          <span class="em"
+            >イラストレーター団体「イラストレーターズ通信」会員です。</span
+          >
+        </p>
+        <p class="btn btn--normal">
+          <router-link to="/illust#illustflow" @click="toIllustFlow">
+            ご依頼から納品までの流れ
+          </router-link>
+        </p>
+      </div>
       <p class="illust__lead"><span>ILLUST TYPE</span></p>
-      <ul class="illust__lists">
+      <ul class="illust__lists wave-line">
         <li class="illust__list">
           <a href="#" @click="illTypeScroll($event, '.illust__block-typeA')">
             <img src="../assets/img/common/ill_type/1.png" alt="typeA" />
@@ -36,7 +46,7 @@
           </a>
         </li>
       </ul>
-      <div class="illust__block illust__block-typeA">
+      <div class="illust__block illust__block-typeA wave-line">
         <h2 class="illust__secondary-heading"><span>typeA</span></h2>
         <p class="illust__text">
           女性向け、ファミリー向けテイスト。<br />
@@ -46,7 +56,7 @@
           <swiper
             :spaceBetween="0"
             :navigation="true"
-            :pagination="{'dynamicBullets': true}"
+            :pagination="{ dynamicBullets: true }"
             class="illust__swiper illust__swiper--1"
           >
             <swiper-slide v-for="n of 4" :key="n">
@@ -55,7 +65,7 @@
           </swiper>
         </div>
       </div>
-      <div class="illust__block illust__block-typeB">
+      <div class="illust__block illust__block-typeB wave-line">
         <h2 class="illust__secondary-heading"><span>typeB</span></h2>
         <p class="illust__text">
           女性向け、ファッションイラスト。<br />
@@ -65,7 +75,7 @@
           <swiper
             :spaceBetween="0"
             :navigation="true"
-            :pagination="{'dynamicBullets': true}"
+            :pagination="{ dynamicBullets: true }"
             class="illust__swiper illust__swiper--2"
           >
             <swiper-slide v-for="n of 5" :key="n">
@@ -74,7 +84,7 @@
           </swiper>
         </div>
       </div>
-      <div class="illust__block illust__block-typeSI">
+      <div class="illust__block illust__block-typeSI wave-line">
         <h2 class="illust__secondary-heading"><span>stock illust</span></h2>
         <p class="illust__text">
           PixtaやAdobe Stockに登録させていただいているイラストです。<br />
@@ -98,7 +108,7 @@
           <swiper
             :spaceBetween="0"
             :navigation="true"
-            :pagination="{'dynamicBullets': true}"
+            :pagination="{ dynamicBullets: true }"
             class="illust__swiper illust__swiper--3"
           >
             <swiper-slide v-for="n of 8" :key="n">
@@ -107,7 +117,7 @@
           </swiper>
         </div>
       </div>
-      <div class="illust__block illust__block-typeOthers">
+      <div class="illust__block illust__block-typeOthers wave-line">
         <h2 class="illust__secondary-heading"><span>Others</span></h2>
         <p class="illust__text">
           著書「Girls’ Design Materials」の素材イラストです。<br />
@@ -123,7 +133,7 @@
           <swiper
             :spaceBetween="0"
             :navigation="true"
-            :pagination="{'dynamicBullets': true}"
+            :pagination="{ dynamicBullets: true }"
             class="illust__swiper illust__swiper--4"
           >
             <swiper-slide v-for="n of 4" :key="n">
@@ -133,7 +143,72 @@
         </div>
       </div>
       <div class="illust__block">
-        <h2 class="illust__secondary-heading"><span>納品までの流れ</span></h2>
+        <h2 class="illust__secondary-heading" id="illustflow">
+          <span>ご依頼から納品までの流れ</span>
+        </h2>
+        <p class="illust__text">1、2、3は順番が前後する可能性がございます。</p>
+        <ul class="illust__flow">
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">1</span>
+            <p class="illust__flow-ttl">正式発注<br /></p>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">2</span>
+            <p class="illust__flow-ttl">詳細ヒアリング<br /></p>
+            <span class="sup">
+              情報が多ければ多いだけご期待に添えると思います。<br />
+              また、後からの修正で追加対応が必要になりますと、追加料金をいただく可能性がございます。<br />
+            </span>
+            <span class="em">
+              ご面倒おかけしますがイラストに反映して欲しいことがありましたら、最初にできるだけ細かくお伝えください。<br />
+            </span>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">3</span>
+            <p class="illust__flow-ttl">「お仕事確認書」の送付<br /></p>
+            <span class="sup">
+              イラストレーター団体「イラストレーターズ通信」で使用している書類です。<br />
+              ご依頼者様とイラストレーターの双方に齟齬が無いよう、発注内容の詳細を記録する書類です。<br />
+              メールにpdfファイルを添付してお送りします。
+              お仕事確認書の詳細につきましては、森
+              流一郎さんが書かれているこちらの記事をご覧ください。<br />
+              <a
+                href="https://note.com/moriryuichiro/n/n8aaaeae73a3e"
+                target="_blank"
+                class="illust__icon-link icon-link"
+                >イラストレーター必須のツール
+                「お仕事確認書」について知ろう！</a
+              >
+            </span>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">4</span>
+            <p class="illust__flow-ttl">ラフ提出</p>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">5</span>
+            <p class="illust__flow-ttl">ラフ修正<br /></p>
+            <span class="sup">
+              締め切りや内容によりますが、ご相談しながらスケジュールに合わせて提出します。<br />
+            </span>
+            <span class="em">
+              基本的には清書を始めてからの修正はお受けできません。<br />
+              内容によってはスケジュール的に不可能だったり、追加料金をいただく可能性がございますのでラフの時点で念入りにご確認をお願いいたします。
+            </span>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">6</span>
+            <p class="illust__flow-ttl">清書</p>
+            <span class="sup">
+              ラフのOKをいただけたら清書に入ります。<br />
+              スケジュールに合わせて納品データを作成します。
+            </span>
+          </li>
+          <li class="illust__flow-li">
+            <span class="illust__flow-num">7</span>
+            <p class="illust__flow-ttl">納品</p>
+          </li>
+        </ul>
       </div>
     </div>
     <Footer :styleType="2"></Footer>
@@ -147,8 +222,8 @@ import Footer from "@/components/Footer";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.min.css"
-import "swiper/components/pagination/pagination.min.css"
+import "swiper/components/navigation/navigation.min.css";
+import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/thumbs/thumbs.scss";
 
 SwiperCore.use([Navigation, Pagination]);
@@ -163,13 +238,17 @@ export default {
   },
   data() {
     return {
-      thumbsSwiper1: null ,
-      thumbsSwiper2: null ,
-      thumbsSwiper3: null ,
-      thumbsSwiper4: null ,
+      hash: this.$route.hash,
     };
   },
-  created() {
+  mounted() {
+    this.$nextTick(function () {
+      if (this.hash) {
+        const hash = this.hash.replace("#", "");
+        const y = document.getElementById(hash).offsetTop - 50;
+        document.documentElement.scrollTop = y;
+      }
+    });
   },
   methods: {
     illTypeScroll(e, className) {
@@ -183,6 +262,13 @@ export default {
         behavior: "smooth",
       });
     },
+    toIllustFlow() {
+      const y = document.getElementById("illustflow").offsetTop - 50;
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    },
   },
 };
 </script>
@@ -192,12 +278,21 @@ export default {
   .nav {
     margin-top: 30px;
   }
+  .sup {
+  }
+  .em {
+    position: relative;
+    background-color: #fef9ec;
+  }
   &__text {
-    line-height: 26px;
+    line-height: 30px;
     font-size: 16px;
     .sup {
       font-size: 12px;
     }
+  }
+  &__prof {
+    margin-bottom: 30px;
   }
   &__lead {
     font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
@@ -220,11 +315,6 @@ export default {
     padding-top: 25px;
     margin-bottom: 100px;
     padding-bottom: 80px;
-    //border-bottom: 1px solid #f2f0ef;
-    background-image: url("../assets/img/common/bg_wave_line.svg");
-    background-repeat: repeat-x;
-    background-position: left bottom;
-    background-size: 250px auto;
   }
   &__list {
     width: 200px;
@@ -259,7 +349,7 @@ export default {
     letter-spacing: 3px;
     font-size: 34px;
     text-align: center;
-    >span {
+    > span {
       display: inline-block;
       position: relative;
       padding: 0 18px;
@@ -277,10 +367,6 @@ export default {
     }
   }
   &__block {
-    background-image: url("../assets/img/common/bg_wave_line.svg");
-    background-repeat: repeat-x;
-    background-position: left bottom;
-    background-size: 250px auto;
     padding-bottom: 50px;
     margin-bottom: 120px;
     &:last-child {
@@ -294,9 +380,44 @@ export default {
     margin-bottom: 80px;
     overflow: hidden;
   }
-}
-// swiper
-.illust {
+  &__flow {
+    width: 100%;
+    position: relative;
+    margin-top: 40px;
+  }
+  &__flow-li {
+    font-size: 16px;
+    line-height: 28px;
+    width: 100%;
+    padding-bottom: 70px;
+    position: relative;
+    padding-left: 50px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  &__flow-ttl {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  &__flow-num {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #e8ebdc;
+    border-radius: 30px;
+    left: 0;
+    top: 5px;
+    color: #8b976c;
+    font-weight: bold;
+    text-align: center;
+  }
+  // swiper
   .swiper-slide {
     justify-content: center;
     display: flex;
@@ -318,72 +439,72 @@ export default {
     overflow: inherit;
     padding-bottom: 35px;
   }
-}
-.swiper_wrapper {
-  box-sizing: content-box;
-}
-.swiper-button-prev {
-  width: 60px;
-  height: 60px;
-  background-image:url('../assets/img/common/arrow_swiper_left.svg');
-  background-position: center;
-  background-size: 60px auto;
-  margin-top: -60px;
-  &:after {
-    display: none;
+  .swiper_wrapper {
+    box-sizing: content-box;
   }
-}
-.swiper-button-disabled {
-  opacity: 0!important;
-}
-.swiper-button-next {
-  width: 60px;
-  height: 60px;
-  background-image:url('../assets/img/common/arrow_swiper_left.svg');
-  background-position: center;
-  background-size: 60px auto;
-  transform: scale(-1, 1);
-  margin-top: -60px;
-  &:after {
-    display: none;
-  }
-}
-.thumb-swiper{
-  box-sizing: border-box;
-  height: 80px!important;
-  margin-top: 20px;
-  .swiper-slide {
-    opacity: 0.4;
-    box-sizing: border-box;
-    img {
-      display: block;
-      width: 100%;
-      height: 60px;
-      object-fit: cover;
+  .swiper-button-prev {
+    width: 60px;
+    height: 60px;
+    background-image: url("../assets/img/common/arrow_swiper_left.svg");
+    background-position: center;
+    background-size: 60px auto;
+    margin-top: -60px;
+    &:after {
+      display: none;
     }
   }
-  .swiper-slide-thumb-active {
-    opacity: 1;
-    border: 3px solid #f1dcd3;
-    border-radius: 6px;
+  .swiper-button-disabled {
+    opacity: 0 !important;
   }
-}
-.swiper-pagination-bullet{
-  width: 16px;
-  height: 16px;
-  background-color: #b79590!important;
-  opacity: 1;
-}
-:root {
-  --swiper-theme-color:#fff;
-}
-.swiper-pagination-bullet-active,
-.swiper-pagination-bullet-active-main {
-  background-color: #fff!important;
-  border: solid 2px #b79590;
-  box-sizing: border-box;
-}
-.swiper-pagination {
-  bottom: 0!important;
+  .swiper-button-next {
+    width: 60px;
+    height: 60px;
+    background-image: url("../assets/img/common/arrow_swiper_left.svg");
+    background-position: center;
+    background-size: 60px auto;
+    transform: scale(-1, 1);
+    margin-top: -60px;
+    &:after {
+      display: none;
+    }
+  }
+  .thumb-swiper {
+    box-sizing: border-box;
+    height: 80px !important;
+    margin-top: 20px;
+    .swiper-slide {
+      opacity: 0.4;
+      box-sizing: border-box;
+      img {
+        display: block;
+        width: 100%;
+        height: 60px;
+        object-fit: cover;
+      }
+    }
+    .swiper-slide-thumb-active {
+      opacity: 1;
+      border: 3px solid #f1dcd3;
+      border-radius: 6px;
+    }
+  }
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color: #b79590 !important;
+    opacity: 1;
+  }
+  :root {
+    --swiper-theme-color: #fff;
+  }
+  .swiper-pagination-bullet-active,
+  .swiper-pagination-bullet-active-main {
+    background-color: #fff !important;
+    border: solid 2px #b79590;
+    box-sizing: border-box;
+  }
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
 }
 </style>
