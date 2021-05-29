@@ -65,6 +65,30 @@ const routes = [
       title: "お問い合わせ | atelier ameni アトリエあめに",
       desc: "フロント構築のご依頼やお問い合わせはこちらのページからお願いします。",
     },
+    props: true,
+    children: [
+      {
+        path: "frontconfirm",
+        component: () =>
+          import(
+            /* webpackChunkName: "frontcontactConfirm" */ "../views/FrontContactConfirm.vue"
+          ),
+      },
+      {
+        path: "frontcontactwrite",
+        component: () =>
+          import(
+            /* webpackChunkName: "frontcontactwrite" */ "../views/FrontContactWrite.vue"
+          ),
+      },
+      {
+        path: "contactdone",
+        component: () =>
+          import(
+            /* webpackChunkName: "contactdone" */ "../views/ContactDone.vue"
+          ),
+      },
+    ],
   },
   {
     path: "/illcontact",
@@ -90,7 +114,50 @@ const routes = [
         path: "illcontactwrite",
         component: () =>
           import(
-            /* webpackChunkName: "illcontactConfirm" */ "../views/IllustContactWrite.vue"
+            /* webpackChunkName: "illcontactWrite" */ "../views/IllustContactWrite.vue"
+          ),
+      },
+      {
+        path: "contactdone",
+        component: () =>
+          import(
+            /* webpackChunkName: "contactdone" */ "../views/ContactDone.vue"
+          ),
+      },
+    ],
+  },
+  {
+    path: "/othercontact",
+    name: "OtherContact",
+    component: () =>
+      import(
+        /* webpackChunkName: "othercontact" */ "../views/OtherContact.vue"
+      ),
+    meta: {
+      title: "お問い合わせ | atelier ameni アトリエあめに",
+      desc: "お問い合わせはこちらのページからお願いします。",
+    },
+    props: true,
+    children: [
+      {
+        path: "otherconfirm",
+        component: () =>
+          import(
+            /* webpackChunkName: "otherconfirm" */ "../views/OtherContactConfirm.vue"
+          ),
+      },
+      {
+        path: "othercontactwrite",
+        component: () =>
+          import(
+            /* webpackChunkName: "othercontactwrite" */ "../views/OtherContactWrite.vue"
+          ),
+      },
+      {
+        path: "contactdone",
+        component: () =>
+          import(
+            /* webpackChunkName: "contactdone" */ "../views/ContactDone.vue"
           ),
       },
     ],

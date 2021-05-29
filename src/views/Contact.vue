@@ -16,8 +16,16 @@
         フロント構築のご依頼、ご相談はこちらのメールフォームからお問い合わせください。
       </p>
       <p class="contact__btn btn btn--red">
-        <router-link to="/frontcontact"
+        <router-link to="/frontcontact/frontcontactwrite/"
           >フロント構築 / 専用メールフォームへ</router-link
+        >
+      </p>
+      <p class="contact__title">
+        上記以外のその他のお問い合わせはこちらからお願いします。
+      </p>
+      <p class="contact__btn btn btn--red">
+        <router-link to="/othercontact/othercontactwrite"
+          >その他のお問い合わせ</router-link
         >
       </p>
     </div>
