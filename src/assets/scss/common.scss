@@ -258,6 +258,25 @@ a.altText:hover {
     //   left: 0;
     // }
   }
+  &__list {
+    > li {
+      margin-bottom: 5px;
+      font-size: 16px;
+      line-height: 30px;
+      position: relative;
+      padding-left: 12px;
+      &:before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        left: 0;
+        top: 12px;
+        position: absolute;
+        background-color: #c3c0be;
+      }
+    }
+  }
 }
 .icon-link {
   display: inline-block;

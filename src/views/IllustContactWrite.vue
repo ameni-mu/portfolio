@@ -55,7 +55,7 @@
       <li class="contact__form-li">
         <p class="contact__form-li-ttl">
           <span class="em">*</span>
-          企業名
+          貴社名
         </p>
         <div class="contact__select-detail">
           <Field
@@ -285,6 +285,7 @@ export default {
     };
   },
   mounted() {
+    window.addEventListener('beforeunload', this.beforeunload, false);
     this.$nextTick(function () {
       if (this.hash) {
         const hash = this.hash.replace("#", "");
@@ -337,9 +338,13 @@ export default {
     // },
   },
   methods: {
+    beforeunload(e){
+      var confirmMessage = '内容が消去されますがよろしいですか？';
+      e.returnValue = confirmMessage;
+      return confirmMessage;
+    },
     onValidate(e) {
       e.preventDefault();
-
       const attention = document.getElementById("attentionCheck");
       this.$store.state.inputData.illustForm.attentionCheck = attention.checked;
       if (attention.checked === true) {
@@ -369,6 +374,7 @@ export default {
       storeInputData.budget = this.inputData.budget;
       storeInputData.term = this.inputData.term;
       storeInputData.message = this.inputData.message;
+      window.removeEventListener('beforeunload', this.beforeunload, false);
       this.$router.push({ path: "/illcontact/illconfirm/" });
     },
   },

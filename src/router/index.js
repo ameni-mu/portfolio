@@ -43,6 +43,17 @@ const routes = [
       title: "フロントエンド | atelier ameni アトリエあめに",
       desc: "フロントエンドエンジニアあめにのスキルや構築で使用するツールなど。",
     },
+    props: true,
+  },
+  {
+    path: "/frontworks",
+    name: "FrontWorks",
+    component: () =>
+      import(/* webpackChunkName: "frontworks" */ "../views/FrontWorks.vue"),
+    meta: {
+      title: "フロントエンド | atelier ameni アトリエあめに",
+      desc: "フロントエンドエンジニアあめにのこれまで携わってきた制作物",
+    },
   },
   {
     path: "/contact",
@@ -161,6 +172,16 @@ const routes = [
           ),
       },
     ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () =>
+      import(/* webpackChunkName: "notfound" */ "../views/NotFound.vue"),
+    meta: {
+      title: "お探しのページは見つかりませんでした",
+      desc: "",
+    },
   },
 ];
 

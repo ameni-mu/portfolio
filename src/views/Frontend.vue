@@ -13,9 +13,9 @@
           </a>
         </li>
         <li>
-          <a href="#" target="_blank">
+          <router-link to="/frontworks">
             <i class="fas fa-lock"></i><span>制作実績 ></span>
-          </a>
+          </router-link>
         </li>
       </ul>
 

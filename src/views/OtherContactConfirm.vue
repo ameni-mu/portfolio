@@ -6,7 +6,6 @@
     <ul class="contact__form contact__form--jobs">
       <li class="contact__form-li">
         <p class="contact__form-li-ttl">
-          <span class="em">*</span>
           企業名
         </p>
         <div class="contact__select-detail">{{ companyName }}</div>
@@ -23,47 +22,16 @@
       </li>
       <li class="contact__form-li">
         <p class="contact__form-li-ttl">
-          <span class="em">*</span>ご希望納品日
-        </p>
-        <div class="contact__select-detail">{{ deadDate }}</div>
-      </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl"><span class="em">*</span>使用媒体</p>
-        <div class="contact__select-detail">{{ media }}</div>
-      </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl">
-          <span class="em">*</span>競合他社との<br />取引
-        </p>
-        <div class="contact__select-detail">{{ illustUseYesNo }}</div>
-      </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl"><span class="em">*</span>ご予算</p>
-        <div class="contact__select-detail">{{ budget }}</div>
-      </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl"><span class="em">*</span>使用期間</p>
-        <div class="contact__select-detail">{{ term }}</div>
-      </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl">
           <span class="em">*</span>
           メッセージ
         </p>
         <div class="contact__select-detail">{{ message }}</div>
       </li>
-      <li class="contact__form-li">
-        <p class="contact__form-li-ttl">
-          <span class="em">*</span>
-          イラストご依頼時の注意点
-        </p>
-        <div class="contact__select-detail">{{ attentionCheck }}</div>
-      </li>
     </ul>
     <div class="contact__form-btn">
-      <router-link to="/illcontact/illcontactwrite/#form" class="return">
+      <a href="#" class="return" @click="returnPage">
         戻る
-      </router-link>
+      </a>
       <a href="#" @click="sendMail" class="send">送信する</a>
     </div>
   </form>
@@ -74,68 +42,67 @@ import axios from "axios";
 
 export default {
   components: {},
+  mounted() {
+    window.addEventListener('beforeunload', this.beforeunload, false);
+    //確認ページでストアに内容が保存されていなかったら記入ページに遷移
+    if (this.$store.state.inputData.otherForm.mailAddress == "") {
+      this.$router.push({ path: "/othercontact/othercontactwrite/" });
+      window.removeEventListener('beforeunload', this.beforeunload, false);
+    }
+  },
   computed: {
     companyName() {
-      return this.$store.state.inputData.illustForm.companyName;
+      return this.$store.state.inputData.otherForm.companyName;
     },
     clientName() {
-      return this.$store.state.inputData.illustForm.clientName;
+      return this.$store.state.inputData.otherForm.clientName;
     },
     mailAddress() {
-      return this.$store.state.inputData.illustForm.mailAddress;
-    },
-    deadDate() {
-      return this.$store.state.inputData.illustForm.deadDate;
-    },
-    media() {
-      return this.$store.state.inputData.illustForm.media;
-    },
-    illustUseYesNo() {
-      return this.$store.state.inputData.illustForm.illustUseYesNo == "ok"
-        ? "禁じない"
-        : "禁じる";
-    },
-    budget() {
-      return this.$store.state.inputData.illustForm.budget;
-    },
-    term() {
-      return this.$store.state.inputData.illustForm.term;
+      return this.$store.state.inputData.otherForm.mailAddress;
     },
     message() {
-      return this.$store.state.inputData.illustForm.message;
-    },
-    attentionCheck() {
-      return this.$store.state.inputData.illustForm.attentionCheck == true
-        ? "確認しました"
-        : "";
+      return this.$store.state.inputData.otherForm.message;
     },
   },
   methods: {
+    beforeunload(e) {
+      console.log('beforeunload');
+      var confirmMessage = '内容が消去されますがよろしいですか？';
+      e.returnValue = confirmMessage;
+      return confirmMessage;
+    },
     sendMail(e) {
       e.preventDefault();
-      const sendUrl = "https://atelier-ameni.com/illust_mail_send2.php";
+      const sendUrl = "https://atelier-ameni.com/other_mail_send.php";
 
       let params = new URLSearchParams();
       params.append("companyName", this.companyName);
       params.append("clientName", this.clientName);
       params.append("mailAddress", this.mailAddress);
-      params.append("deadDate", this.deadDate);
-      params.append("media", this.media);
-      params.append("illustUseYesNo", this.illustUseYesNo);
-      params.append("budget", this.budget);
-      params.append("term", this.term);
       params.append("message", this.message);
-      params.append("attentionCheck", this.attentionCheck);
 
       axios
         .post(sendUrl, params)
         .then((response) => {
-          console.log(response);
+          if(response) {
+            window.removeEventListener('beforeunload', this.beforeunload, false);
+            this.$router.push({ path: "/othercontact/contactdone/" });
+          }else {
+            alert(
+              "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
+            );
+          }
         })
         .catch((error) => {
           console.log(error);
-          alert('送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。')
+          alert(
+            "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
+          );
         });
+    },
+    returnPage() {
+      window.removeEventListener('beforeunload', this.beforeunload, false);
+      this.$router.push({ path: "/othercontact/othercontactwrite/" });
     },
   },
 };

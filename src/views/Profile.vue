@@ -10,7 +10,10 @@
         </p>
         <p class="profile__text text">
           新潟県出身 神奈川県在住。<br />
-          育児と仕事の両立を求めて働き方を模索しています。
+          育児と仕事の両立を求めて働き方を模索しています。<br>
+          <br>
+          web: atelier-ameni.com<br>
+          mail: info@atelier-ameni.com<br>
         </p>
       </div>
       <!-- <ul class="profile__pagelink">

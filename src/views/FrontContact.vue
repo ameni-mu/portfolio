@@ -11,11 +11,13 @@
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
 import AmeniNav from "@/components/AmeniNav";
+import Footer from "@/components/Footer";
 
 export default {
   mixins: [setMetaDesc],
   components: {
     AmeniNav,
+    Footer,
   },
 };
 </script>
