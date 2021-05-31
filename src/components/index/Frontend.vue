@@ -1,5 +1,5 @@
 <template>
-  <section class="frontend section wave wave--pink">
+  <section class="frontend section wave wave--top wave--bottom">
     <div class="section__inner">
       <h2 class="frontend__heading heading">Front-end</h2>
       <div class="frontend__text text bottom-line--pink">

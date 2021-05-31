@@ -1,5 +1,5 @@
 <template>
-  <section class="prof section wave wave--white">
+  <section class="prof section">
     <div class="section__inner">
       <h2 class="prof__heading heading">PROFILE</h2>
       <p class="prof__name">あめに</p>
@@ -28,7 +28,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .prof {
-  background-color: #fff;
   position: relative;
   box-sizing: border-box;
   min-height: 700px;

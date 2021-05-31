@@ -1,5 +1,5 @@
 <template>
-  <section class="illust section wave wave--white">
+  <section class="illust section">
     <div class="section__inner">
       <h2 class="illust__heading heading">ILLUST</h2>
       <div class="illust__text text">
@@ -45,7 +45,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .illust {
-  background-color: #fff;
   &.section {
     display: block;
     min-height: auto;

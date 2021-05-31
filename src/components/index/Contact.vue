@@ -1,5 +1,5 @@
 <template>
-  <section class="contact section wave wave--pink">
+  <section class="contact section wave wave--top">
     <div class="section__inner">
       <h2 class="prof__heading heading">CONTACT</h2>
       <p class="contact__title">
@@ -32,6 +32,9 @@ export default {
 <style scoped lang="scss">
 .contact {
   background-color: #f9f2ef;
+  min-height: auto;
+  padding-top: 150px;
+  padding-bottom: 150px;
   &__title {
     font-size: 16px;
     line-height: 30px;

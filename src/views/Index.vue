@@ -9,6 +9,7 @@
         'is-minH': isMinH,
         'is-no-canvas': !isCvs,
       }"
+      class="wave wave--bottom"
     >
       <div class="main__container">
         <h1 class="main__logo">

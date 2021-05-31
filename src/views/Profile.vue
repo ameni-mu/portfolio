@@ -78,7 +78,7 @@
         </li>
         <li class="profile__sche-li">
           <p class="profile__time profile__time--work"><span>9:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--1">仕事開始</p>
+          <p class="profile__sche-detail profile__height-margin--1"><span class="em">仕事開始</span></p>
         </li>
         <li class="profile__sche-li">
           <p class="profile__time"><span>16:00</span></p>
@@ -95,7 +95,7 @@
         </li>
         <li class="profile__sche-li">
           <p class="profile__time profile__time--work"><span>22:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--2">仕事開始</p>
+          <p class="profile__sche-detail profile__height-margin--2"><span class="em">仕事開始</span></p>
         </li>
         <li class="profile__sche-li">
           <p class="profile__time"><span>0:00</span></p>
@@ -293,6 +293,10 @@ export default {
     flex-direction: row;
     padding-bottom: 45px;
     line-height: 28px;
+    .em {
+      color: #b5983c;
+      font-size: 20px;
+    }
   }
   &__time {
     letter-spacing: 2px;
