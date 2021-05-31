@@ -89,11 +89,9 @@ export default {
       if (window.scrollY > y && !this.isNavigationShow) {
         //el.setAttribute("style", "opacity:1");
         this.isNavigationShow = true;
-        console.log("isNavigationShow : " + this.isNavigationShow);
         //ナビをabsoluteにする
       } else if (window.scrollY <= y && this.isNavigationShow) {
         this.isNavigationShow = false;
-        console.log("isNavigationShow : " + this.isNavigationShow);
         //el.setAttribute("style", "opacity:0");
       }
       this.isNavSetting = false;

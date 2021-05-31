@@ -13,9 +13,9 @@
           </a>
         </li>
         <li>
-          <router-link to="/frontworks">
+          <a href="#" @click="toFrontWorks">
             <i class="fas fa-lock"></i><span>制作実績 ></span>
-          </router-link>
+          </a>
         </li>
       </ul>
 
@@ -90,6 +90,28 @@
       </div>
     </div>
 
+    <div class="authentication-block" v-if="isAuthentication">
+    </div>
+    <div class="authentication-block__inner" v-if="isAuthentication">
+      <p class="authentication-block__lead">ID/PASSを入力ください</p>
+      <div class="authentication-block__block">
+        <label for="id" class="label">ID</label>
+        <div class="input-wrap">
+          <input type="text" name="id" id="id" v-model="fwid">
+        </div>
+      </div>
+      <div class="authentication-block__block">
+        <label for="pass" class="label">PASS</label>
+        <div class="input-wrap">
+          <input type="text" name="pass" id="pass" v-model="fwpass">
+        </div>
+      </div>
+      <div class="btn btn--red">
+        <a href="#" @click="returnPage" class="return">戻る</a>
+        <a href="#" @click="authenticate">OK</a>
+      </div>
+    </div>
+
     <Footer :styleType="2"></Footer>
   </div>
 </template>
@@ -98,18 +120,66 @@
 import setMetaDesc from "@/mixin/setMetaDesc";
 import AmeniNav from "@/components/AmeniNav";
 import Footer from "@/components/Footer";
+import axios from "axios";
 
 export default {
   mixins: [setMetaDesc],
+  data() {
+    return {
+      isAuthentication:false,
+      fwid:'',
+      fwpass:'',
+    }
+  },
   components: {
     AmeniNav,
     Footer,
+  },
+  methods :{
+    toFrontWorks(e) {
+      e.preventDefault();
+      this.isAuthentication = true;
+    },
+    authenticate(e) {
+      e.preventDefault();
+      const sendUrl = "https://atelier-ameni.com/access.php";
+      let params = new URLSearchParams();
+      params.append("id", this.fwid);
+      params.append("pass", this.fwpass);
+      const _this = this;
+
+      axios
+        .post(sendUrl, params)
+        .then((response) => {
+          if(response) {
+            if(response.data == 'error') {
+              alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+              _this.$store.state.isAuthenticated = false;
+              _this.isAuthentication = false;
+            }else {
+              _this.$store.state.isAuthenticated = true;
+              _this.$router.push({ path: "/frontworks/" });
+            }
+          }else {
+            alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+        });
+    },
+    returnPage(e) {
+      e.preventDefault();
+      this.isAuthentication = false;
+    }
   },
 };
 </script>
 
 <style scoped lang="scss">
 .front {
+  position: relative;
   .nav {
     margin-top: 30px;
   }
@@ -205,6 +275,68 @@ export default {
       font-size: 14px;
       line-height: 20px;
       display: inline-block;
+    }
+  }
+  .authentication-block {
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9000;
+    left: 0;
+    top: 0;
+    &__inner {
+      left: 50%;
+      margin-left: -200px;
+      top: 100px;
+      border: 5px solid #f2f0ef;
+      box-sizing: border-box;
+      background-color: #fff;
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+      position: fixed;
+      z-index: 9001;
+      input[type="text"] {
+        display: inline-block;
+        margin-left: 15px;
+        border: 1px solid #999;
+        height: 30px;
+        line-height:30px;
+        box-sizing:border-box;
+        width: 150px;
+        padding: 0 10px;
+      }
+      label {
+        width: 30%;
+        text-align: right;
+        height: 30px;
+        line-height: 30px;
+      }
+      .btn {
+        text-align: center;
+        padding-top: 15px;
+        >.return {
+          background-color: #999;
+          padding: 14px 25px 14px 25px;
+          margin-right: 15px;
+          &:after {
+            display: none;
+          }
+        }
+      }
+      .input-wrap {
+        width: 70%;
+        text-align: left;
+      }
+    }
+    &__lead {
+      margin-bottom: 20px;
+    }
+    &__block {
+      margin-top: 15px;
+      display: flex;
     }
   }
 }

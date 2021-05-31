@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Index from "../views/Index.vue";
+import store from "../store";
 
 const routes = [
   {
@@ -200,5 +201,18 @@ const router = createRouter({
     return { left: 0, top: 0 };
   },
 });
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = store.state.isAuthenticated;
+  if (to.name == 'FrontWorks') {
+    if (isAuthenticated) {
+      next();
+    } else {
+      alert('認証されていません。');
+      next({ name: 'Frontend' });
+    }
+  } else {
+    next();
+  }
+})
 
 export default router;

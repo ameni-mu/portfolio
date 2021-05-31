@@ -30,6 +30,7 @@ export default createStore({
         message: "",
       },
     },
+    isAuthenticated: false,
   },
   mutations: {},
   actions: {},
