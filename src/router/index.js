@@ -203,16 +203,16 @@ const router = createRouter({
 });
 router.beforeEach((to, from, next) => {
   const isAuthenticated = store.state.isAuthenticated;
-  if (to.name == 'FrontWorks') {
+  if (to.name == "FrontWorks") {
     if (isAuthenticated) {
       next();
     } else {
-      alert('認証されていません。');
-      next({ name: 'Frontend' });
+      alert("認証されていません。");
+      next({ name: "Frontend" });
     }
   } else {
     next();
   }
-})
+});
 
 export default router;

@@ -9,9 +9,7 @@
     </p>
     <ul class="contact__form contact__form--jobs">
       <li class="contact__form-li">
-        <p class="contact__form-li-ttl">
-          貴社名
-        </p>
+        <p class="contact__form-li-ttl">貴社名</p>
         <div class="contact__select-detail">
           <Field
             name="companyName"
@@ -120,7 +118,7 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
     this.inputData.companyName = this.companyName;
     this.inputData.clientName = this.clientName;
     this.inputData.mailAddress = this.mailAddress;
@@ -141,9 +139,9 @@ export default {
     },
   },
   methods: {
-    beforeunload(e){
-      console.log('beforeunload');
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+    beforeunload(e) {
+      console.log("beforeunload");
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -164,7 +162,7 @@ export default {
       storeInputData.clientName = this.inputData.clientName;
       storeInputData.mailAddress = this.inputData.mailAddress;
       storeInputData.message = this.inputData.message;
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
       this.$router.push({ path: "/othercontact/otherconfirm/" });
     },
   },

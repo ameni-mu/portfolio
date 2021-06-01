@@ -31,6 +31,13 @@
         <h2 class="front__secondary-heading">スキル</h2>
         <ul class="front__list--table">
           <li>
+            <p class="front__skill-ttl">できること</p>
+            <p class="front__skill-detail">
+              マークアップ / JS <br>
+              勉強中…PHP Laravel<br>
+            </p>
+          </li>
+          <li>
             <p class="front__skill-ttl">フレームワーク</p>
             <p class="front__skill-detail">Vue,Vuex</p>
           </li>
@@ -45,7 +52,8 @@
           <li>
             <p class="front__skill-ttl">css設計</p>
             <p class="front__skill-detail">
-              BEM,RSCSS,SMACSS(プロジェクトに合わせてカスタマイズ)
+              BEM,RSCSS,SMACSS(プロジェクトに合わせてカスタマイズ)<br>
+              <span class="em">*ページ数に合わせて使ったり使わなかったり</span>
             </p>
           </li>
           <li>
@@ -90,20 +98,19 @@
       </div>
     </div>
 
-    <div class="authentication-block" v-if="isAuthentication">
-    </div>
+    <div class="authentication-block" v-if="isAuthentication"></div>
     <div class="authentication-block__inner" v-if="isAuthentication">
       <p class="authentication-block__lead">ID/PASSを入力ください</p>
       <div class="authentication-block__block">
         <label for="id" class="label">ID</label>
         <div class="input-wrap">
-          <input type="text" name="id" id="id" v-model="fwid">
+          <input type="text" name="id" id="id" v-model="fwid" />
         </div>
       </div>
       <div class="authentication-block__block">
         <label for="pass" class="label">PASS</label>
         <div class="input-wrap">
-          <input type="text" name="pass" id="pass" v-model="fwpass">
+          <input type="text" name="pass" id="pass" v-model="fwpass" />
         </div>
       </div>
       <div class="btn btn--red">
@@ -126,16 +133,16 @@ export default {
   mixins: [setMetaDesc],
   data() {
     return {
-      isAuthentication:false,
-      fwid:'',
-      fwpass:'',
-    }
+      isAuthentication: false,
+      fwid: "",
+      fwpass: "",
+    };
   },
   components: {
     AmeniNav,
     Footer,
   },
-  methods :{
+  methods: {
     toFrontWorks(e) {
       e.preventDefault();
       this.isAuthentication = true;
@@ -151,28 +158,34 @@ export default {
       axios
         .post(sendUrl, params)
         .then((response) => {
-          if(response) {
-            if(response.data == 'error') {
-              alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+          if (response) {
+            if (response.data == "error") {
+              alert(
+                "認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。"
+              );
               _this.$store.state.isAuthenticated = false;
               _this.isAuthentication = false;
-            }else {
+            } else {
               _this.$store.state.isAuthenticated = true;
               _this.$router.push({ path: "/frontworks/" });
             }
-          }else {
-            alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+          } else {
+            alert(
+              "認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。"
+            );
           }
         })
         .catch((error) => {
           console.log(error);
-          alert('認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。');
+          alert(
+            "認証に失敗しました。\n必要であればお問い合わせページからお問い合わせください。"
+          );
         });
     },
     returnPage(e) {
       e.preventDefault();
       this.isAuthentication = false;
-    }
+    },
   },
 };
 </script>
@@ -185,6 +198,8 @@ export default {
   }
   &__lead {
     margin-bottom: 40px;
+    line-height: 28px;
+    font-size: 16px;
   }
   &__block {
     margin-bottom: 80px;
@@ -303,8 +318,8 @@ export default {
         margin-left: 15px;
         border: 1px solid #999;
         height: 30px;
-        line-height:30px;
-        box-sizing:border-box;
+        line-height: 30px;
+        box-sizing: border-box;
         width: 150px;
         padding: 0 10px;
       }
@@ -317,7 +332,7 @@ export default {
       .btn {
         text-align: center;
         padding-top: 15px;
-        >.return {
+        > .return {
           background-color: #999;
           padding: 14px 25px 14px 25px;
           margin-right: 15px;

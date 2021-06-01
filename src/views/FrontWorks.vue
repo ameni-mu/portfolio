@@ -2,13 +2,9 @@
   <div class="fw otherpage">
     <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="fw__inner otherpage__inner">
-      <h1 class="fw__heading heading otherpage__heading">
-        Front-end Works
-      </h1>
+      <h1 class="fw__heading heading otherpage__heading">Front-end Works</h1>
       <ul class="fw__lead otherpage__list">
-        <li>
-          年代別に掲載しています。
-        </li>
+        <li>年代別に掲載しています。</li>
         <li>
           大変申し訳ございませんが、2015年以降は制作物のデータを保存しておかなかったため2018、19年に制作に携わったものを少ししか掲載できていません。
         </li>
@@ -16,7 +12,6 @@
 
       <div class="fw__block">
         <h2 class="fw__secondary-heading">2015〜2017</h2>
-
       </div>
       <div class="fw__block">
         <h2 class="fw__secondary-heading">2014</h2>
@@ -31,32 +26,26 @@
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/1/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              高速バスチケット販売サイト
-            </p>
+            <p class="fw__tumb-ttl">高速バスチケット販売サイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/2/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              バスチケット販売サイト
-            </p>
+            <p class="fw__tumb-ttl">バスチケット販売サイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/3/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              医学イベントティザーページ
-            </p>
+            <p class="fw__tumb-ttl">医学イベントティザーページ</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/4/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              キャンペーンサイト<br>
+              キャンペーンサイト<br />
               (フィーチャーフォン対応)
             </p>
           </li>
@@ -64,57 +53,43 @@
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/5/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              医学イベントサイト
-            </p>
+            <p class="fw__tumb-ttl">医学イベントサイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/6/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              SNSモバイルゲーム
-            </p>
+            <p class="fw__tumb-ttl">SNSモバイルゲーム</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/7/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              化粧品ブランドサイト
-            </p>
+            <p class="fw__tumb-ttl">化粧品ブランドサイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/8/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              化粧品ブランドサイト
-            </p>
+            <p class="fw__tumb-ttl">化粧品ブランドサイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/9/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              化粧品ブランド メールマガジン
-            </p>
+            <p class="fw__tumb-ttl">化粧品ブランド メールマガジン</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/10/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              医学イベントサイト
-            </p>
+            <p class="fw__tumb-ttl">医学イベントサイト</p>
           </li>
           <li class="fw__thumb-list">
             <div class="fw__thumb-wrap">
               <img src="../assets/img/frontworks/11/1.jpg" />
             </div>
-            <p class="fw__tumb-ttl">
-              個人運営素材配布サイト
-            </p>
+            <p class="fw__tumb-ttl">個人運営素材配布サイト</p>
           </li>
         </ul>
       </div>

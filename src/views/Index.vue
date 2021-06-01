@@ -1,7 +1,17 @@
 <template>
   <div class="index">
     <AmeniNav :isOtherPage="false"></AmeniNav>
-
+    <div
+      class="index__bg1 index__bg"
+    ></div>
+    <div
+      class="index__bg2 index__bg"
+    >
+    </div>
+    <div
+      class="index__bg3 index__bg"
+    >
+    </div>
     <section
       :class="{
         main: true,
@@ -96,16 +106,36 @@ export default {
       dotImgSrc: DotImgSrc,
       dotImg: {},
       isShowCvs: false,
+      bg1: {},
+      bg2: {},
+      bg3: {},
+      bgEase1: 0.1,
+      bgEase2: 0.1,
+      bgEase3: 0.1,
+      bgCalc1: 0,
+      bgCalc2: 0,
+      bgCalc3: 0,
+      scrollY:0,
+      animation: function(){},
     };
   },
   mounted() {
+    this.bg1 = document.querySelector(".index__bg1");
+    this.bg2 = document.querySelector(".index__bg2");
+    this.bg3 = document.querySelector(".index__bg3");
     //各sctionの高さを設定
     //800より小さければそれ以上コンテンツを可変しない
     this.winH = window.innerHeight;
     if (this.winH < 800) {
       this.isMinH = true;
-      this.winH = "900px";
+      this.winH = "800";
     }
+    //パララックス背景の高さを指定
+    const h = this.winH * 5;
+    this.bg1.style.height = h + 'px';
+    this.bg2.style.height = h + 'px';
+    this.bg3.style.height = h + 'px';
+
     //canvasの設定
     this.stage = document.querySelector("canvas");
     if (!this.stage || !this.stage.getContext) {
@@ -116,8 +146,18 @@ export default {
     }
     //resize event
     window.addEventListener("resize", this.onResize);
+    //scroll event
+    window.addEventListener("scroll", this.onScroll);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("scroll", this.onScroll);
+    window.cancelAnimationFrame(this.animation);
   },
   methods: {
+    onScroll() {
+      this.scrollY = window.scrollY;
+    },
     initStage() {
       const stageH = Math.floor(window.innerHeight * 0.8);
       let _stageH = 0;
@@ -167,7 +207,17 @@ export default {
       };
     },
     renderCircle() {
-      window.requestAnimationFrame(this.renderCircle.bind(this));
+      this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
+      // bg dot パララックス用
+      this.bgCalc1 += Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
+      this.bgCalc2 += Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
+      this.bgCalc3 += Number((this.scrollY / 1) - this.bgCalc3) * this.bgEase3;
+
+      this.bg1.style.transform = 'translateY('+ -(this.bgCalc1) +'px)';
+      this.bg2.style.transform = 'translateY('+ -(this.bgCalc2) +'px)';
+      this.bg3.style.transform = 'translateY('+ -(this.bgCalc3) +'px)';
+
+      //canvas render
       this.ctx.clearRect(0, 0, this.stage.width, this.stage.height);
       //===========================
       // background dot
@@ -340,6 +390,7 @@ export default {
     //-------------------
     onResize() {
       setTimeout(() => {
+        console.log('リサイズされたよ');
         this.isResize = true;
       }, 300);
     },
@@ -355,6 +406,23 @@ export default {
 }
 .index {
   position: relative;
+  &__bg {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    background-position: center top;
+    height:100%;
+  }
+  &__bg1 {
+    background-image: url("../assets/img/index/bg_dot.svg");
+  }
+  &__bg2 {
+    background-image: url("../assets/img/index/bg_dot2.svg");
+  }
+  &__bg3 {
+    background-image: url("../assets/img/index/bg_dot3.svg");
+  }
   .main {
     width: 100%;
     height: 100vh;

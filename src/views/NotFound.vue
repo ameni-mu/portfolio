@@ -32,7 +32,7 @@ export default {
     flex-direction: column;
     height: 100vh;
     box-sizing: border-box;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
   }
   &__title {
     font-size: 40px;

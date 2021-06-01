@@ -17,7 +17,7 @@
         納品したイラストは、事前に申告いただいた媒体や使用期間でのみご使用いただけます。<br />
       </span>
       ご申告いただいた以外の媒体での使用・流用が発生する場合はご相談ください。<br />
-      基本的には二次使用料をいただくことになります。<br>
+      基本的には二次使用料をいただくことになります。<br />
     </li>
     <li>
       <span
@@ -286,7 +286,7 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
     this.$nextTick(function () {
       if (this.hash) {
         const hash = this.hash.replace("#", "");
@@ -339,8 +339,8 @@ export default {
     // },
   },
   methods: {
-    beforeunload(e){
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+    beforeunload(e) {
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -375,7 +375,7 @@ export default {
       storeInputData.budget = this.inputData.budget;
       storeInputData.term = this.inputData.term;
       storeInputData.message = this.inputData.message;
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
       this.$router.push({ path: "/illcontact/illconfirm/" });
     },
   },

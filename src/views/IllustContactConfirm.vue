@@ -61,9 +61,7 @@
       </li>
     </ul>
     <div class="contact__form-btn">
-      <a href="#" @click="returnPage" class="return">
-        戻る
-      </a>
+      <a href="#" @click="returnPage" class="return"> 戻る </a>
       <a href="#" @click="sendMail" class="send">送信する</a>
     </div>
   </form>
@@ -75,11 +73,14 @@ import axios from "axios";
 export default {
   components: {},
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
     //確認ページでストアに内容が保存されていなかったら記入ページに遷移
     if (this.$store.state.inputData.illustForm.companyName == "") {
-      this.$router.push({ path: "/illcontact/illcontactwrite/", hash:'#form' });
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      this.$router.push({
+        path: "/illcontact/illcontactwrite/",
+        hash: "#form",
+      });
+      window.removeEventListener("beforeunload", this.beforeunload, false);
     }
   },
   computed: {
@@ -120,7 +121,7 @@ export default {
   },
   methods: {
     beforeunload(e) {
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -144,7 +145,7 @@ export default {
       axios
         .post(sendUrl, params)
         .then((response) => {
-          if(response) {
+          if (response) {
             this.$store.state.inputData.illustForm.companyName = "";
             this.$store.state.inputData.illustForm.clientName = "";
             this.$store.state.inputData.illustForm.mailAddress = "";
@@ -155,9 +156,13 @@ export default {
             this.$store.state.inputData.illustForm.term = "";
             this.$store.state.inputData.illustForm.message = "";
             this.$store.state.inputData.illustForm.attentionCheck = false;
-            window.removeEventListener('beforeunload', _this.beforeunload, false);
+            window.removeEventListener(
+              "beforeunload",
+              _this.beforeunload,
+              false
+            );
             this.$router.push({ path: "/illcontact/contactdone/" });
-          }else {
+          } else {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
@@ -165,16 +170,19 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          window.removeEventListener('beforeunload', this.beforeunload, false);
+          window.removeEventListener("beforeunload", this.beforeunload, false);
           alert(
             "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
           );
         });
     },
-    returnPage(e){
+    returnPage(e) {
       e.preventDefault();
       //window.removeEventListener('beforeunload', this.beforeunload, false);
-      this.$router.push({ path: "/illcontact/illcontactwrite/", hash:"#form" });
+      this.$router.push({
+        path: "/illcontact/illcontactwrite/",
+        hash: "#form",
+      });
     },
   },
 };

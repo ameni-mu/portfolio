@@ -40,9 +40,7 @@
       </li>
     </ul>
     <div class="contact__form-btn">
-      <a @click="returnPage" class="return">
-        戻る
-      </a>
+      <a @click="returnPage" class="return"> 戻る </a>
       <a href="#" @click="sendMail" class="send">送信する</a>
     </div>
   </form>
@@ -74,18 +72,18 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
 
     //確認ページでストアに内容が保存されていなかったら記入ページに遷移
     if (this.$store.state.inputData.frontForm.companyName == "") {
       this.$router.push({ path: "/frontcontact/frontcontactwrite/" });
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
     }
   },
   methods: {
     beforeunload(e) {
-      console.log('beforeunload');
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+      console.log("beforeunload");
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -105,16 +103,20 @@ export default {
       axios
         .post(sendUrl, params)
         .then((response) => {
-          if(response) {
-            window.removeEventListener('beforeunload', _this.beforeunload, false);
-            this.$store.state.inputData.frontForm.companyName = '';
-            this.$store.state.inputData.frontForm.clientName = '';
-            this.$store.state.inputData.frontForm.mailAddress = '';
-            this.$store.state.inputData.frontForm.deadDate = '';
-            this.$store.state.inputData.frontForm.budget = '';
-            this.$store.state.inputData.frontForm.detailtext = '';
+          if (response) {
+            window.removeEventListener(
+              "beforeunload",
+              _this.beforeunload,
+              false
+            );
+            this.$store.state.inputData.frontForm.companyName = "";
+            this.$store.state.inputData.frontForm.clientName = "";
+            this.$store.state.inputData.frontForm.mailAddress = "";
+            this.$store.state.inputData.frontForm.deadDate = "";
+            this.$store.state.inputData.frontForm.budget = "";
+            this.$store.state.inputData.frontForm.detailtext = "";
             this.$router.push({ path: "/frontcontact/contactdone/" });
-          }else {
+          } else {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
@@ -122,12 +124,14 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          alert('送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。');
-          window.removeEventListener('beforeunload', this.beforeunload, false);
+          alert(
+            "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
+          );
+          window.removeEventListener("beforeunload", this.beforeunload, false);
         });
     },
-    returnPage(){
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+    returnPage() {
+      window.removeEventListener("beforeunload", this.beforeunload, false);
       this.$router.push({ path: "/frontcontact/frontcontactwrite/" });
     },
   },

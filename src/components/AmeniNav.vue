@@ -60,19 +60,21 @@ export default {
     if (this.isOtherPage) {
       this.isNavigationShow = true;
     }
-    this.onScroll();
-    this.onResize();
+    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onResize);
+  },
+  unmounted(){
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onResize);
   },
   methods: {
     onScroll() {
       if (this.isOtherPage) return;
       if (!this.isNavSetting) {
         const _this = this;
-        window.addEventListener("scroll", function () {
-          setTimeout(() => {
-            _this.setNav();
-          }, 100);
-        });
+        setTimeout(() => {
+          _this.setNav();
+        }, 100);
       }
     },
     onResize() {

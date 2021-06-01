@@ -10,10 +10,10 @@
         </p>
         <p class="profile__text text">
           新潟県出身 神奈川県在住。<br />
-          育児と仕事の両立を求めて働き方を模索しています。<br>
-          <br>
-          web: atelier-ameni.com<br>
-          mail: info@atelier-ameni.com<br>
+          育児と仕事の両立を求めて働き方を模索しています。<br />
+          <br />
+          web: atelier-ameni.com<br />
+          mail: info@atelier-ameni.com<br />
         </p>
       </div>
       <!-- <ul class="profile__pagelink">
@@ -78,7 +78,9 @@
         </li>
         <li class="profile__sche-li">
           <p class="profile__time profile__time--work"><span>9:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--1"><span class="em">仕事開始</span></p>
+          <p class="profile__sche-detail profile__height-margin--1">
+            <span class="em">仕事開始</span>
+          </p>
         </li>
         <li class="profile__sche-li">
           <p class="profile__time"><span>16:00</span></p>
@@ -95,7 +97,9 @@
         </li>
         <li class="profile__sche-li">
           <p class="profile__time profile__time--work"><span>22:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--2"><span class="em">仕事開始</span></p>
+          <p class="profile__sche-detail profile__height-margin--2">
+            <span class="em">仕事開始</span>
+          </p>
         </li>
         <li class="profile__sche-li">
           <p class="profile__time"><span>0:00</span></p>

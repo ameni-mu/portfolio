@@ -159,6 +159,13 @@ a.altText:hover {
     &:before {
       display: none;
     }
+    &:hover {
+      background-color: #e08c69;
+      color: #fff;
+      &:after {
+        display: none;
+      }
+    }
   }
 }
 .bottom-line {
@@ -195,8 +202,17 @@ a.altText:hover {
   &--red {
     > a {
       color: #ffffff;
+      border: 1px solid #e08c69;
       &:after {
         background-image: url("../assets/img/common/arrow_right_white.svg");
+      }
+      &:hover {
+        color: #e08c69;
+        background-color: #ffffff;
+        border: 1px solid #e08c69;
+        &:after {
+          background-image: url("../assets/img/common/arrow_right.svg");
+        }
       }
     }
   }
@@ -207,6 +223,13 @@ a.altText:hover {
       border: 1px solid #e08c69;
       &:after {
         background-image: url("../assets/img/common/arrow_right.svg");
+      }
+      &:hover {
+        color: #ffffff;
+        background-color: #e08c69;
+        &:after {
+          background-image: url("../assets/img/common/arrow_right_white.svg");
+        }
       }
     }
   }

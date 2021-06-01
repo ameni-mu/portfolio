@@ -5,9 +5,7 @@
     </h2>
     <ul class="contact__form contact__form--jobs">
       <li class="contact__form-li">
-        <p class="contact__form-li-ttl">
-          企業名
-        </p>
+        <p class="contact__form-li-ttl">企業名</p>
         <div class="contact__select-detail">{{ companyName }}</div>
       </li>
       <li class="contact__form-li" v-if="clientName">
@@ -29,9 +27,7 @@
       </li>
     </ul>
     <div class="contact__form-btn">
-      <a href="#" class="return" @click="returnPage">
-        戻る
-      </a>
+      <a href="#" class="return" @click="returnPage"> 戻る </a>
       <a href="#" @click="sendMail" class="send">送信する</a>
     </div>
   </form>
@@ -43,11 +39,11 @@ import axios from "axios";
 export default {
   components: {},
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
     //確認ページでストアに内容が保存されていなかったら記入ページに遷移
     if (this.$store.state.inputData.otherForm.mailAddress == "") {
       this.$router.push({ path: "/othercontact/othercontactwrite/" });
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
     }
   },
   computed: {
@@ -66,8 +62,8 @@ export default {
   },
   methods: {
     beforeunload(e) {
-      console.log('beforeunload');
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+      console.log("beforeunload");
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -84,10 +80,14 @@ export default {
       axios
         .post(sendUrl, params)
         .then((response) => {
-          if(response) {
-            window.removeEventListener('beforeunload', this.beforeunload, false);
+          if (response) {
+            window.removeEventListener(
+              "beforeunload",
+              this.beforeunload,
+              false
+            );
             this.$router.push({ path: "/othercontact/contactdone/" });
-          }else {
+          } else {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
@@ -101,7 +101,7 @@ export default {
         });
     },
     returnPage() {
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
       this.$router.push({ path: "/othercontact/othercontactwrite/" });
     },
   },

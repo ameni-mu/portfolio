@@ -152,7 +152,7 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('beforeunload', this.beforeunload, false);
+    window.addEventListener("beforeunload", this.beforeunload, false);
     this.inputData.companyName = this.companyName;
     this.inputData.clientName = this.clientName;
     this.inputData.mailAddress = this.mailAddress;
@@ -184,9 +184,9 @@ export default {
     },
   },
   methods: {
-    beforeunload(e){
-      console.log('beforeunload');
-      var confirmMessage = '内容が消去されますがよろしいですか？';
+    beforeunload(e) {
+      console.log("beforeunload");
+      var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
     },
@@ -210,7 +210,7 @@ export default {
       storeInputData.budget = this.inputData.budget;
       storeInputData.term = this.inputData.term;
       storeInputData.detailtext = this.inputData.detailtext;
-      window.removeEventListener('beforeunload', this.beforeunload, false);
+      window.removeEventListener("beforeunload", this.beforeunload, false);
       this.$router.push({ path: "/frontcontact/frontconfirm/" });
     },
   },
