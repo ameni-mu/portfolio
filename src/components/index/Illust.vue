@@ -51,6 +51,10 @@ export default {
     justify-content: inherit;
     padding-top: 150px;
     padding-bottom: 140px;
+    @include max-screen($sp) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
   }
   .section__inner {
     height: auto;
@@ -77,11 +81,18 @@ export default {
     width: 100%;
     overflow: hidden;
     padding-top: 25px;
+    @include max-screen($sp) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &__list {
     width: 200px;
     padding: 0 9px;
     box-sizing: border-box;
+    @include max-screen($sp) {
+      margin-bottom: 20px;
+    }
     > img {
       width: 100%;
       margin-bottom: 5px;

@@ -1,12 +1,56 @@
 <template>
-  <transition name="fade" tag="div" :class="{ noAnim: isOtherPage }">
-    <section class="nav" v-show="isNavigationShow">
-      <h1 class="nav__logo">
+  <div>
+    <transition name="fade" tag="div" :class="{ noAnim: isOtherPage }">
+      <section class="nav" v-show="isNavigationShow">
+        <div class="nav__inner">
+          <h1 class="nav__logo">
+            <img
+              src="../assets/img/common/logo.svg"
+              alt="アトリエあめに atelier ameni"
+            />
+          </h1>
+          <ul class="nav__lists">
+            <li class="nav__list">
+              <router-link to="/" active-class="current" exact>Index</router-link>
+            </li>
+            <li class="nav__list">
+              <router-link to="/profile" active-class="current" exact
+                >Profile</router-link
+              >
+            </li>
+            <li class="nav__list">
+              <router-link to="/frontend" active-class="current" exact
+                >Frontend</router-link
+              >
+            </li>
+            <li class="nav__list">
+              <router-link to="/illust" active-class="current" exact
+                >Illust</router-link
+              >
+            </li>
+            <li class="nav__list">
+              <router-link to="/contact" active-class="current" exact
+                >contact</router-link
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </transition>
+    <p
+      class="nav__icon nav__icon--open"
+      v-show="!isNavOpen"
+      @click="onNavOpen"
+    >
+      open
+    </p>
+    <div class="sp-nav" v-show="isNavOpen">
+      <h2 class="nav__logo">
         <img
           src="../assets/img/common/logo.svg"
           alt="アトリエあめに atelier ameni"
         />
-      </h1>
+      </h2>
       <ul class="nav__lists">
         <li class="nav__list">
           <router-link to="/" active-class="current" exact>Index</router-link>
@@ -32,8 +76,9 @@
           >
         </li>
       </ul>
-    </section>
-  </transition>
+      <p class="sp-nav__close" @click="onNavClose">close</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -47,6 +92,7 @@ export default {
       winH: 0,
       isResize: false,
       animName: "fade",
+      isNavOpen: false,
     };
   },
   beforeCreate() {
@@ -98,12 +144,41 @@ export default {
       }
       this.isNavSetting = false;
     },
+    onNavOpen() {
+      this.isNavOpen = true;
+    },
+    onNavClose() {
+      this.isNavOpen = false;
+    }
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.sp-nav {
+  display: none;
+  @include max-screen($tablet) {
+    display: block;
+    padding: 30px;
+    border-bottom: 1px solid #e0dcda;
+    position: fixed;
+    z-index: 9200;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  &__close {
+    background-color: #e0dcda;
+    padding: 10px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    color: #888888;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+}
 .nav {
   position: fixed;
   top: 0;
@@ -116,14 +191,53 @@ export default {
   background-color: #ffffff;
   border-radius: 20px;
   z-index: 9000;
+  box-sizing: border-box;
   @include max-screen(1300px) {
     margin-left: -550px;
+  }
+  @include max-screen($tablet) {
+    display: none;
+  }
+  &.noAnim {
+    margin-top: 50px;
+  }
+  &__icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e0dcda;
+    border-radius: 50px;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    z-index: 9200;
+    text-indent: -9999px;
+    left: 30px;
+    top: 30px;
+    cursor: pointer;
+    display: none;
+    @include max-screen($tablet) {
+      display: block;
+    }
+    &--open {
+      background-image: url("../assets/img/common/ico_open.svg");
+    }
+  }
+  &__inner {
+    @include max-screen($tablet) {
+      display: none;
+      padding: 30px;
+      border-bottom: 1px solid #e0dcda;
+    }
   }
   &__logo {
     > img {
       width: 155px;
       display: block;
       margin: 0 auto 50px auto;
+      @include max-screen($tablet) {
+        width: 100px;
+      }
     }
   }
   &__lists {
@@ -133,6 +247,10 @@ export default {
     font-weight: 200;
     width: 155px;
     margin-left: 32px;
+    @include max-screen($tablet) {
+      width: 100%;
+      margin-left: 0;
+    }
   }
   &__list {
     margin-bottom: 10px;
@@ -152,6 +270,12 @@ export default {
       position: relative;
       z-index: 1;
       text-decoration: none;
+      @include max-screen($tablet) {
+        padding: 10px;
+        background-image: none;
+        text-align: center;
+        display: block;
+      }
       &:before {
         content: "";
         width: 90%;
@@ -162,6 +286,9 @@ export default {
         height: 8px;
         z-index: -1;
         opacity: 0;
+        @include max-screen($tablet) {
+          display: none;
+        }
       }
       &:hover {
         &:before {
@@ -186,23 +313,43 @@ export default {
 .fade-enter-from {
   opacity: 0;
   transform: translateY(20vh);
+  @include max-screen($tablet) {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 }
 .fade-enter-active {
   transition: all 0.6s;
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
 }
 .fade-enter-to {
   opacity: 1;
   transform: translateY(0);
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
 }
 .fade-leave {
   opacity: 1;
   transform: translateY(0);
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
 }
 .fade-leave-active {
   transition: all 0.6s;
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
 }
 .fade-leave-to {
   opacity: 0;
   transform: translateY(20vh);
+  @include max-screen($tablet) {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 }
 </style>

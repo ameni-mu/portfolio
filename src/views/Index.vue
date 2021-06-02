@@ -29,8 +29,7 @@
           />
         </h1>
         <p class="main__lead">
-          フロントエンドエンジニア・イラストレーター
-          あめにのポートフォリオサイトです。
+          <span>フロントエンドエンジニア・イラストレーター <br>あめにのポートフォリオサイトです。</span>
         </p>
         <ul class="main__nav">
           <li class="main__nav-li">
@@ -49,10 +48,12 @@
             <router-link to="/contact">contact</router-link>
           </li>
         </ul>
-        <img src="../assets/img/index/work.svg" class="main__work-img" />
-        <img src="../assets/img/index/deco1.svg" class="main__deco-img--1" />
-        <img src="../assets/img/index/deco2.svg" class="main__deco-img--2" />
-        <p class="main__scroll">scroll</p>
+        <div class="main__deco-wrap">
+          <img src="../assets/img/index/work.svg" class="main__work-img" />
+          <img src="../assets/img/index/deco1.svg" class="main__deco-img--1" />
+          <img src="../assets/img/index/deco2.svg" class="main__deco-img--2" />
+          <p class="main__scroll">scroll</p>
+        </div>
       </div>
       <div class="cvs-wrap">
         <transition :css="false" @before-enter="beforeEnter" @enter="enter">
@@ -131,10 +132,10 @@ export default {
       this.winH = "800";
     }
     //パララックス背景の高さを指定
-    const h = this.winH * 5;
-    this.bg1.style.height = h + 'px';
-    this.bg2.style.height = h + 'px';
-    this.bg3.style.height = h + 'px';
+    // const h = this.winH * 5;
+    // this.bg1.style.height = h + 'px';
+    // this.bg2.style.height = h + 'px';
+    // this.bg3.style.height = h + 'px';
 
     //canvasの設定
     this.stage = document.querySelector("canvas");
@@ -207,15 +208,15 @@ export default {
       };
     },
     renderCircle() {
-      this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
+      //this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
       // bg dot パララックス用
-      this.bgCalc1 += Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
-      this.bgCalc2 += Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
-      this.bgCalc3 += Number((this.scrollY / 1) - this.bgCalc3) * this.bgEase3;
+      // this.bgCalc1 += ~~Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
+      // this.bgCalc2 += ~~Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
+      // this.bgCalc3 += ~~Number((this.scrollY / 1) - this.bgCalc3) * this.bgEase3;
 
-      this.bg1.style.transform = 'translateY('+ -(this.bgCalc1) +'px)';
-      this.bg2.style.transform = 'translateY('+ -(this.bgCalc2) +'px)';
-      this.bg3.style.transform = 'translateY('+ -(this.bgCalc3) +'px)';
+      // this.bg1.style.transform = 'translateY('+ -(this.bgCalc1) +'px)';
+      // this.bg2.style.transform = 'translateY('+ -(this.bgCalc2) +'px)';
+      // this.bg3.style.transform = 'translateY('+ -(this.bgCalc3) +'px)';
 
       //canvas render
       this.ctx.clearRect(0, 0, this.stage.width, this.stage.height);
@@ -390,7 +391,6 @@ export default {
     //-------------------
     onResize() {
       setTimeout(() => {
-        console.log('リサイズされたよ');
         this.isResize = true;
       }, 300);
     },
@@ -412,7 +412,8 @@ export default {
     left:0;
     width: 100%;
     background-position: center top;
-    height:100%;
+    height:1600px;
+    transition: translateY 0.5s ease;
   }
   &__bg1 {
     background-image: url("../assets/img/index/bg_dot.svg");
@@ -433,11 +434,27 @@ export default {
     background-color: #f9f2ef;
     z-index: 100;
     min-height: 800px;
+    @include max-screen($sp) {
+      width: auto;
+      box-sizing: border-box;
+      padding-right: 40px;
+      padding-left: 40px;
+    }
     &__container {
       height: 530px;
       position: relative;
       z-index: 100;
       margin-top: -20px;
+      @include max-screen($sp) {
+        margin-top: 0;
+        background-color: #ffffff;
+        width: 100%;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        border-radius: 120px;
+        height: auto;
+        overflow: hidden;
+      }
     }
     &__logo {
       width: 160px;
@@ -453,6 +470,18 @@ export default {
       margin-bottom: 35px;
       font-size: 12px;
       opacity: 0;
+      @include max-screen($sp) {
+        margin-right: 60px;
+        margin-left: 60px;
+        line-height: 24px;
+        text-align: left;
+      }
+      br {
+        display: none;
+        @include max-screen($sp) {
+          display: block;
+        }
+      }
       &:before {
         content: "";
         width: 100%;
@@ -463,6 +492,14 @@ export default {
         bottom: 0;
         left: 0;
         z-index: -1;
+        @include max-screen($sp) {
+          display: none;
+        }
+      }
+      span {
+        @include max-screen($sp) {
+          background-color: #f5f8ed;
+        }
       }
     }
     &__nav {
@@ -474,10 +511,17 @@ export default {
       width: auto;
       display: flex;
       justify-content: center;
+      @include max-screen($sp) {
+        margin: 0 40px 40px 40px;
+        flex-wrap: wrap;
+      }
       > li {
         padding: 0 9px;
         opacity: 0;
         transform: translateY(10px);
+        @include max-screen($sp) {
+          margin-bottom:10px;
+        }
         a {
           display: inline-block;
           color: #333333;
@@ -528,6 +572,12 @@ export default {
         }
       }
     }
+    &__deco-wrap {
+      @include max-screen($sp) {
+        position: relative;
+        padding-bottom: 70px;
+      }
+    }
     &__work-img {
       width: 180px;
       height: auto;
@@ -536,6 +586,10 @@ export default {
       bottom: 50px;
       margin-left: -90px;
       opacity: 0;
+      @include max-screen($sp) {
+        position: static;
+        margin-left:auto;
+      }
     }
     &__deco-img--1 {
       position: absolute;
@@ -549,6 +603,9 @@ export default {
       animation-iteration-count: infinite;
       animation-direction: alternate;
       animation-duration: 1.5s;
+      @include max-screen($sp) {
+        bottom: 110px;
+      }
     }
     &__deco-img--2 {
       position: absolute;
@@ -562,6 +619,9 @@ export default {
       animation-iteration-count: infinite;
       animation-direction: alternate;
       animation-duration: 1.5s;
+      @include max-screen($sp) {
+        bottom: 110px;
+      }
     }
     &__scroll {
       font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
@@ -581,6 +641,9 @@ export default {
       padding-top: 32px;
       text-indent: 2px;
       opacity: 0;
+      @include max-screen($sp) {
+        bottom: 0;
+      }
       &:before {
         content: "";
         position: absolute;
@@ -604,6 +667,9 @@ export default {
     justify-content: center;
     align-items: center;
     position: absolute;
+    @include max-screen($sp) {
+      display: none;
+    }
   }
   .cvs {
     width: 100%;
@@ -617,6 +683,9 @@ export default {
     z-index: 0;
     opacity: 0;
     margin-top: -20px;
+    @include max-screen($sp) {
+      display: none;
+    }
   }
 }
 @keyframes fuwafuwa1 {

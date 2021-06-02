@@ -333,11 +333,15 @@ export default {
         text-align: center;
         padding-top: 15px;
         > .return {
-          background-color: #999;
+          background-color: #999999;
           padding: 14px 25px 14px 25px;
           margin-right: 15px;
+          border-color: #999999;
           &:after {
             display: none;
+          }
+          &:hover {
+            color: #ffffff;
           }
         }
       }

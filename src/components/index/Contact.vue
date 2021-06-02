@@ -35,6 +35,9 @@ export default {
   min-height: auto;
   padding-top: 150px;
   padding-bottom: 150px;
+  @include max-screen($sp) {
+    padding-top: 100px;
+  }
   &__title {
     font-size: 16px;
     line-height: 30px;

@@ -33,6 +33,12 @@ export default {
   min-height: 700px;
   display: block;
   padding-top: 150px;
+  @include max-screen($sp) {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    height: auto;
+    min-height: auto;
+  }
   &__heading {
     margin-bottom: 60px;
   }
@@ -73,6 +79,7 @@ export default {
       margin-bottom: 13px;
       position: relative;
       padding-left: 18px;
+      line-height: 24px;
       &:before {
         content: "・";
         position: absolute;

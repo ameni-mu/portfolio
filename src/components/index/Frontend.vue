@@ -40,6 +40,10 @@ export default {
     justify-content: inherit;
     padding-top: 150px;
     padding-bottom: 140px;
+    @include max-screen($sp) {
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
   }
   .section__inner {
     height: auto;

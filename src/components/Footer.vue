@@ -73,6 +73,12 @@ export default {
     left: 50%;
     margin-left: 550px;
     bottom: 130px;
+    @include max-screen(1240px) {
+      display: none;
+    }
+    @include max-screen($sp) {
+      display: none;
+    }
     &:before {
       display: none;
     }
