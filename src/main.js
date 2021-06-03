@@ -4,8 +4,17 @@ import router from "./router";
 import store from "./store";
 import "./assets/scss/reset.css";
 import animateCss from "animate.css";
+import swiperCss from "swiper/swiper.scss";
+import swiperzNav from "swiper/components/navigation/navigation.min.css";
+import swiperPagination from "swiper/components/pagination/pagination.min.css";
 
-const app = createApp(App).use(animateCss).use(store).use(router);
+const app = createApp(App)
+  .use(animateCss)
+  .use(swiperCss)
+  .use(swiperzNav)
+  .use(swiperPagination)
+  .use(store)
+  .use(router);
 
 //indexページのナビゲーション
 //スクロールに合わせて追従させる

@@ -184,7 +184,7 @@ export default {
     @include max-screen($sp) {
       font-size: 14px;
       line-height: 24px;
-      margin-bottom:20px;
+      margin-bottom: 20px;
     }
   }
   &__secondary-heading {
@@ -200,7 +200,7 @@ export default {
     position: relative;
     @include max-screen($sp) {
       margin-top: 50px;
-      font-size:20px;
+      font-size: 20px;
       padding-bottom: 14px;
       margin-bottom: 30px;
     }

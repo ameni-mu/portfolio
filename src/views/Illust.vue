@@ -221,10 +221,9 @@ import AmeniNav from "@/components/AmeniNav";
 import Footer from "@/components/Footer";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/thumbs/thumbs.scss";
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.min.css";
+// import "swiper/components/pagination/pagination.min.css";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -338,7 +337,7 @@ export default {
       padding-top: 15px;
       margin-bottom: 30px;
       padding-bottom: 50px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       justify-content: center;
     }
   }

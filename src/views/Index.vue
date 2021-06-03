@@ -1,17 +1,9 @@
 <template>
   <div class="index">
     <AmeniNav :isOtherPage="false"></AmeniNav>
-    <div
-      class="index__bg1 index__bg"
-    ></div>
-    <div
-      class="index__bg2 index__bg"
-    >
-    </div>
-    <div
-      class="index__bg3 index__bg"
-    >
-    </div>
+    <div class="index__bg1 index__bg"></div>
+    <div class="index__bg2 index__bg"></div>
+    <div class="index__bg3 index__bg"></div>
     <section
       :class="{
         main: true,
@@ -29,7 +21,10 @@
           />
         </h1>
         <p class="main__lead">
-          <span>フロントエンドエンジニア・イラストレーター <br>あめにのポートフォリオサイトです。</span>
+          <span
+            >フロントエンドエンジニア・イラストレーター
+            <br />あめにのポートフォリオサイトです。</span
+          >
         </p>
         <ul class="main__nav">
           <li class="main__nav-li">
@@ -118,8 +113,8 @@ export default {
       bgCalc1: 0,
       bgCalc2: 0,
       bgCalc3: 0,
-      scrollY:0,
-      animation: function(){},
+      scrollY: 0,
+      animation: function () {},
     };
   },
   mounted() {
@@ -211,8 +206,10 @@ export default {
       };
     },
     renderCircle() {
-      this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
-      if(this.isMinW) return;
+      this.animation = window.requestAnimationFrame(
+        this.renderCircle.bind(this)
+      );
+      if (this.isMinW) return;
       // bg dot パララックス用
       // this.bgCalc1 += ~~Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
       // this.bgCalc2 += ~~Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
@@ -394,7 +391,7 @@ export default {
     // window resize
     //-------------------
     onResize() {
-      if(this.isResize) return;
+      if (this.isResize) return;
       this.isResize = true;
       const _this = this;
       setTimeout(() => {
@@ -418,10 +415,10 @@ export default {
   &__bg {
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     width: 100%;
     background-position: center top;
-    height:1600px;
+    height: 1600px;
     transition: translateY 0.5s ease;
   }
   &__bg1 {
@@ -529,7 +526,7 @@ export default {
         opacity: 0;
         transform: translateY(10px);
         @include max-screen($sp) {
-          margin-bottom:10px;
+          margin-bottom: 10px;
         }
         a {
           display: inline-block;
@@ -597,7 +594,7 @@ export default {
       opacity: 0;
       @include max-screen($sp) {
         position: static;
-        margin-left:auto;
+        margin-left: auto;
       }
     }
     &__deco-img--1 {

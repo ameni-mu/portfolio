@@ -9,7 +9,7 @@
             src="../assets/img/common/loading.gif"
             v-if="isLoading"
             class="fw-detail__loading"
-          >
+          />
           <div class="fw-detail__img-lists">
             <swiper
               :spaceBetween="50"
@@ -19,7 +19,15 @@
               v-if="!isMovie"
             >
               <swiper-slide v-for="n of imgLength" :key="n">
-                <img :src="require('../assets/img/frontworks/'+ dataID + '/' + n + '.jpg')" />
+                <img
+                  :src="
+                    require('../assets/img/frontworks/' +
+                      dataID +
+                      '/' +
+                      n +
+                      '.jpg')
+                  "
+                />
               </swiper-slide>
             </swiper>
           </div>
@@ -27,8 +35,7 @@
             :src="require('../assets/img/frontworks/' + dataID + '/1.mp4')"
             v-if="isMovie"
             class="fw-detail__movie"
-          >
-          </video>
+          ></video>
           <div class="fw-detail__desc" v-html="ModaldescText"></div>
         </div>
       </div>
@@ -40,33 +47,23 @@
 <script>
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/thumbs/thumbs.scss";
 
 SwiperCore.use([Navigation, Pagination]);
 
 export default {
-  props: [
-    "isMovie",
-    "imgLength",
-    "ModaldescText",
-    "dataID",
-    "title",
-  ],
+  props: ["isMovie", "imgLength", "ModaldescText", "dataID", "title"],
   components: {
     Swiper,
     SwiperSlide,
   },
   data() {
     return {
-      isLoading:true,
-    }
+      isLoading: true,
+    };
   },
   mounted() {
-    if(this.isMovie) {
-      const v = document.querySelector('.fw-detail__movie');
+    if (this.isMovie) {
+      const v = document.querySelector(".fw-detail__movie");
       v.loop = true;
       v.play();
     }
@@ -162,7 +159,7 @@ export default {
     background-image: url("../assets/img/common/close.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:30px auto;
+    background-size: 30px auto;
     background-color: #999999;
     z-index: 9002;
     width: 50px;
@@ -174,7 +171,7 @@ export default {
     @include max-screen($sp) {
       width: 40px;
       height: 40px;
-      background-size:25px auto;
+      background-size: 25px auto;
     }
     &:hover {
       &:before {
@@ -184,7 +181,7 @@ export default {
   }
   &__desc {
     width: 400px;
-    margin:40px auto 0 auto;
+    margin: 40px auto 0 auto;
     background-color: #ffffff;
     font-size: 16px;
     line-height: 30px;
@@ -212,7 +209,7 @@ export default {
     position: absolute;
     left: 50%;
     top: 100px;
-    z-index:9001;
+    z-index: 9001;
   }
   &__img-lists {
     position: relative;

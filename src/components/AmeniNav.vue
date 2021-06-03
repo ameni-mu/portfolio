@@ -11,7 +11,9 @@
           </h1>
           <ul class="nav__lists">
             <li class="nav__list">
-              <router-link to="/" active-class="current" exact>Index</router-link>
+              <router-link to="/" active-class="current" exact
+                >Index</router-link
+              >
             </li>
             <li class="nav__list">
               <router-link to="/profile" active-class="current" exact
@@ -37,11 +39,7 @@
         </div>
       </section>
     </transition>
-    <p
-      class="nav__icon nav__icon--open"
-      v-show="!isNavOpen"
-      @click="onNavOpen"
-    >
+    <p class="nav__icon nav__icon--open" v-show="!isNavOpen" @click="onNavOpen">
       open
     </p>
     <div class="sp-nav" v-show="isNavOpen">
@@ -76,7 +74,9 @@
           >
         </li>
       </ul>
-      <p class="sp-nav__close nav__icon nav__icon--close" @click="onNavClose">close</p>
+      <p class="sp-nav__close nav__icon nav__icon--close" @click="onNavClose">
+        close
+      </p>
     </div>
   </div>
 </template>
@@ -109,7 +109,7 @@ export default {
     window.addEventListener("scroll", this.onScroll);
     window.addEventListener("resize", this.onResize);
   },
-  unmounted(){
+  unmounted() {
     window.removeEventListener("scroll", this.onScroll);
     window.removeEventListener("resize", this.onResize);
   },
@@ -149,7 +149,7 @@ export default {
     },
     onNavClose() {
       this.isNavOpen = false;
-    }
+    },
   },
 };
 </script>

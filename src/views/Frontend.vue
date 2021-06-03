@@ -32,9 +32,7 @@
         <ul class="front__list--table">
           <li>
             <p class="front__skill-ttl">できること</p>
-            <p class="front__skill-detail">
-              マークアップ / JS <br>
-            </p>
+            <p class="front__skill-detail">マークアップ / JS <br /></p>
           </li>
           <li>
             <p class="front__skill-ttl">フレームワーク</p>
@@ -51,7 +49,7 @@
           <li>
             <p class="front__skill-ttl">css設計</p>
             <p class="front__skill-detail">
-              BEM,RSCSS,SMACSS(プロジェクトに合わせてカスタマイズ)<br>
+              BEM,RSCSS,SMACSS(プロジェクトに合わせてカスタマイズ)<br />
               <span class="em">*ページ数に合わせて使ったり使わなかったり</span>
             </p>
           </li>

@@ -6,14 +6,16 @@
       <ul class="fw__lead otherpage__list wave-line">
         <li>年代別に掲載しています。</li>
         <li>
-          <span class="em">大変申し訳ございませんが、2015年以降は制作物のデータを保存しておかなかったため、制作に携わったものを少ししか掲載できていません。</span>
+          <span class="em"
+            >大変申し訳ございませんが、2015年以降は制作物のデータを保存しておかなかったため、制作に携わったものを少ししか掲載できていません。</span
+          >
         </li>
       </ul>
       <div class="fw__block fw__block--1 wave-line">
         <h2 class="fw__secondary-heading">2017〜2019</h2>
         <div class="otherpage__lead">
           <p>
-            様々なwebページ構築に携わる。<br>
+            様々なwebページ構築に携わる。<br />
             コーポレートサイト、ゲームのオフィシャルページ、スペシャルサイト、ゲームのポータルサイト、ゲームのECサイト、ソーシャルゲーム内のwebページ、等。
           </p>
         </div>
@@ -26,11 +28,16 @@
               <span class="ico">movie</span>
               <span class="text">ソーシャルゲームの特設ページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="31">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC<br>
-              ■ 機能：<br>
-              パララックス<br>
+            <div
+              class="fw__modaldesc"
+              data-type="2"
+              data-imglength="1"
+              data-id="31"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC<br />
+              ■ 機能：<br />
+              パララックス<br />
               スクロールに合わせて薔薇が咲くモーション
             </div>
           </li>
@@ -42,11 +49,16 @@
               <span class="ico">movie</span>
               <span class="text">ゲームポータルサイト内コンテンツ</span>
             </p>
-            <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="32">
-              ■ 担当箇所：js<br>
-              ■ 対応デバイス：PC<br>
-              ■ 機能：<br>
-              スクロールの挙動（1スクロールで1画面ごとに遷移する）<br>
+            <div
+              class="fw__modaldesc"
+              data-type="2"
+              data-imglength="1"
+              data-id="32"
+            >
+              ■ 担当箇所：js<br />
+              ■ 対応デバイス：PC<br />
+              ■ 機能：<br />
+              スクロールの挙動（1スクロールで1画面ごとに遷移する）<br />
               スライダー、アバターの着替え(API)、春夏秋冬の背景モーション（桜が舞う、夏の日差しがキラキラ、枯葉が落ちる、雪が降る）
             </div>
           </li>
@@ -58,11 +70,16 @@
               <span class="ico">movie</span>
               <span class="text">ゲームポータルサイト特設ページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="33">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC<br>
-              ■ 機能：<br>
-              マウスに合わせてキャラクターが動く（パララックス）<br>
+            <div
+              class="fw__modaldesc"
+              data-type="2"
+              data-imglength="1"
+              data-id="33"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC<br />
+              ■ 機能：<br />
+              マウスに合わせてキャラクターが動く（パララックス）<br />
               canvasモーション、スクロールに合わせて要素を表示
             </div>
           </li>
@@ -74,8 +91,13 @@
               <span class="ico img">img</span>
               <span class="text">ゲームポータルサイトwebアプリ版</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="34">
-              ■ 担当箇所：サイト内コンテンツのフロント構築(react)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="34"
+            >
+              ■ 担当箇所：サイト内コンテンツのフロント構築(react)<br />
               ■ 対応デバイス：SP
             </div>
           </li>
@@ -100,9 +122,14 @@
               <span class="ico img">img</span>
               <span class="text">コーポレートメディアページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="23">
-              担当箇所：マークアップ<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="23"
+            >
+              担当箇所：マークアップ<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -114,9 +141,14 @@
               <span class="ico img">img</span>
               <span class="text">コーポレート採用サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="5" data-id="24">
-              担当箇所：マークアップ / js<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="5"
+              data-id="24"
+            >
+              担当箇所：マークアップ / js<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -128,9 +160,14 @@
               <span class="ico img">img</span>
               <span class="text">ドラマ公式サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="4" data-id="25">
-              担当箇所：Tumblrテンプレート改修<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="25"
+            >
+              担当箇所：Tumblrテンプレート改修<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -142,8 +179,13 @@
               <span class="ico img">img</span>
               <span class="text">技術メディアサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="2" data-id="26">
-              担当箇所：アクセシビリティチェック<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="2"
+              data-id="26"
+            >
+              担当箇所：アクセシビリティチェック<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -154,9 +196,14 @@
               <span class="ico img">img</span>
               <span class="text">対談記事特設サイトリニューアル</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="6" data-id="27">
-              担当箇所：マークアップ / js<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="6"
+              data-id="27"
+            >
+              担当箇所：マークアップ / js<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -168,9 +215,14 @@
               <span class="ico img">img</span>
               <span class="text">プロダクトメディアサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="4" data-id="28">
-              担当箇所：Tumblrテンプレート改修<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="28"
+            >
+              担当箇所：Tumblrテンプレート改修<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -182,9 +234,14 @@
               <span class="ico img">img</span>
               <span class="text">市民音楽祭紹介メディアサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="4" data-id="29">
-              担当箇所：マークアップ<br>
-              対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="29"
+            >
+              担当箇所：マークアップ<br />
+              対応デバイス：PC<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -195,9 +252,14 @@
               <span class="ico img">img</span>
               <span class="text">メディアサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="30">
-              担当箇所：マークアップ / js<br>
-              対応デバイス：PC,tablet,SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="30"
+            >
+              担当箇所：マークアップ / js<br />
+              対応デバイス：PC,tablet,SP<br />
               レスポンシブ
             </div>
           </li>
@@ -214,13 +276,18 @@
               <span class="ico img">img</span>
               <span class="text">カスタムヘッドフォンECサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="5" data-id="12">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC,tablet,SP<br>
-              ■ レスポンシブ<br>
-              ■ 機能：<br>
-              APIからJSONを取得し、デザインに反映<br>
-              検索システム<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="5"
+              data-id="12"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC,tablet,SP<br />
+              ■ レスポンシブ<br />
+              ■ 機能：<br />
+              APIからJSONを取得し、デザインに反映<br />
+              検索システム<br />
               管理画面からの自動デザイン変更
             </div>
           </li>
@@ -232,12 +299,17 @@
               <span class="ico img">img</span>
               <span class="text">ユーザー投稿サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="5" data-id="13">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC,SP<br>
-              ■ 機能：<br>
-              ユーザーが画像を投稿できる<br>
-              APIから取得したデータを元にデザイン反映<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="5"
+              data-id="13"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC,SP<br />
+              ■ 機能：<br />
+              ユーザーが画像を投稿できる<br />
+              APIから取得したデータを元にデザイン反映<br />
               ユーザーから投稿された画像が流れて表示される
             </div>
           </li>
@@ -249,11 +321,16 @@
               <span class="ico img">img</span>
               <span class="text">イベントサイトティザーページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="4" data-id="14">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC,tablet,SP<br>
-              ■ 機能：<br>
-              画像がランダムでバラバラと画面内に表示され、最後の画面でイベント告知の動画が流れる。<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="14"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC,tablet,SP<br />
+              ■ 機能：<br />
+              画像がランダムでバラバラと画面内に表示され、最後の画面でイベント告知の動画が流れる。<br />
               動画が流れている間も、背景の画像は一定時間をおいて少しづつ違う画像に変化する。
             </div>
           </li>
@@ -265,10 +342,15 @@
               <span class="ico img">img</span>
               <span class="text">コーポレートサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="4" data-id="15">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC,tablet,SP<br>
-              ■ 機能：<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="15"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC,tablet,SP<br />
+              ■ 機能：<br />
               一定時間置きに■が飛び散るアニメーションを実装
             </div>
           </li>
@@ -280,9 +362,14 @@
               <span class="ico img">img</span>
               <span class="text">期間限定スペシャルサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="16">
-              ■ 担当箇所：静的ページコーディング<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="16"
+            >
+              ■ 担当箇所：静的ページコーディング<br />
+              ■ 対応デバイス：PC<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -293,9 +380,14 @@
               <span class="ico img">img</span>
               <span class="text">期間限定サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="17">
-              ■ 担当箇所：マークアップ<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="17"
+            >
+              ■ 担当箇所：マークアップ<br />
+              ■ 対応デバイス：PC<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -306,9 +398,14 @@
               <span class="ico img">img</span>
               <span class="text">期間限定スペシャルサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="18">
-              ■ 担当箇所：静的下層ページ約20ページマークアップ（PCのみ）<br>
-              ■ 対応デバイス：PC、SP<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="18"
+            >
+              ■ 担当箇所：静的下層ページ約20ページマークアップ（PCのみ）<br />
+              ■ 対応デバイス：PC、SP<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -319,9 +416,14 @@
               <span class="ico img">img</span>
               <span class="text">プロダクトサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="3" data-id="19">
-              ■ 担当箇所：下層一部のページ(マークアップ、js)<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="19"
+            >
+              ■ 担当箇所：下層一部のページ(マークアップ、js)<br />
+              ■ 対応デバイス：PC<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -332,9 +434,14 @@
               <span class="ico img">img</span>
               <span class="text">アプリ紹介PCページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="20">
-              ■ 担当箇所：マークアップ / js<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="20"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC<br />
               ■ リキッドレイアウト
             </div>
           </li>
@@ -346,9 +453,14 @@
               <span class="ico img">img</span>
               <span class="text">プロダクトスペシャルサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="2" data-id="21">
-              ■ 担当箇所：IE6、7用の静的ページマークアップ<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="2"
+              data-id="21"
+            >
+              ■ 担当箇所：IE6、7用の静的ページマークアップ<br />
+              ■ 対応デバイス：PC<br />
               ■ リキッドレイアウト
             </div>
           </li>
@@ -360,10 +472,15 @@
               <span class="ico img">img</span>
               <span class="text">プロダクトスペシャルサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="2" data-id="22">
-              ■ 担当箇所：<br>
-              IE6、7用の静的ページマークアップ、スライダー一部実装<br>
-              ■ 対応デバイス：PC<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="2"
+              data-id="22"
+            >
+              ■ 担当箇所：<br />
+              IE6、7用の静的ページマークアップ、スライダー一部実装<br />
+              ■ 対応デバイス：PC<br />
             </div>
           </li>
         </ul>
@@ -379,9 +496,14 @@
               <span class="ico img">img</span>
               <span class="text">高速バスチケット販売サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="1">
-              ■ 担当箇所：定期更新のコーディング<br>
-              ■ 対応デバイス：PC(IE6+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="1"
+            >
+              ■ 担当箇所：定期更新のコーディング<br />
+              ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -392,9 +514,14 @@
               <span class="ico img">img</span>
               <span class="text">バスチケット販売サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="2" data-id="2">
-              ■ 担当箇所：マークアップ、イラスト制作、デザイン<br>
-              ■ 対応デバイス：PC(IE6+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="2"
+              data-id="2"
+            >
+              ■ 担当箇所：マークアップ、イラスト制作、デザイン<br />
+              ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -405,9 +532,14 @@
               <span class="ico img">img</span>
               <span class="text">医学イベントティザーページ</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="3">
-              ■ 担当箇所：マークアップ、デザイン<br>
-              ■ 対応デバイス：PC(IE6+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="3"
+            >
+              ■ 担当箇所：マークアップ、デザイン<br />
+              ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -416,12 +548,19 @@
             </div>
             <p class="fw__tumb-ttl">
               <span class="ico img">img</span>
-              <span class="text">キャンペーンサイト<br />
-              (フィーチャーフォン対応)</span>
+              <span class="text"
+                >キャンペーンサイト<br />
+                (フィーチャーフォン対応)</span
+              >
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="4">
-              ■ 担当箇所：更新作業(ActionScriopt2のUA判定、微調整など)<br>
-              ■ 対応デバイス：フィーチャーフォン<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="4"
+            >
+              ■ 担当箇所：更新作業(ActionScriopt2のUA判定、微調整など)<br />
+              ■ 対応デバイス：フィーチャーフォン<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -432,9 +571,14 @@
               <span class="ico img">img</span>
               <span class="text">医学イベントサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="5">
-              ■ 担当箇所：マークアップ、デザイン、Flash<br>
-              ■ 対応デバイス：PC(IE6+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="5"
+            >
+              ■ 担当箇所：マークアップ、デザイン、Flash<br />
+              ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -445,9 +589,14 @@
               <span class="ico img">img</span>
               <span class="text">SNSモバイルゲーム</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="6">
-              ■ 担当箇所：静的ページコーディング<br>
-              ■ 対応デバイス：フィーチャーフォン<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="6"
+            >
+              ■ 担当箇所：静的ページコーディング<br />
+              ■ 対応デバイス：フィーチャーフォン<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -458,9 +607,14 @@
               <span class="ico img">img</span>
               <span class="text">化粧品ブランドサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="7">
-              ■ 担当箇所：マークアップ<br>
-              ■ 対応デバイス：PC(IE6+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="7"
+            >
+              ■ 担当箇所：マークアップ<br />
+              ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -471,10 +625,15 @@
               <span class="ico img">img</span>
               <span class="text">化粧品ブランドサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="8">
-              ■ 担当箇所：マークアップ、デザイン、Flash<br>
-              ■ 対応デバイス：PC(IE6+)、SP、フィーチャーフォン<br>
-              ■詳細<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="8"
+            >
+              ■ 担当箇所：マークアップ、デザイン、Flash<br />
+              ■ 対応デバイス：PC(IE6+)、SP、フィーチャーフォン<br />
+              ■詳細<br />
               新規ページ作成、ECシステムページの修正、キャンペーンサイト、Flashバナー制作など
             </div>
           </li>
@@ -486,9 +645,14 @@
               <span class="ico img">img</span>
               <span class="text">化粧品ブランド メールマガジン</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="9">
-              ■ 担当箇所：マークアップ、デザイン<br>
-              ■ 対応デバイス：PC(IE6+)、SP、フィーチャーフォン<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="9"
+            >
+              ■ 担当箇所：マークアップ、デザイン<br />
+              ■ 対応デバイス：PC(IE6+)、SP、フィーチャーフォン<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -499,9 +663,14 @@
               <span class="ico img">img</span>
               <span class="text">医学イベントサイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="10">
-              ■ 担当箇所：マークアップ<br>
-              ■ 対応デバイス：PC(IE6+)、フィーチャーフォン<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="10"
+            >
+              ■ 担当箇所：マークアップ<br />
+              ■ 対応デバイス：PC(IE6+)、フィーチャーフォン<br />
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -512,9 +681,14 @@
               <span class="ico img">img</span>
               <span class="text">個人運営素材配布サイト</span>
             </p>
-            <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="11">
-              ■ 担当箇所：デザイン、マークアップ、WordPress組み込み<br>
-              ■ 対応デバイス：PC(IE7+)<br>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="1"
+              data-id="11"
+            >
+              ■ 担当箇所：デザイン、マークアップ、WordPress組み込み<br />
+              ■ 対応デバイス：PC(IE7+)<br />
             </div>
           </li>
         </ul>
@@ -528,7 +702,7 @@
       :imgLength="imgLength"
       :ModaldescText="ModaldescText"
       :dataID="dataID"
-      :title = "title"
+      :title="title"
     >
     </WorksModal>
 
@@ -549,33 +723,33 @@ export default {
     Footer,
     WorksModal,
   },
-  data(){
+  data() {
     return {
       isModal: false,
       isMovie: false,
       imgLength: 0,
-      ModaldescText: '',
-      modalHtmlElement: '',
+      ModaldescText: "",
+      modalHtmlElement: "",
       dataID: 0,
-      title: '',
-    }
+      title: "",
+    };
   },
   methods: {
     onModal(e) {
       e.preventDefault();
-      const html = document.querySelector('.html');
-      html.style.overflow = 'hidden';
+      const html = document.querySelector(".html");
+      html.style.overflow = "hidden";
       this.isModal = true;
-      this.modalHtmlElement = e.currentTarget.querySelector('.fw__modaldesc');
-      const title = e.currentTarget.querySelector('.fw__tumb-ttl');
-      const ttlText = title.querySelector('.text').innerHTML;
+      this.modalHtmlElement = e.currentTarget.querySelector(".fw__modaldesc");
+      const title = e.currentTarget.querySelector(".fw__tumb-ttl");
+      const ttlText = title.querySelector(".text").innerHTML;
       this.title = ttlText;
       this.ModaldescText = this.modalHtmlElement.innerHTML;
       const dataType = Number(this.modalHtmlElement.dataset.type);
       const dataLength = Number(this.modalHtmlElement.dataset.imglength);
       this.dataID = Number(this.modalHtmlElement.dataset.id);
       this.isMovie = dataType == 1 ? false : true;
-      if(!this.isMovie) {
+      if (!this.isMovie) {
         this.imgLength = dataLength;
       }
       //後で余裕があったらハッシュタグで表示切り替え対応しておく
@@ -583,13 +757,13 @@ export default {
       // location.hash = hash;
     },
     onClose() {
-      const html = document.querySelector('.html');
-      html.style.overflow = 'auto';
+      const html = document.querySelector(".html");
+      html.style.overflow = "auto";
       this.isModal = false;
       //後で余裕があったらハッシュタグで表示切り替え対応しておく
       //location.hash = '';
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -603,9 +777,9 @@ export default {
     @include max-screen($sp) {
       margin-bottom: 30px;
     }
-    >li {
+    > li {
       .em {
-        background-color:#f8f0eb;
+        background-color: #f8f0eb;
       }
     }
   }
@@ -714,12 +888,12 @@ export default {
     &:nth-child(4) {
       margin-right: 0;
     }
-    &:nth-child(odd){
+    &:nth-child(odd) {
       @include max-screen(430px) {
         padding: 5px 10px 5px 0;
       }
     }
-    &:nth-child(even){
+    &:nth-child(even) {
       @include max-screen(430px) {
         padding: 5px 0 5px 10px;
       }
