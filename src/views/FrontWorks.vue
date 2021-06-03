@@ -3,13 +3,13 @@
     <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="fw__inner otherpage__inner">
       <h1 class="fw__heading heading otherpage__heading">Front-end Works</h1>
-      <ul class="fw__lead otherpage__list">
+      <ul class="fw__lead otherpage__list wave-line">
         <li>年代別に掲載しています。</li>
         <li>
           <span class="em">大変申し訳ございませんが、2015年以降は制作物のデータを保存しておかなかったため、制作に携わったものを少ししか掲載できていません。</span>
         </li>
       </ul>
-      <div class="fw__block">
+      <div class="fw__block fw__block--1 wave-line">
         <h2 class="fw__secondary-heading">2017〜2019</h2>
         <div class="otherpage__lead">
           <p>
@@ -27,8 +27,11 @@
               <span class="text">ソーシャルゲームの特設ページ</span>
             </p>
             <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="31">
-              担当箇所：マークアップ / js<br>
-              対応デバイス：PC
+              ■ 担当箇所：マークアップ / js<br>
+              ■ 対応デバイス：PC<br>
+              ■ 機能：<br>
+              パララックス<br>
+              スクロールに合わせて薔薇が咲くモーション
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -40,8 +43,11 @@
               <span class="text">ゲームポータルサイト内コンテンツ</span>
             </p>
             <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="32">
-              担当箇所：js<br>
-              対応デバイス：PC
+              ■ 担当箇所：js<br>
+              ■ 対応デバイス：PC<br>
+              ■ 機能：<br>
+              スクロールの挙動（1スクロールで1画面ごとに遷移する）<br>
+              スライダー、アバターの着替え(API)、春夏秋冬の背景モーション（桜が舞う、夏の日差しがキラキラ、枯葉が落ちる、雪が降る）
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -53,8 +59,11 @@
               <span class="text">ゲームポータルサイト特設ページ</span>
             </p>
             <div class="fw__modaldesc" data-type="2" data-imglength="1" data-id="33">
-              担当箇所：マークアップ / js<br>
-              対応デバイス：PC
+              ■ 担当箇所：マークアップ / js<br>
+              ■ 対応デバイス：PC<br>
+              ■ 機能：<br>
+              マウスに合わせてキャラクターが動く（パララックス）<br>
+              canvasモーション、スクロールに合わせて要素を表示
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -66,13 +75,13 @@
               <span class="text">ゲームポータルサイトwebアプリ版</span>
             </p>
             <div class="fw__modaldesc" data-type="1" data-imglength="1" data-id="34">
-              担当箇所：サイト内コンテンツのフロント構築(react)<br>
-              対応デバイス：SP
+              ■ 担当箇所：サイト内コンテンツのフロント構築(react)<br>
+              ■ 対応デバイス：SP
             </div>
           </li>
         </ul>
       </div>
-      <div class="fw__block">
+      <div class="fw__block wave-line">
         <h2 class="fw__secondary-heading">2015〜2016</h2>
         <div class="otherpage__lead">
           <p>
@@ -80,7 +89,7 @@
           </p>
         </div>
       </div>
-      <div class="fw__block">
+      <div class="fw__block wave-line">
         <h2 class="fw__secondary-heading">2014</h2>
         <ul class="fw__thumb-lists">
           <li class="fw__thumb-list" @click="onModal">
@@ -194,7 +203,7 @@
           </li>
         </ul>
       </div>
-      <div class="fw__block">
+      <div class="fw__block wave-line">
         <h2 class="fw__secondary-heading">2012〜2013</h2>
         <ul class="fw__thumb-lists">
           <li class="fw__thumb-list" @click="onModal">
@@ -569,11 +578,16 @@ export default {
       if(!this.isMovie) {
         this.imgLength = dataLength;
       }
+      //後で余裕があったらハッシュタグで表示切り替え対応しておく
+      // const hash = '#' + this.dataID;
+      // location.hash = hash;
     },
     onClose() {
       const html = document.querySelector('.html');
       html.style.overflow = 'auto';
       this.isModal = false;
+      //後で余裕があったらハッシュタグで表示切り替え対応しておく
+      //location.hash = '';
     }
   }
 };
@@ -586,6 +600,9 @@ export default {
   }
   &__lead {
     margin-bottom: 60px;
+    @include max-screen($sp) {
+      margin-bottom: 30px;
+    }
     >li {
       .em {
         background-color:#f8f0eb;
@@ -593,9 +610,15 @@ export default {
     }
   }
   &__block {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
+    @include max-screen($sp) {
+      margin-bottom: 40px;
+    }
     &:last-child {
       margin-bottom: 0;
+    }
+    &--1 {
+      padding-bottom: 50px;
     }
   }
   &__secondary-heading {
@@ -603,6 +626,11 @@ export default {
     padding-left: 20px;
     position: relative;
     margin-bottom: 40px;
+    @include max-screen($sp) {
+      font-size: 18px;
+      padding-left: 16px;
+      margin-bottom: 15px;
+    }
     &:before {
       width: 5px;
       border-radius: 2px;
@@ -616,19 +644,20 @@ export default {
   }
   &__thumb-wrap {
     width: 180px;
-    height: 170px;
+    min-height: 120px;
     overflow: hidden;
     position: relative;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    @include max-screen($sp) {
+      margin-bottom: 5px;
+      width: 100%;
+    }
     img {
       width: 100%;
       display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
     }
     video {
       width: 100%;
@@ -638,6 +667,9 @@ export default {
     font-size: 12px;
     overflow-wrap: break-word;
     line-height: 22px;
+    @include max-screen($sp) {
+      line-height: 18px;
+    }
     .ico {
       background-color: #e8ebdc;
       color: #839149;
@@ -657,24 +689,47 @@ export default {
     .text {
       width: 100%;
       display: block;
+      @include max-screen($sp) {
+        padding-top: 5px;
+      }
     }
   }
   &__thumb-lists {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    @include max-screen($sp) {
+      justify-content: center;
+    }
   }
   &__thumb-list {
     margin-bottom: 30px;
     padding: 10px;
     box-sizing: border-box;
     max-width: 200px;
+    @include max-screen($sp) {
+      margin-bottom: 15px;
+      width: 50%;
+    }
     &:nth-child(4) {
       margin-right: 0;
+    }
+    &:nth-child(odd){
+      @include max-screen(430px) {
+        padding: 5px 10px 5px 0;
+      }
+    }
+    &:nth-child(even){
+      @include max-screen(430px) {
+        padding: 5px 0 5px 10px;
+      }
     }
     &:hover {
       background-color: #eee;
       cursor: pointer;
+      @include max-screen($sp) {
+        background-color: inherit;
+      }
     }
   }
   &__modaldesc {

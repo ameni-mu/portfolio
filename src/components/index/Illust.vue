@@ -53,7 +53,7 @@ export default {
     padding-bottom: 140px;
     @include max-screen($sp) {
       padding-top: 100px;
-      padding-bottom: 100px;
+      padding-bottom: 80px;
     }
   }
   .section__inner {
@@ -62,6 +62,9 @@ export default {
   &__text {
     line-height: 28px;
     margin-bottom: 60px;
+    @include max-screen($sp) {
+      margin-bottom: 40px;
+    }
   }
   &__lead {
     font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
@@ -70,10 +73,16 @@ export default {
     font-size: 24px;
     text-align: center;
     margin-bottom: 10px;
+    @include max-screen($sp) {
+      font-size: 20px;
+    }
     > span {
       display: inline-block;
       padding-bottom: 5px;
       border-bottom: 7px solid #fef3ec;
+      @include max-screen($sp) {
+        border-bottom: 5px solid #fef3ec;
+      }
     }
   }
   &__lists {
@@ -92,6 +101,7 @@ export default {
     box-sizing: border-box;
     @include max-screen($sp) {
       margin-bottom: 20px;
+      width: 50%;
     }
     > img {
       width: 100%;
@@ -106,6 +116,10 @@ export default {
     letter-spacing: 1px;
     position: relative;
     padding-bottom: 10px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      padding: 4px 0;
+    }
     &:after {
       content: "";
       height: 4px;

@@ -143,7 +143,7 @@
         </div>
       </div>
       <div class="illust__block">
-        <h2 class="illust__secondary-heading" id="illustflow">
+        <h2 class="illust__third-heading" id="illustflow">
           <span>ご依頼から納品までの流れ</span>
         </h2>
         <p class="illust__text">1、2、3は順番が前後する可能性がございます。</p>
@@ -287,12 +287,20 @@ export default {
   &__text {
     line-height: 30px;
     font-size: 16px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 22px;
+    }
     .sup {
       font-size: 12px;
     }
   }
   &__prof {
     margin-bottom: 30px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
   &__lead {
     font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
@@ -302,10 +310,17 @@ export default {
     text-align: center;
     margin-bottom: 10px;
     padding-top: 50px;
+    @include max-screen($sp) {
+      font-size: 18px;
+      padding-top: 30px;
+    }
     > span {
       display: inline-block;
       padding-bottom: 5px;
       border-bottom: 7px solid #f7efe9;
+      @include max-screen($sp) {
+        border-bottom: 5px solid #f7efe9;
+      }
     }
   }
   &__lists {
@@ -315,11 +330,30 @@ export default {
     padding-top: 25px;
     margin-bottom: 100px;
     padding-bottom: 80px;
+    @include max-screen($tablet) {
+      padding-top: 20px;
+      margin-bottom: 50px;
+    }
+    @include max-screen($sp) {
+      padding-top: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 50px;
+      flex-wrap:wrap;
+      justify-content: center;
+    }
   }
   &__list {
     width: 200px;
     padding: 0 9px;
     box-sizing: border-box;
+    @include max-screen($sp) {
+      width: 50%;
+      max-width: 150px;
+      margin-bottom: 5px;
+    }
+    a {
+      display: block;
+    }
     img {
       width: 100%;
       margin-bottom: 5px;
@@ -339,6 +373,10 @@ export default {
     letter-spacing: 1px;
     position: relative;
     padding-bottom: 10px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      padding: 0;
+    }
   }
   &__secondary-heading {
     font-size: 22px;
@@ -349,6 +387,10 @@ export default {
     letter-spacing: 3px;
     font-size: 34px;
     text-align: center;
+    @include max-screen($sp) {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
     > span {
       display: inline-block;
       position: relative;
@@ -363,12 +405,59 @@ export default {
         z-index: -1;
         bottom: -13px;
         //background-image: url("../assets/img/common/bg_dot.svg");
+        @include max-screen($sp) {
+          height: 16px;
+          bottom: -5px;
+        }
+      }
+    }
+  }
+  &__third-heading {
+    font-size: 22px;
+    position: relative;
+    margin-bottom: 50px;
+    font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+      "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    letter-spacing: 3px;
+    font-size: 34px;
+    text-align: center;
+    @include max-screen($sp) {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    > span {
+      display: inline-block;
+      position: relative;
+      padding: 0 18px;
+      @include max-screen($sp) {
+        padding: 0 0 10px 0;
+        background-color: #f4ede9;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: #f4ede9;
+        z-index: -1;
+        bottom: -13px;
+        //background-image: url("../assets/img/common/bg_dot.svg");
+        @include max-screen($sp) {
+          display: none;
+        }
       }
     }
   }
   &__block {
     padding-bottom: 50px;
     margin-bottom: 120px;
+    @include max-screen($tablet) {
+      margin-bottom: 50px;
+    }
+    @include max-screen($sp) {
+      margin-bottom: 30px;
+    }
     &:last-child {
       background-image: none;
       padding-bottom: 0;
@@ -379,11 +468,20 @@ export default {
     margin-top: 30px;
     margin-bottom: 80px;
     overflow: hidden;
+    @include max-screen($tablet) {
+      margin-bottom: 50px;
+    }
+    @include max-screen($sp) {
+      margin-bottom: 0;
+    }
   }
   &__flow {
     width: 100%;
     position: relative;
     margin-top: 40px;
+    @include max-screen($sp) {
+      margin-top: 20px;
+    }
   }
   &__flow-li {
     font-size: 16px;
@@ -394,6 +492,12 @@ export default {
     padding-left: 50px;
     padding-top: 5px;
     box-sizing: border-box;
+    @include max-screen($sp) {
+      padding-bottom: 20px;
+      font-size: 14px;
+      line-height: 22px;
+      padding-left: 40px;
+    }
     &:last-child {
       &:after {
         display: none;
@@ -404,6 +508,11 @@ export default {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;
+    @include max-screen($sp) {
+      font-size: 16px;
+      margin-bottom: 10px;
+      padding-top: 4px;
+    }
   }
   &__flow-num {
     position: absolute;
@@ -416,6 +525,9 @@ export default {
     color: #8b976c;
     font-weight: bold;
     text-align: center;
+    @include max-screen($sp) {
+      line-height: 30px;
+    }
   }
   // swiper
   .swiper-slide {
@@ -438,6 +550,12 @@ export default {
     position: relative;
     overflow: inherit;
     padding-bottom: 35px;
+    @include max-screen($tablet) {
+      height: auto;
+    }
+    @include max-screen($sp) {
+      padding-bottom: 25px;
+    }
   }
   .swiper_wrapper {
     box-sizing: content-box;
@@ -449,6 +567,19 @@ export default {
     background-position: center;
     background-size: 60px auto;
     margin-top: -60px;
+    background-repeat: no-repeat;
+    @include max-screen($tablet) {
+      background-size: 40px auto;
+      width: 50px;
+      height: 50px;
+      margin-top: -50px;
+    }
+    @include max-screen($sp) {
+      background-size: 30px auto;
+      width: 40px;
+      height: 40px;
+      margin-top: -40px;
+    }
     &:after {
       display: none;
     }
@@ -464,6 +595,19 @@ export default {
     background-size: 60px auto;
     transform: scale(-1, 1);
     margin-top: -60px;
+    background-repeat: no-repeat;
+    @include max-screen($tablet) {
+      background-size: 40px auto;
+      width: 50px;
+      height: 50px;
+      margin-top: -50px;
+    }
+    @include max-screen($sp) {
+      background-size: 30px auto;
+      width: 40px;
+      height: 40px;
+      margin-top: -40px;
+    }
     &:after {
       display: none;
     }
@@ -493,6 +637,10 @@ export default {
     height: 16px;
     background-color: #b79590 !important;
     opacity: 1;
+    @include max-screen($sp) {
+      width: 10px;
+      height: 10px;
+    }
   }
   :root {
     --swiper-theme-color: #fff;

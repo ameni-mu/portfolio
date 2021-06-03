@@ -32,6 +32,10 @@ export default {
   text-align: center;
   background: #fff;
   z-index: 10;
+  @include max-screen($sp) {
+    font-size: 12px;
+    min-height: 40px;
+  }
   &--style1 {
     background-color: #ffffff;
     &:after {
@@ -55,6 +59,10 @@ export default {
     width: 100%;
     line-height: 100px;
     color: #999999;
+    @include max-screen($sp) {
+      height: 60px;
+      line-height: 60px;
+    }
   }
   &__to-pagetop {
     width: 50px;

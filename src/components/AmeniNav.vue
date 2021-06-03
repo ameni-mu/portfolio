@@ -76,7 +76,7 @@
           >
         </li>
       </ul>
-      <p class="sp-nav__close" @click="onNavClose">close</p>
+      <p class="sp-nav__close nav__icon nav__icon--close" @click="onNavClose">close</p>
     </div>
   </div>
 </template>
@@ -170,13 +170,6 @@ export default {
     text-align: center;
   }
   &__close {
-    background-color: #e0dcda;
-    padding: 10px 30px;
-    border-radius: 10px;
-    display: inline-block;
-    color: #888888;
-    margin-top: 30px;
-    cursor: pointer;
   }
 }
 .nav {
@@ -212,15 +205,21 @@ export default {
     position: fixed;
     z-index: 9200;
     text-indent: -9999px;
-    left: 30px;
+    right: 30px;
     top: 30px;
     cursor: pointer;
     display: none;
     @include max-screen($tablet) {
       display: block;
+      width: 40px;
+      height: 40px;
+      background-size: 25px auto;
     }
     &--open {
       background-image: url("../assets/img/common/ico_open.svg");
+    }
+    &--close {
+      background-image: url("../assets/img/common/ico_close.svg");
     }
   }
   &__inner {

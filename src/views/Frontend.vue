@@ -34,7 +34,6 @@
             <p class="front__skill-ttl">できること</p>
             <p class="front__skill-detail">
               マークアップ / JS <br>
-              勉強中…PHP Laravel<br>
             </p>
           </li>
           <li>
@@ -94,7 +93,7 @@
       </div>
       <div class="front__block">
         <h2 class="front__secondary-heading">勉強中</h2>
-        <p class="front__text">Vue Nuxt</p>
+        <p class="front__text">Vue Nuxt / Laravel</p>
       </div>
     </div>
 
@@ -200,18 +199,32 @@ export default {
     margin-bottom: 40px;
     line-height: 28px;
     font-size: 16px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
   }
   &__block {
     margin-bottom: 80px;
+    @include max-screen($sp) {
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
   }
   &__link {
     width: 100%;
     display: block;
     height: 40px;
     margin-bottom: 70px;
+    @include max-screen($sp) {
+      margin-bottom: 30px;
+    }
     li {
       float: left;
       padding-left: 30px;
+      @include max-screen($sp) {
+        padding-left: 15px;
+      }
       &:first-child {
         padding-left: 0;
       }
@@ -221,10 +234,16 @@ export default {
       display: inline-block;
       padding-left: 5px;
       letter-spacing: 1px;
+      @include max-screen($sp) {
+        font-size: 14px;
+      }
     }
     a {
       color: #666666;
       font-size: 20px;
+      @include max-screen($sp) {
+        font-size: 14px;
+      }
     }
   }
   &__secondary-heading {
@@ -232,6 +251,11 @@ export default {
     padding-left: 20px;
     position: relative;
     margin-bottom: 20px;
+    @include max-screen($sp) {
+      font-size: 18px;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
     &:before {
       width: 5px;
       border-radius: 2px;
@@ -246,10 +270,18 @@ export default {
   &__text {
     font-size: 16px;
     line-height: 28px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 22px;
+    }
     > li {
       padding-left: 15px;
       position: relative;
       margin-bottom: 3px;
+      @include max-screen($sp) {
+        margin-bottom: 0;
+        padding-left: 8px;
+      }
       &:before {
         content: "";
         position: absolute;
@@ -260,6 +292,9 @@ export default {
         height: 4px;
         border-radius: 4px;
         display: block;
+        @include max-screen($sp) {
+          top: 10px;
+        }
       }
     }
   }
@@ -271,6 +306,9 @@ export default {
       width: 800px;
       border-bottom: 2px solid #f2f0ef;
       box-sizing: border-box;
+      @include max-screen($tablet) {
+        width: 100%;
+      }
       &:last-child {
         border-bottom: none;
       }
@@ -280,16 +318,27 @@ export default {
     width: 200px;
     padding: 20px;
     box-sizing: border-box;
+    @include max-screen($sp) {
+      padding: 7px 10px;
+      line-height: 22px;
+    }
   }
   &__skill-detail {
     width: 600px;
     border-left: 2px solid #f2f0ef;
     padding: 20px 30px 20px 20px;
     box-sizing: border-box;
+    @include max-screen($sp) {
+      padding: 7px 15px;
+      line-height: 22px;
+    }
     .em {
       font-size: 14px;
       line-height: 20px;
       display: inline-block;
+      @include max-screen($sp) {
+        font-size: 12px;
+      }
     }
   }
   .authentication-block {
@@ -313,6 +362,11 @@ export default {
       text-align: center;
       position: fixed;
       z-index: 9001;
+      @include max-screen($sp) {
+        width: 94%;
+        left: 3%;
+        margin-left: auto;
+      }
       input[type="text"] {
         display: inline-block;
         margin-left: 15px;
@@ -322,6 +376,9 @@ export default {
         box-sizing: border-box;
         width: 150px;
         padding: 0 10px;
+        @include max-screen($sp) {
+          margin-left: 10px;
+        }
       }
       label {
         width: 30%;
@@ -337,6 +394,9 @@ export default {
           padding: 14px 25px 14px 25px;
           margin-right: 15px;
           border-color: #999999;
+          @include max-screen($sp) {
+            padding: 9px 20px 9px 20px;
+          }
           &:after {
             display: none;
           }
@@ -356,6 +416,9 @@ export default {
     &__block {
       margin-top: 15px;
       display: flex;
+      @include max-screen($sp) {
+        margin-top: 5px;
+      }
     }
   }
 }

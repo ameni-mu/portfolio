@@ -36,12 +36,16 @@ export default {
   padding-top: 150px;
   padding-bottom: 150px;
   @include max-screen($sp) {
-    padding-top: 100px;
+    padding-top: 70px;
   }
   &__title {
     font-size: 16px;
     line-height: 30px;
     margin-bottom: 15px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
   &__btn {
     margin-bottom: 30px;

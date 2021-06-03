@@ -18,6 +18,11 @@ html {
   color: #333333;
   height: 100%;
   min-height: 100%;
+  position: relative;
+  @include max-screen($sp) {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 body {
   height: 100%;

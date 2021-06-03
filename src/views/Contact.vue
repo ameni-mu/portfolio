@@ -56,13 +56,24 @@ export default {
     font-size: 16px;
     line-height: 30px;
     margin-bottom: 15px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
   }
   &__btn {
     margin-bottom: 30px;
     padding-bottom: 30px;
+    @include max-screen($sp) {
+      margin-bottom: 0;
+    }
   }
   &__heading {
     margin-bottom: 70px;
+    @include max-screen($sp) {
+      margin-bottom: 30px;
+    }
   }
 }
 </style>

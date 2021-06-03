@@ -98,7 +98,9 @@ export default {
   },
   data() {
     return {
+      isResize: false,
       isMinH: false,
+      isMinW: false,
       isCvs: true,
       stage: {},
       ctx: {},
@@ -131,6 +133,7 @@ export default {
       this.isMinH = true;
       this.winH = "800";
     }
+    this.isMinW = window.innerWidth <= 740 ? true : false;
     //パララックス背景の高さを指定
     // const h = this.winH * 5;
     // this.bg1.style.height = h + 'px';
@@ -208,7 +211,8 @@ export default {
       };
     },
     renderCircle() {
-      //this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
+      this.animation = window.requestAnimationFrame(this.renderCircle.bind(this));
+      if(this.isMinW) return;
       // bg dot パララックス用
       // this.bgCalc1 += ~~Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
       // this.bgCalc2 += ~~Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
@@ -390,8 +394,12 @@ export default {
     // window resize
     //-------------------
     onResize() {
+      if(this.isResize) return;
+      this.isResize = true;
+      const _this = this;
       setTimeout(() => {
-        this.isResize = true;
+        _this.isMinW = window.innerWidth <= 740 ? true : false;
+        _this.isResize = false;
       }, 300);
     },
   },
@@ -406,6 +414,7 @@ export default {
 }
 .index {
   position: relative;
+  overflow: hidden;
   &__bg {
     position: fixed;
     top: 0;

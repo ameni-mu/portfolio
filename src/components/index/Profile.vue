@@ -41,6 +41,9 @@ export default {
   }
   &__heading {
     margin-bottom: 60px;
+    @include max-screen($sp) {
+      margin-bottom: 40px;
+    }
   }
   &__name {
     font-size: 22px;
@@ -69,6 +72,9 @@ export default {
     > p {
       line-height: 26px;
       font-size: 16px;
+      @include max-screen($sp) {
+        font-size: 14px;
+      }
     }
   }
   &__lead {
@@ -80,6 +86,9 @@ export default {
       position: relative;
       padding-left: 18px;
       line-height: 24px;
+      @include max-screen($sp) {
+        line-height: 20px;
+      }
       &:before {
         content: "・";
         position: absolute;

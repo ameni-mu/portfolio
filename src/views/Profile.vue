@@ -141,6 +141,19 @@ export default {
   }
   &__heading {
     margin-bottom: 70px;
+    @include max-screen($sp) {
+      margin-bottom: 40px;
+    }
+  }
+  &__block {
+    @include max-screen($sp) {
+      padding-bottom: 40px;
+      //border-bottom: 1px solid #f2f0ef;
+      background-image: url("../assets/img/common/bg_wave_line.svg");
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-size: 150px auto;
+    }
   }
   &__name {
     font-size: 22px;
@@ -168,6 +181,11 @@ export default {
   &__text {
     line-height: 28px;
     font-size: 16px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 24px;
+      margin-bottom:20px;
+    }
   }
   &__secondary-heading {
     margin-top: 160px;
@@ -180,6 +198,12 @@ export default {
     padding-bottom: 20px;
     margin-bottom: 40px;
     position: relative;
+    @include max-screen($sp) {
+      margin-top: 50px;
+      font-size:20px;
+      padding-bottom: 14px;
+      margin-bottom: 30px;
+    }
     &:after {
       content: "";
       width: 125px;
@@ -189,12 +213,19 @@ export default {
       left: 50%;
       bottom: 0;
       margin-left: -62px;
+      @include max-screen($sp) {
+        width: 100px;
+        margin-left: -50px;
+      }
     }
   }
   &__career {
     width: 100%;
     position: relative;
     margin-bottom: 200px;
+    @include max-screen($sp) {
+      margin-bottom: 0;
+    }
     &:before {
       content: "";
       height: 100%;
@@ -204,6 +235,9 @@ export default {
       top: 5px;
       left: 76px;
       border-radius: 2px;
+      @include max-screen($sp) {
+        display: none;
+      }
     }
     &:after {
       content: "";
@@ -216,6 +250,9 @@ export default {
       position: absolute;
       bottom: -11px;
       left: 58px;
+      @include max-screen($sp) {
+        display: none;
+      }
     }
   }
   &__career-li {
@@ -224,20 +261,36 @@ export default {
     width: 100%;
     flex-direction: row;
     padding-bottom: 45px;
+    @include max-screen($sp) {
+      display: block;
+      padding-bottom: 25px;
+      font-size: 14px;
+    }
   }
   &__year {
     letter-spacing: 2px;
     font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
       "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
     font-size: 20px;
-    font-weight: 200;
+    font-weight: bold;
     width: 125px;
     margin: 0;
     color: #83954b;
+    @include max-screen($sp) {
+      width: 100%;
+      margin-bottom: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
     > span {
       display: inline-block;
       padding-right: 30px;
       position: relative;
+      @include max-screen($sp) {
+        background-color: #e8ebdc;
+        border-radius: 4px;
+        padding: 5px 20px;
+      }
       &:after {
         content: "";
         position: absolute;
@@ -247,6 +300,9 @@ export default {
         border-radius: 10px;
         left: 70px;
         top: 5px;
+        @include max-screen($sp) {
+          display: none;
+        }
       }
     }
   }
@@ -254,6 +310,9 @@ export default {
     width: 675px;
     margin: 0;
     line-height: 28px;
+    @include max-screen($sp) {
+      width: 100%;
+    }
   }
   &__sup {
     font-size: 14px;
@@ -276,6 +335,9 @@ export default {
       top: 5px;
       left: 76px;
       border-radius: 2px;
+      @include max-screen($sp) {
+        display: none;
+      }
     }
     &:after {
       content: "";
@@ -288,6 +350,9 @@ export default {
       position: absolute;
       bottom: -11px;
       left: 58px;
+      @include max-screen($sp) {
+        display: none;
+      }
     }
   }
   &__sche-li {
@@ -297,9 +362,18 @@ export default {
     flex-direction: row;
     padding-bottom: 45px;
     line-height: 28px;
+    @include max-screen($sp) {
+      display: block;
+      font-size: 14px;
+      padding-bottom: 25px;
+    }
     .em {
       color: #b5983c;
       font-size: 20px;
+      @include max-screen($sp) {
+        font-size: 16px;
+        font-weight: bold;
+      }
     }
   }
   &__time {
@@ -315,6 +389,16 @@ export default {
       display: inline-block;
       padding-right: 30px;
       position: relative;
+      @include max-screen($sp) {
+        background-color: #fcf7df;
+        color: #d6b931;
+        border-radius: 4px;
+        padding: 0px 20px;
+        font-weight: bold;
+        font-size: 14px;
+        height: auto;
+        margin-bottom: 6px;
+      }
       &:after {
         content: "";
         position: absolute;
@@ -324,6 +408,9 @@ export default {
         border-radius: 10px;
         left: 70px;
         top: 5px;
+        @include max-screen($sp) {
+          display: none;
+        }
       }
     }
     &--work {
@@ -340,9 +427,15 @@ export default {
   }
   &__height-margin--1 {
     padding-bottom: 120px;
+    @include max-screen($sp) {
+      padding-bottom: 0;
+    }
   }
   &__height-margin--2 {
     padding-bottom: 40px;
+    @include max-screen($sp) {
+      padding-bottom: 0;
+    }
   }
 }
 </style>
