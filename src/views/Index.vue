@@ -13,6 +13,16 @@
       }"
       class="wave wave--bottom"
     >
+      <div class="loader ball-spin-fade-loader" v-if="isLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div class="main__container">
         <h1 class="main__logo">
           <img
@@ -115,38 +125,47 @@ export default {
       bgCalc3: 0,
       scrollY: 0,
       animation: function () {},
+      isLoading: true,
+      mainAnimated: false,
     };
   },
   mounted() {
-    this.bg1 = document.querySelector(".index__bg1");
-    this.bg2 = document.querySelector(".index__bg2");
-    this.bg3 = document.querySelector(".index__bg3");
-    //各sctionの高さを設定
-    //800より小さければそれ以上コンテンツを可変しない
+    const _this = this;
     this.winH = window.innerHeight;
     if (this.winH < 800) {
       this.isMinH = true;
       this.winH = "800";
     }
     this.isMinW = window.innerWidth <= 740 ? true : false;
-    //パララックス背景の高さを指定
-    // const h = this.winH * 5;
-    // this.bg1.style.height = h + 'px';
-    // this.bg2.style.height = h + 'px';
-    // this.bg3.style.height = h + 'px';
+    if (this.isMinW) this.isLoading = false;
 
-    //canvasの設定
-    this.stage = document.querySelector("canvas");
-    if (!this.stage || !this.stage.getContext) {
-      this.isCvs = false;
-    } else {
-      this.ctx = this.stage.getContext("2d");
-      this.initStage();
-    }
-    //resize event
-    window.addEventListener("resize", this.onResize);
-    //scroll event
-    window.addEventListener("scroll", this.onScroll);
+    setTimeout(() => {
+      _this.isLoading = false;
+      _this.bg1 = document.querySelector(".index__bg1");
+      _this.bg2 = document.querySelector(".index__bg2");
+      _this.bg3 = document.querySelector(".index__bg3");
+      //各sctionの高さを設定
+      //800より小さければそれ以上コンテンツを可変しない
+
+      //パララックス背景の高さを指定
+      // const h = _this.winH * 5;
+      // _this.bg1.style.height = h + 'px';
+      // _this.bg2.style.height = h + 'px';
+      // _this.bg3.style.height = h + 'px';
+
+      //canvasの設定
+      _this.stage = document.querySelector("canvas");
+      if (!_this.stage || !_this.stage.getContext) {
+        _this.isCvs = false;
+      } else {
+        _this.ctx = _this.stage.getContext("2d");
+        _this.initStage();
+      }
+      //resize event
+      window.addEventListener("resize", _this.onResize);
+      //scroll event
+      window.addEventListener("scroll", _this.onScroll);
+    }, 600);
   },
   unmounted() {
     window.removeEventListener("resize", this.onResize);
@@ -304,12 +323,15 @@ export default {
       this.ctx.fill();
     },
     beforeEnter(el) {
+      if (this.isMinW) return;
       gsap.set(el, {
         duration: 0,
         translateY: 30,
       });
     },
     enter(el, done) {
+      if (this.isMinW) return;
+      this.mainAnimated = true;
       const logo = document.getElementsByClassName("main__logo");
       const lead = document.getElementsByClassName("main__lead");
       const nav = document.getElementsByClassName("main__nav-li");
@@ -317,7 +339,9 @@ export default {
       const obj1 = document.getElementsByClassName("main__deco-img--1");
       const obj2 = document.getElementsByClassName("main__deco-img--2");
       const scroll = document.getElementsByClassName("main__scroll");
-      gsap.to(el, {
+      const cvs = el || document.getElementsByClassName("cvs");
+
+      gsap.to(cvs, {
         duration: 0.2,
         translateY: -30,
         opacity: 0.8,
@@ -329,7 +353,6 @@ export default {
         translateY: 0,
         opacity: 1,
         ease: "easeInOut",
-        onComplete: done,
       });
       gsap.to(logo, {
         delay: 0.4,
@@ -385,6 +408,7 @@ export default {
         duration: 0.3,
         opacity: 1,
         ease: "CircIn",
+        onComplete: done,
       });
     },
     //-------------------
@@ -397,6 +421,10 @@ export default {
       setTimeout(() => {
         _this.isMinW = window.innerWidth <= 740 ? true : false;
         _this.isResize = false;
+        if (!_this.mainAnimated) {
+          _this.enter();
+          _this.renderCircle();
+        }
       }, 300);
     },
   },
@@ -412,6 +440,16 @@ export default {
 .index {
   position: relative;
   overflow: hidden;
+  .ball-spin-fade-loader {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    z-index: 9 !important;
+    margin-top: -60px;
+    > div {
+      background-color: #f1bcb5 !important;
+    }
+  }
   &__bg {
     position: fixed;
     top: 0;
@@ -443,8 +481,10 @@ export default {
     @include max-screen($sp) {
       width: auto;
       box-sizing: border-box;
-      padding-right: 40px;
-      padding-left: 40px;
+      display: block;
+      padding: 30px;
+      height: auto;
+      min-height: auto;
     }
     &__container {
       height: 530px;
@@ -455,9 +495,9 @@ export default {
         margin-top: 0;
         background-color: #ffffff;
         width: 100%;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        border-radius: 120px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        border-radius: 90px;
         height: auto;
         overflow: hidden;
       }
@@ -467,6 +507,10 @@ export default {
       height: auto;
       margin: 0 auto 20px auto;
       opacity: 0;
+      @include max-screen($sp) {
+        opacity: 1;
+        width: 130px;
+      }
     }
     &__lead {
       position: relative;
@@ -477,15 +521,16 @@ export default {
       font-size: 12px;
       opacity: 0;
       @include max-screen($sp) {
-        margin-right: 60px;
-        margin-left: 60px;
+        margin-right: 30px;
+        margin-left: 30px;
         line-height: 24px;
-        text-align: left;
+        margin-bottom: 10px;
+        opacity: 1;
       }
       br {
         display: none;
         @include max-screen($sp) {
-          display: block;
+          //display: block;
         }
       }
       &:before {
@@ -510,7 +555,8 @@ export default {
     }
     &__nav {
       font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
-        "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+        "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+        "メイリオ", Meiryo, sans-serif;
       font-size: 16px;
       font-weight: 200;
       letter-spacing: 3px;
@@ -518,15 +564,17 @@ export default {
       display: flex;
       justify-content: center;
       @include max-screen($sp) {
-        margin: 0 40px 40px 40px;
+        margin: 0 40px 50px 40px;
         flex-wrap: wrap;
+        font-size: 14px;
       }
       > li {
         padding: 0 9px;
         opacity: 0;
         transform: translateY(10px);
         @include max-screen($sp) {
-          margin-bottom: 10px;
+          margin-bottom: 0;
+          opacity: 1;
         }
         a {
           display: inline-block;
@@ -595,6 +643,8 @@ export default {
       @include max-screen($sp) {
         position: static;
         margin-left: auto;
+        width: 120px;
+        opacity: 1;
       }
     }
     &__deco-img--1 {
@@ -611,6 +661,9 @@ export default {
       animation-duration: 1.5s;
       @include max-screen($sp) {
         bottom: 110px;
+        width: 210px;
+        margin-left: -105px;
+        opacity: 1;
       }
     }
     &__deco-img--2 {
@@ -626,12 +679,16 @@ export default {
       animation-direction: alternate;
       animation-duration: 1.5s;
       @include max-screen($sp) {
-        bottom: 110px;
+        bottom: 120px;
+        width: 350px;
+        margin-left: -175px;
+        opacity: 1;
       }
     }
     &__scroll {
       font-family: "Raleway", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
-        "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+        "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+        "メイリオ", Meiryo, sans-serif;
       font-weight: 200;
       position: absolute;
       bottom: -30px;
@@ -648,7 +705,12 @@ export default {
       text-indent: 2px;
       opacity: 0;
       @include max-screen($sp) {
-        bottom: 0;
+        bottom: 20px;
+        opacity: 1;
+        width: 50px;
+        margin-left: -25px;
+        height: 30px;
+        padding-top: 20px;
       }
       &:before {
         content: "";
@@ -661,6 +723,10 @@ export default {
         background-image: url("../assets/img/index/arrow.svg");
         background-repeat: no-repeat;
         background-size: 30px 30px;
+        @include max-screen($sp) {
+          background-size: 20px auto;
+          margin-left: -10px;
+        }
       }
     }
   }
@@ -673,6 +739,7 @@ export default {
     justify-content: center;
     align-items: center;
     position: absolute;
+    z-index: 10;
     @include max-screen($sp) {
       display: none;
     }

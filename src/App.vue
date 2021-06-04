@@ -13,7 +13,8 @@ export default {
 <style lang="scss">
 html {
   font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
-    "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #333333;
   height: 100%;

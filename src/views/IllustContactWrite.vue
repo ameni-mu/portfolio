@@ -306,6 +306,9 @@ export default {
     const attention = document.getElementById("attentionCheck");
     attention.checked = this.$store.state.inputData.illustForm.attentionCheck;
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   computed: {
     companyName() {
       return this.$store.state.inputData.illustForm.companyName || "";

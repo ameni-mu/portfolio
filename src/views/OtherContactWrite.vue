@@ -124,6 +124,9 @@ export default {
     this.inputData.mailAddress = this.mailAddress;
     this.inputData.message = this.message;
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   computed: {
     companyName() {
       return this.$store.state.inputData.otherForm.companyName || "";

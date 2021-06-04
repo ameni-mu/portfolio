@@ -60,6 +60,9 @@ export default {
       return this.$store.state.inputData.otherForm.message;
     },
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   methods: {
     beforeunload(e) {
       console.log("beforeunload");

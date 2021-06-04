@@ -1,5 +1,6 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:8080");
 header("Content-type: application/json; charset=UTF-8");
 
 $companyName = htmlspecialchars($_POST['companyName'], ENT_QUOTES);

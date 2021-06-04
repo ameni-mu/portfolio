@@ -52,8 +52,8 @@ export default {
     padding-top: 150px;
     padding-bottom: 140px;
     @include max-screen($sp) {
-      padding-top: 100px;
-      padding-bottom: 80px;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
   }
   .section__inner {
@@ -63,7 +63,8 @@ export default {
     line-height: 28px;
     margin-bottom: 60px;
     @include max-screen($sp) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      line-height: 24px;
     }
   }
   &__lead {
@@ -93,6 +94,7 @@ export default {
     @include max-screen($sp) {
       flex-wrap: wrap;
       justify-content: center;
+      padding-top: 10px;
     }
   }
   &__list {
@@ -106,6 +108,9 @@ export default {
     > img {
       width: 100%;
       margin-bottom: 5px;
+      @include max-screen($sp) {
+        margin-bottom: 0;
+      }
     }
   }
   &__list-ti {

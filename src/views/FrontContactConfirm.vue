@@ -80,9 +80,11 @@ export default {
       window.removeEventListener("beforeunload", this.beforeunload, false);
     }
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   methods: {
     beforeunload(e) {
-      console.log("beforeunload");
       var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;

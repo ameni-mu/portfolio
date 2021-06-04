@@ -3,13 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./assets/scss/reset.css";
-import animateCss from "animate.css";
 import swiperCss from "swiper/swiper.scss";
 import swiperzNav from "swiper/components/navigation/navigation.min.css";
 import swiperPagination from "swiper/components/pagination/pagination.min.css";
+import loaders from "loaders.css";
 
 const app = createApp(App)
-  .use(animateCss)
+  .use(loaders)
   .use(swiperCss)
   .use(swiperzNav)
   .use(swiperPagination)

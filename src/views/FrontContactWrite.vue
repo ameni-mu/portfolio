@@ -160,6 +160,9 @@ export default {
     this.inputData.budget = this.budget;
     this.inputData.detailtext = this.detailtext;
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   computed: {
     companyName() {
       return this.$store.state.inputData.frontForm.companyName || "";

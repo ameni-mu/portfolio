@@ -13,9 +13,17 @@
       <p class="contact__title">
         フロント構築のご依頼、ご相談はこちらのメールフォームからお問い合わせください。
       </p>
-      <p class="contact__btn btn btn--red">
-        <router-link to="/frontcontact"
+      <p class="contact__btn btn btn--red bottom-line--pink">
+        <router-link to="/frontcontact/frontcontactwrite/"
           >フロント構築 / 専用メールフォームへ</router-link
+        >
+      </p>
+      <p class="contact__title">
+        上記以外のその他のお問い合わせはこちらからお願いします。
+      </p>
+      <p class="contact__btn btn btn--red">
+        <router-link to="/othercontact/othercontactwrite"
+          >その他のお問い合わせ</router-link
         >
       </p>
     </div>
@@ -34,9 +42,10 @@ export default {
   background-color: #f9f2ef;
   min-height: auto;
   padding-top: 150px;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   @include max-screen($sp) {
-    padding-top: 70px;
+    padding-top: 40px;
+    padding-bottom: 60px;
   }
   &__title {
     font-size: 16px;

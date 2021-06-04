@@ -107,9 +107,12 @@
       <div class="authentication-block__block">
         <label for="pass" class="label">PASS</label>
         <div class="input-wrap">
-          <input type="text" name="pass" id="pass" v-model="fwpass" />
+          <input type="password" name="pass" id="pass" v-model="fwpass" />
         </div>
       </div>
+      <p class="authentication-block__note">
+        ＊大変申し訳ございませんが、簡易的なものなのでリロードすると認証が切れてしまいます。
+      </p>
       <div class="btn btn--red">
         <a href="#" @click="returnPage" class="return">戻る</a>
         <a href="#" @click="authenticate">OK</a>
@@ -345,7 +348,7 @@ export default {
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 9000;
+    z-index: 9999;
     left: 0;
     top: 0;
     &__inner {
@@ -359,13 +362,14 @@ export default {
       padding: 30px;
       text-align: center;
       position: fixed;
-      z-index: 9001;
+      z-index: 9999;
       @include max-screen($sp) {
         width: 94%;
         left: 3%;
         margin-left: auto;
       }
-      input[type="text"] {
+      input[type="text"],
+      input[type="password"] {
         display: inline-block;
         margin-left: 15px;
         border: 1px solid #999;
@@ -374,6 +378,7 @@ export default {
         box-sizing: border-box;
         width: 150px;
         padding: 0 10px;
+        outline: none;
         @include max-screen($sp) {
           margin-left: 10px;
         }
@@ -417,6 +422,12 @@ export default {
       @include max-screen($sp) {
         margin-top: 5px;
       }
+    }
+    &__note {
+      color: #e08c69;
+      font-size: 14px;
+      line-height: 20px;
+      padding-top: 20px;
     }
   }
 }

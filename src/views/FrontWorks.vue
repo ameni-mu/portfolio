@@ -22,7 +22,7 @@
         <ul class="fw__thumb-lists">
           <li class="fw__thumb-list" @click="onModal">
             <div class="fw__thumb-wrap">
-              <video src="../assets/img/frontworks/31/1.mp4"></video>
+              <img src="../assets/img/frontworks/31/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
               <span class="ico">movie</span>
@@ -43,7 +43,7 @@
           </li>
           <li class="fw__thumb-list" @click="onModal">
             <div class="fw__thumb-wrap">
-              <video src="../assets/img/frontworks/32/1.mp4"></video>
+              <img src="../assets/img/frontworks/32/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
               <span class="ico">movie</span>
@@ -64,7 +64,7 @@
           </li>
           <li class="fw__thumb-list" @click="onModal">
             <div class="fw__thumb-wrap">
-              <video src="../assets/img/frontworks/33/1.mp4"></video>
+              <img src="../assets/img/frontworks/33/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
               <span class="ico">movie</span>

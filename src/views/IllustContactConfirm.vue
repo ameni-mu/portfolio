@@ -83,6 +83,9 @@ export default {
       window.removeEventListener("beforeunload", this.beforeunload, false);
     }
   },
+  unmounted() {
+    window.removeEventListener("beforeunload", this.beforeunload, false);
+  },
   computed: {
     companyName() {
       return this.$store.state.inputData.illustForm.companyName;

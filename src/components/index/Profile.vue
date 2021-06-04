@@ -34,8 +34,8 @@ export default {
   display: block;
   padding-top: 150px;
   @include max-screen($sp) {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 40px;
     height: auto;
     min-height: auto;
   }
@@ -52,6 +52,11 @@ export default {
     padding-left: 20px;
     padding-top: 10px;
     margin-bottom: 5px;
+    @include max-screen($sp) {
+      font-size: 18px;
+      height: 23px;
+      padding-top: 6px;
+    }
     &:before {
       content: "";
       width: 8px;
@@ -60,13 +65,17 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
-      height: 65px;
+      height: 55px;
     }
   }
   &__name-title {
     font-size: 14px;
     margin-bottom: 40px;
     padding-left: 20px;
+    @include max-screen($sp) {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
   }
   &__text {
     > p {

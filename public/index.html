@@ -24,6 +24,12 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script>
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.indexOf("msie") !== -1 || ua.indexOf("trident") !== -1) {
+        alert("申し訳ございません。\nこちらのサイトはIEには対応しておりません。");
+      }
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
