@@ -301,6 +301,9 @@ a.altText:hover {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   @include max-screen($tablet) {
     min-height: auto;
   }
@@ -367,6 +370,9 @@ a.altText:hover {
   }
   &__heading {
     padding-bottom: 20px;
+    @include max-screen($sp) {
+      line-height: 32px;
+    }
     @include max-screen(600px) {
       padding-bottom: 0;
     }
@@ -379,6 +385,12 @@ a.altText:hover {
     //   bottom: 0;
     //   left: 0;
     // }
+    br {
+      display: none;
+      @include max-screen($sp) {
+        display: block;
+      }
+    }
   }
   &__list {
     > li {

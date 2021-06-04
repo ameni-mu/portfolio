@@ -1,6 +1,6 @@
 <template>
   <h1 class="contact__heading heading otherpage__heading">
-    その他のお問い合わせ
+    その他の<br />お問い合わせ
   </h1>
 
   <Form id="form" @submit="onSubmit" name="otherForm" ref="otherForm">

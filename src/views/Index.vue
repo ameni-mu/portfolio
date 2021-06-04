@@ -440,6 +440,9 @@ export default {
 .index {
   position: relative;
   overflow: hidden;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   .ball-spin-fade-loader {
     position: absolute !important;
     left: 50% !important;
@@ -520,6 +523,9 @@ export default {
       margin-bottom: 35px;
       font-size: 12px;
       opacity: 0;
+      font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+        YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+        "メイリオ", Meiryo, sans-serif;
       @include max-screen($sp) {
         margin-right: 30px;
         margin-left: 30px;

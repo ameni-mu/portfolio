@@ -33,6 +33,9 @@ export default {
   min-height: 700px;
   display: block;
   padding-top: 150px;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   @include max-screen($sp) {
     padding-top: 50px;
     padding-bottom: 40px;

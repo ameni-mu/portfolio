@@ -200,6 +200,9 @@ export default {
     margin-bottom: 40px;
     line-height: 28px;
     font-size: 16px;
+    font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+      YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+      "メイリオ", Meiryo, sans-serif;
     @include max-screen($sp) {
       font-size: 14px;
       margin-bottom: 20px;
@@ -207,6 +210,9 @@ export default {
   }
   &__block {
     margin-bottom: 80px;
+    font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+      YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+      "メイリオ", Meiryo, sans-serif;
     @include max-screen($sp) {
       margin-bottom: 40px;
       font-size: 14px;
@@ -217,6 +223,9 @@ export default {
     display: block;
     height: 40px;
     margin-bottom: 70px;
+    font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+      YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+      "メイリオ", Meiryo, sans-serif;
     @include max-screen($sp) {
       margin-bottom: 30px;
     }
