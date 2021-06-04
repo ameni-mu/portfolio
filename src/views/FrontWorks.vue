@@ -51,8 +51,8 @@
             </p>
             <div
               class="fw__modaldesc"
-              data-type="2"
-              data-imglength="1"
+              data-type="1"
+              data-imglength="6"
               data-id="32"
             >
               ■ 担当箇所：js<br />
