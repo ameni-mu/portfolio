@@ -10,5 +10,6 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "vue/no-deprecated-slot-attribute": "warn", //2.6.0以降では非推奨の書き方
   },
 };

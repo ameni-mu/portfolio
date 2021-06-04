@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="html">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +7,29 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <meta name="description" content="フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。">
     <!-- og -->
-    <meta property="og:title" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="atelier ameni アトリエあめに" />
+    <meta property="og:url" content="https://atelier-ameni.com/" />
+    <meta property="og:description" content="フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。" />
+    <meta property="og:site_name" content="atelier ameni" />
     <meta property="og:image" content="" />
     <!-- og -->
     <meta name="format-detection" content="telephone=no" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2688c418a7.js" crossorigin="anonymous"></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script>
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.indexOf("msie") !== -1 || ua.indexOf("trident") !== -1) {
+        alert("申し訳ございません。\nこちらのサイトはIEには対応しておりません。");
+      }
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

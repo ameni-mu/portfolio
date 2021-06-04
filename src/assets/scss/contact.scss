@@ -1,0 +1,482 @@
+@charset "utf-8";
+// ===========================
+//
+// contact
+//
+// ===========================
+.contact {
+  .nav {
+    margin-top: 30px;
+  }
+  &__heading {
+    margin-bottom: 50px;
+    font-size: 30px;
+    @include max-screen($sp) {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  &__lead-btn {
+    margin: 0 auto 60px auto;
+    text-align: center;
+    @include max-screen($sp) {
+      margin-bottom: 15px;
+    }
+  }
+  &__secondary-heading {
+    font-size: 26px;
+    text-align: center;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 250px auto;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    @include max-screen($sp) {
+      font-size: 18px;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+    span {
+      position: relative;
+      display: inline-block;
+      &:before {
+        content: "";
+        width: 100%;
+        height: 6px;
+        background-color: #f7ece7;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        @include max-screen($sp) {
+          bottom: -14px;
+        }
+      }
+    }
+  }
+  &__attention {
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 50px;
+    @include max-screen($sp) {
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+    li {
+      padding-left: 17px;
+      position: relative;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #f9f2ef;
+      padding-bottom: 7px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15px;
+        background-color: #f0b7b1;
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+    span {
+      background-color: #f9f2ef;
+    }
+  }
+  &__select-type {
+    width: 100%;
+  }
+  &__third-heading {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #f2957c;
+    @include max-screen($sp) {
+      font-size: 18px;
+    }
+  }
+  &__note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 24px;
+    text-align: center;
+    @include max-screen($sp) {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    &--left {
+      text-align: left;
+    }
+    .em {
+      font-size: 16px !important;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    > .em {
+      background-color: #f9f2ef;
+      font-size: 16px !important;
+      font-weight: normal !important;
+      display: inline-block;
+      margin-bottom: 10px !important;
+    }
+    > .sup {
+      font-size: 14px;
+      line-height: 24px !important;
+      display: inline-block;
+    }
+  }
+  &__selectarea {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      color: #f2957c;
+      font-weight: bold;
+      border: 1px solid #f2957c;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    input[type="radio"] {
+      display: none;
+      &:checked + label {
+        span {
+          background-color: #f2957c;
+          border: none;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  &__form {
+    border-top: 2px solid #f9f2ef;
+  }
+  &__form-li {
+    padding: 20px 0;
+    border-bottom: 2px solid #f9f2ef;
+    display: flex;
+    @include max-screen($sp) {
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+  }
+  &__form-li-ttl {
+    width: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      margin-bottom: 5px;
+      padding-left: 0;
+      width: 100%;
+    }
+    br {
+      @include max-screen($sp) {
+        display: none;
+      }
+    }
+  }
+  &__select-detail {
+    width: 600px;
+    box-sizing: border-box;
+    padding-left: 30px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 24px;
+    @include max-screen($sp) {
+      padding-left: 0;
+      width: 100%;
+    }
+    input[type="radio"] + label {
+      span {
+        display: inline-block;
+        border-radius: 10px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #ffffff;
+        color: #f2957c;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 0 10px;
+        position: relative;
+        padding-left: 30px;
+        margin-right: 20px;
+        @include max-screen($sp) {
+          font-size: 14px;
+          padding-left: 20px;
+          margin-right: 10px;
+        }
+        &:before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          left: 0;
+          top: 4px;
+          border-radius: 10px;
+          border: 1px solid #f2957c;
+          @include max-screen($sp) {
+            width: 15px;
+            height: 15px;
+            top: 6px;
+          }
+        }
+      }
+    }
+    input[type="radio"] {
+      display: none;
+      &:checked + label {
+        span {
+          &:after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #f2957c;
+            position: absolute;
+            left: 6px;
+            top: 10px;
+            @include max-screen($sp) {
+              left: 4px;
+              width: 9px;
+              height: 9px;
+            }
+          }
+        }
+      }
+    }
+    .error {
+      display: inline-block;
+      color: #f15656;
+      margin-top: 10px;
+      font-size: 14px;
+      background-color: #f8ede8;
+      padding: 2px 10px;
+    }
+  }
+  .em {
+    color: #e08c69;
+    font-weight: bold;
+    font-size: 26px;
+    padding-right: 5px;
+    margin-bottom: -10px;
+    display: inline-block;
+  }
+  input[type="text"] {
+    border: 1px solid #f2d5c8;
+    padding: 2px 20px;
+    min-width: 400px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #333333;
+    outline: none;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    background-image: linear-gradient(transparent, transparent);
+    border-radius: 0;
+    @include max-screen($sp) {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 14px;
+      padding: 2px 10px;
+      min-width: auto;
+    }
+    &:focus {
+      outline: 3px solid #f2d5c8;
+    }
+  }
+  textarea {
+    border: 1px solid #f2d5c8;
+    padding: 5px 20px;
+    min-width: 400px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #333333;
+    height: 200px;
+    outline: none;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    background-image: linear-gradient(transparent, transparent);
+    border-radius: 0;
+    @include max-screen($sp) {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: auto;
+    }
+    &:focus {
+      outline: 3px solid #f2d5c8;
+    }
+    &::placeholder {
+      color: #999999;
+    }
+  }
+  input[type="checkbox"] {
+    display: none;
+    &:checked + label {
+      span {
+        &:after {
+          content: "";
+          background-image: url("../assets/img/common/checked.svg");
+          background-repeat: no-repeat;
+          background-size: 25px auto;
+          position: absolute;
+          left: 0;
+          top: 2px;
+          width: 25px;
+          height: 25px;
+          @include max-screen($sp) {
+            background-size: 22px auto;
+            top: 4px;
+          }
+        }
+      }
+    }
+  }
+  input[type="checkbox"] + label {
+    span {
+      display: inline-block;
+      height: 28px;
+      line-height: 28px;
+      background-color: #ffffff;
+      color: #f2957c;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      padding-left: 40px;
+      @include max-screen($sp) {
+        font-size: 14px;
+        padding-left: 30px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border: 1px solid #f2957c;
+        background-color: #ffffff;
+        left: 0;
+        top: 2px;
+        border-radius: 3px;
+        @include max-screen($sp) {
+          width: 18px;
+          height: 18px;
+          top: 4px;
+        }
+      }
+    }
+  }
+  &__example {
+    font-size: 14px;
+    line-height: 18px;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: normal;
+    @include max-screen($sp) {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+  }
+  &__to-confirm {
+    text-align: center;
+    margin-top: 30px;
+    @include max-screen($tablet) {
+      margin-bottom: 30px;
+    }
+    @include max-screen($sp) {
+      margin-top: 15px;
+    }
+    a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #87ab2b;
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 18px;
+      &:before {
+        display: none;
+      }
+      &:hover {
+        opacity: 0.4;
+        @include max-screen($tablet) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__form-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    @include max-screen($tablet) {
+      margin-bottom: 30px;
+    }
+    @include max-screen($tablet) {
+      margin-top: 30px;
+    }
+    a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #87ab2b;
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 18px;
+      width: 80px;
+      text-align: center;
+      @include max-screen($tablet) {
+        font-size: 16px;
+        width: 120px;
+        height: 45px;
+        padding: 0;
+        box-sizing: border-box;
+        line-height: 45px;
+        border-radius: 10px;
+      }
+      &:before {
+        display: none;
+      }
+      &:hover {
+        opacity: 0.6;
+        @include max-screen($tablet) {
+          opacity: 1;
+        }
+      }
+      &.return {
+        background-color: #9b9b9b;
+        margin-right: 10px;
+      }
+      &.send {
+        margin-left: 10px;
+      }
+    }
+  }
+  &__bottom-error {
+    color: #627f17;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 26px;
+  }
+  &__btn-toindex {
+    margin-top: 30px;
+    text-align: center;
+  }
+}
