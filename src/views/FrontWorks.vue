@@ -46,7 +46,7 @@
               <img src="../assets/img/frontworks/32/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico">movie</span>
+              <span class="ico img">img</span>
               <span class="text">ゲームポータルサイト内コンテンツ</span>
             </p>
             <div

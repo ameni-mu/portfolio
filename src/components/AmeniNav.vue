@@ -197,7 +197,7 @@ export default {
   &__icon {
     width: 50px;
     height: 50px;
-    background-color: #e0dcda;
+    background-color: #d4cdc9;
     border-radius: 50px;
     background-size: 30px auto;
     background-repeat: no-repeat;

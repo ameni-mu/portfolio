@@ -33,7 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .frontend {
-  background-color: #f9f2ef;
+  background-color: #f8e9e7;
   &.section {
     display: block;
     min-height: auto;
@@ -77,7 +77,7 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
-      background-color: #eae7e5;
+      background-color: #e3dcd9;
       @include max-screen($sp) {
         width: 5px;
       }

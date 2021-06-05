@@ -63,12 +63,15 @@ export default {
     &:before {
       content: "";
       width: 8px;
-      background-color: #f2f0ef;
+      background-color: #e9e7e5;
       border-radius: 1px;
       position: absolute;
       left: 0;
-      top: 0;
+      top: 8px;
       height: 55px;
+      @include max-screen($sp) {
+        top: 0;
+      }
     }
   }
   &__name-title {
