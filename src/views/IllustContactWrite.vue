@@ -1,6 +1,6 @@
 <template>
   <h1 class="contact__heading heading otherpage__heading">
-    イラスト制作のお問い合わせ
+    イラスト制作の<br />お問い合わせ
   </h1>
   <h2 class="contact__secondary-heading">
     <span>イラストご依頼時の注意点</span>

@@ -1,6 +1,6 @@
 <template>
   <h1 class="contact__heading heading otherpage__heading">
-    フロント構築のお問い合わせ
+    フロント構築の<br />お問い合わせ
   </h1>
 
   <Form id="form" @submit="onSubmit" name="frontform" ref="frontform">

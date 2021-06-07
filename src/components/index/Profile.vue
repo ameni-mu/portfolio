@@ -33,6 +33,9 @@ export default {
   min-height: 700px;
   display: block;
   padding-top: 150px;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   @include max-screen($sp) {
     padding-top: 50px;
     padding-bottom: 40px;
@@ -60,12 +63,15 @@ export default {
     &:before {
       content: "";
       width: 8px;
-      background-color: #f2f0ef;
+      background-color: #e9e7e5;
       border-radius: 1px;
       position: absolute;
       left: 0;
-      top: 0;
+      top: 8px;
       height: 55px;
+      @include max-screen($sp) {
+        top: 0;
+      }
     }
   }
   &__name-title {

@@ -127,6 +127,9 @@ export default {
 
 <style scoped lang="scss">
 .profile {
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   .nav {
     margin-top: 30px;
   }

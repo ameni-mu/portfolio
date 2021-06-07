@@ -39,7 +39,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .contact {
-  background-color: #f9f2ef;
+  background-color: #f8e9e7;
   min-height: auto;
   padding-top: 150px;
   padding-bottom: 200px;

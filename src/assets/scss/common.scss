@@ -9,7 +9,7 @@ a,
 a:hover,
 a:active,
 a:visited {
-  color: #e08c69;
+  color: #e07469;
 }
 a {
   display: inline;
@@ -170,7 +170,7 @@ a.altText:hover {
     display: inline-block;
     padding: 8px 25px 8px 15px;
     border-radius: 10px;
-    border: 1px solid #e08c69;
+    border: 1px solid #e07469;
     background-color: #ffffff;
     @include max-screen($sp) {
       font-size: 14px;
@@ -189,7 +189,7 @@ a.altText:hover {
       display: none;
     }
     &:hover {
-      background-color: #e08c69;
+      background-color: #e07469;
       color: #fff;
       &:after {
         display: none;
@@ -200,13 +200,13 @@ a.altText:hover {
 .bottom-line {
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f2f0ef;
+  border-bottom: 1px solid #e9e1de;
   @include max-screen($sp) {
     margin-bottom: 20px;
     padding-bottom: 15px;
   }
   &--pink {
-    border-bottom: 1px solid #e8e3e1;
+    border-bottom: 1px solid #dad5d3;
   }
 }
 .btn {
@@ -215,7 +215,7 @@ a.altText:hover {
     display: inline-block;
     padding: 14px 40px 14px 25px;
     border-radius: 10px;
-    background-color: #e08c69;
+    background-color: #e07469;
     @include max-screen($sp) {
       padding: 9px 30px 9px 20px;
       font-size: 14px;
@@ -239,7 +239,7 @@ a.altText:hover {
   &--red {
     > a {
       color: #ffffff;
-      border: 1px solid #e08c69;
+      border: 1px solid #e07469;
       &:after {
         background-image: url("../assets/img/common/arrow_right_white.svg");
       }
@@ -253,15 +253,15 @@ a.altText:hover {
   }
   &--normal {
     > a {
-      color: #e08c69;
+      color: #e07469;
       background-color: #ffffff;
-      border: 1px solid #e08c69;
+      border: 1px solid #e07469;
       &:after {
         background-image: url("../assets/img/common/arrow_right.svg");
       }
       &:hover {
         color: #ffffff;
-        background-color: #e08c69;
+        background-color: #e07469;
         &:after {
           background-image: url("../assets/img/common/arrow_right_white.svg");
         }
@@ -301,6 +301,9 @@ a.altText:hover {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   @include max-screen($tablet) {
     min-height: auto;
   }
@@ -367,6 +370,9 @@ a.altText:hover {
   }
   &__heading {
     padding-bottom: 20px;
+    @include max-screen($sp) {
+      line-height: 32px;
+    }
     @include max-screen(600px) {
       padding-bottom: 0;
     }
@@ -379,6 +385,12 @@ a.altText:hover {
     //   bottom: 0;
     //   left: 0;
     // }
+    br {
+      display: none;
+      @include max-screen($sp) {
+        display: block;
+      }
+    }
   }
   &__list {
     > li {

@@ -23,7 +23,7 @@
         <div></div>
         <div></div>
       </div>
-      <div class="main__container">
+      <div class="main__container" :class="{ isNoCanvas: !isCvs }">
         <h1 class="main__logo">
           <img
             src="../assets/img/common/logo.svg"
@@ -60,10 +60,8 @@
           <p class="main__scroll">scroll</p>
         </div>
       </div>
-      <div class="cvs-wrap">
-        <transition :css="false" @before-enter="beforeEnter" @enter="enter">
-          <canvas class="cvs" v-show="isShowCvs"></canvas>
-        </transition>
+      <div class="cvs-wrap" :class="{ isNoCanvas: !isCvs }">
+        <canvas class="cvs" v-show="isShowCvs"></canvas>
       </div>
     </section>
 
@@ -140,7 +138,6 @@ export default {
     if (this.isMinW) this.isLoading = false;
 
     setTimeout(() => {
-      _this.isLoading = false;
       _this.bg1 = document.querySelector(".index__bg1");
       _this.bg2 = document.querySelector(".index__bg2");
       _this.bg3 = document.querySelector(".index__bg3");
@@ -157,6 +154,7 @@ export default {
       _this.stage = document.querySelector("canvas");
       if (!_this.stage || !_this.stage.getContext) {
         _this.isCvs = false;
+        _this.animEnter();
       } else {
         _this.ctx = _this.stage.getContext("2d");
         _this.initStage();
@@ -222,6 +220,7 @@ export default {
         }
         _this.isShowCvs = true;
         _this.renderCircle();
+        _this.animEnter();
       };
     },
     renderCircle() {
@@ -322,16 +321,10 @@ export default {
       this.ctx.closePath();
       this.ctx.fill();
     },
-    beforeEnter(el) {
-      if (this.isMinW) return;
-      gsap.set(el, {
-        duration: 0,
-        translateY: 30,
-      });
-    },
-    enter(el, done) {
+    animEnter() {
       if (this.isMinW) return;
       this.mainAnimated = true;
+      const container = document.querySelector(".main__container");
       const logo = document.getElementsByClassName("main__logo");
       const lead = document.getElementsByClassName("main__lead");
       const nav = document.getElementsByClassName("main__nav-li");
@@ -339,15 +332,21 @@ export default {
       const obj1 = document.getElementsByClassName("main__deco-img--1");
       const obj2 = document.getElementsByClassName("main__deco-img--2");
       const scroll = document.getElementsByClassName("main__scroll");
-      const cvs = el || document.getElementsByClassName("cvs");
+      const cvs = document.getElementsByClassName("cvs");
 
+      container.style.opacity = "1";
+
+      gsap.set(cvs, {
+        duration: 0,
+        translateY: 30,
+      });
       gsap.to(cvs, {
         duration: 0.2,
         translateY: -30,
         opacity: 0.8,
         ease: "CircIn",
       });
-      gsap.to(el, {
+      gsap.to(cvs, {
         delay: 0.3,
         duration: 0.5,
         translateY: 0,
@@ -378,13 +377,6 @@ export default {
         },
       });
       gsap.to(workImg, {
-        delay: 0.8,
-        duration: 0.2,
-        opacity: 0.8,
-        translateY: -10,
-        ease: "CircIn",
-      });
-      gsap.to(workImg, {
         delay: 1.1,
         duration: 0.3,
         opacity: 1,
@@ -408,8 +400,8 @@ export default {
         duration: 0.3,
         opacity: 1,
         ease: "CircIn",
-        onComplete: done,
       });
+      this.isLoading = false;
     },
     //-------------------
     // window resize
@@ -422,7 +414,7 @@ export default {
         _this.isMinW = window.innerWidth <= 740 ? true : false;
         _this.isResize = false;
         if (!_this.mainAnimated) {
-          _this.enter();
+          _this.animEnter();
           _this.renderCircle();
         }
       }, 300);
@@ -440,6 +432,9 @@ export default {
 .index {
   position: relative;
   overflow: hidden;
+  font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
+    "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, sans-serif;
   .ball-spin-fade-loader {
     position: absolute !important;
     left: 50% !important;
@@ -475,7 +470,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f9f2ef;
+    background-color: #f8e9e7;
     z-index: 100;
     min-height: 800px;
     @include max-screen($sp) {
@@ -491,6 +486,7 @@ export default {
       position: relative;
       z-index: 100;
       margin-top: -20px;
+      opacity: 0;
       @include max-screen($sp) {
         margin-top: 0;
         background-color: #ffffff;
@@ -500,6 +496,25 @@ export default {
         border-radius: 90px;
         height: auto;
         overflow: hidden;
+        opacity: 1;
+      }
+      &.isNoCanvas {
+        margin: 0 30px;
+        background-color: #ffffff;
+        width: 100%;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        border-radius: 90px;
+        height: auto;
+        overflow: hidden;
+        opacity: 1;
+        min-height: 560px;
+        width: 100%;
+        .main__deco-wrap {
+          position: absolute;
+          left: 50%;
+          bottom: 50px;
+        }
       }
     }
     &__logo {
@@ -520,6 +535,9 @@ export default {
       margin-bottom: 35px;
       font-size: 12px;
       opacity: 0;
+      font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
+        YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
+        "メイリオ", Meiryo, sans-serif;
       @include max-screen($sp) {
         margin-right: 30px;
         margin-left: 30px;
@@ -537,7 +555,7 @@ export default {
         content: "";
         width: 100%;
         height: 10px;
-        background-color: #f5f8ed;
+        background-color: #eff4e3;
         display: inline-block;
         position: absolute;
         bottom: 0;
@@ -741,6 +759,9 @@ export default {
     position: absolute;
     z-index: 10;
     @include max-screen($sp) {
+      display: none;
+    }
+    &.isNoCanvas {
       display: none;
     }
   }
