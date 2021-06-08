@@ -51,6 +51,11 @@ import axios from "axios";
 
 export default {
   components: {},
+  data() {
+    return {
+      isSend: false,
+    };
+  },
   computed: {
     companyName() {
       return this.$store.state.inputData.frontForm.companyName;
@@ -91,6 +96,8 @@ export default {
     },
     sendMail(e) {
       e.preventDefault();
+      if (this.isSend) return;
+      this.isSend = true;
       const sendUrl = "https://atelier-ameni.com/front_mail_send.php";
 
       let params = new URLSearchParams();
@@ -122,6 +129,7 @@ export default {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
+            this.isSend = false;
           }
         })
         .catch((error) => {
@@ -129,7 +137,7 @@ export default {
           alert(
             "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
           );
-          window.removeEventListener("beforeunload", this.beforeunload, false);
+          this.isSend = false;
         });
     },
     returnPage() {
