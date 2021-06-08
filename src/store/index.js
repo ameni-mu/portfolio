@@ -31,6 +31,7 @@ export default createStore({
       },
     },
     isAuthenticated: false,
+    token: "",
   },
   mutations: {},
   actions: {},

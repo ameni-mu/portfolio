@@ -3,10 +3,17 @@
 header("Access-Control-Allow-Origin: http://localhost:8080");
 header("Content-type: application/json; charset=UTF-8");
 
+session_start();
+$token = htmlspecialchars($_POST['token'], ENT_QUOTES);
+if(empty($_SESSION['token']) || $_SESSION['token'] != $token) {
+  exit;
+}
 $companyName = htmlspecialchars($_POST['companyName'], ENT_QUOTES);
 $clientName = htmlspecialchars($_POST['clientName'], ENT_QUOTES);
 $mailAddress = htmlspecialchars($_POST['mailAddress'], ENT_QUOTES);
 $message = htmlspecialchars($_POST['message'], ENT_QUOTES);
+
+session_destroy();
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");

@@ -237,6 +237,7 @@
 import { defineRule, configure, Field, Form, ErrorMessage } from "vee-validate";
 import { required, email } from "@vee-validate/rules";
 import { localize } from "@vee-validate/i18n";
+import axios from "axios";
 
 defineRule("required", required);
 defineRule("email", email);
@@ -283,6 +284,7 @@ export default {
         //attentionCheck: false,
       },
       isAttentionChecked: false,
+      isSend: false,
     };
   },
   mounted() {
@@ -368,18 +370,40 @@ export default {
       });
     },
     setStore() {
-      const storeInputData = this.$store.state.inputData.illustForm;
-      storeInputData.companyName = this.inputData.companyName;
-      storeInputData.clientName = this.inputData.clientName;
-      storeInputData.mailAddress = this.inputData.mailAddress;
-      storeInputData.deadDate = this.inputData.deadDate;
-      storeInputData.media = this.inputData.media;
-      storeInputData.illustUseYesNo = this.inputData.illustUseYesNo;
-      storeInputData.budget = this.inputData.budget;
-      storeInputData.term = this.inputData.term;
-      storeInputData.message = this.inputData.message;
-      window.removeEventListener("beforeunload", this.beforeunload, false);
-      this.$router.push({ path: "/illcontact/illconfirm/" });
+      if (this.isSend) return;
+      this.isSend = true;
+      const url = "https://atelier-ameni.com/token.php";
+
+      axios
+        .get(url)
+        .then((response) => {
+          if (response) {
+            const storeInputData = this.$store.state.inputData.illustForm;
+            storeInputData.companyName = this.inputData.companyName;
+            storeInputData.clientName = this.inputData.clientName;
+            storeInputData.mailAddress = this.inputData.mailAddress;
+            storeInputData.deadDate = this.inputData.deadDate;
+            storeInputData.media = this.inputData.media;
+            storeInputData.illustUseYesNo = this.inputData.illustUseYesNo;
+            storeInputData.budget = this.inputData.budget;
+            storeInputData.term = this.inputData.term;
+            storeInputData.message = this.inputData.message;
+            this.$store.state.token = response.data;
+            this.$router.push({ path: "/illcontact/illconfirm/" });
+          } else {
+            alert(
+              "メールを送信出来ません。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
+            );
+            this.isSend = false;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(
+            "メールを送信出来ません。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
+          );
+          this.isSend = false;
+        });
     },
   },
 };

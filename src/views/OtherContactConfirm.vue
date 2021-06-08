@@ -86,6 +86,7 @@ export default {
       params.append("clientName", this.clientName);
       params.append("mailAddress", this.mailAddress);
       params.append("message", this.message);
+      params.append("token", this.$store.state.token);
 
       axios
         .post(sendUrl, params)
@@ -100,6 +101,7 @@ export default {
             this.$store.state.inputData.otherForm.clientName = "";
             this.$store.state.inputData.otherForm.mailAddress = "";
             this.$store.state.inputData.otherForm.message = "";
+            this.$store.state.token = "";
             this.$router.push({ path: "/othercontact/contactdone/" });
           } else {
             alert(
