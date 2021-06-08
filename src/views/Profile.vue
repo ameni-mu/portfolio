@@ -50,12 +50,6 @@
             </p>
           </li>
           <li class="profile__career-li">
-            <p class="profile__year"><span>2015</span></p>
-            <p class="profile__ca-detail">
-              著書「Girls’ Design Materials」SBクリエイティブ様より刊行
-            </p>
-          </li>
-          <li class="profile__career-li">
             <p class="profile__year"><span>2019</span></p>
             <p class="profile__ca-detail">
               妊娠出産を機に育児との両立を目指してフリーランスへ
@@ -77,13 +71,13 @@
           </p>
         </li>
         <li class="profile__sche-li">
-          <p class="profile__time profile__time--work"><span>9:00</span></p>
+          <p class="profile__time profile__time--work"><span>8:30</span></p>
           <p class="profile__sche-detail profile__height-margin--1">
             <span class="em">仕事開始</span>
           </p>
         </li>
         <li class="profile__sche-li">
-          <p class="profile__time"><span>16:00</span></p>
+          <p class="profile__time"><span>16:15</span></p>
           <p class="profile__sche-detail">
             保育園へ子供を迎えに行く。帰宅後は育児、家事タイム。
           </p>
@@ -102,7 +96,7 @@
           </p>
         </li>
         <li class="profile__sche-li">
-          <p class="profile__time"><span>0:00</span></p>
+          <p class="profile__time"><span>0:00以降</span></p>
           <p class="profile__sche-detail">就寝</p>
         </li>
       </ul>
