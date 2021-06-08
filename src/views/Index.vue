@@ -138,9 +138,9 @@ export default {
     if (this.isMinW) this.isLoading = false;
 
     setTimeout(() => {
-      _this.bg1 = document.querySelector(".index__bg1");
-      _this.bg2 = document.querySelector(".index__bg2");
-      _this.bg3 = document.querySelector(".index__bg3");
+      // _this.bg1 = document.querySelector(".index__bg1");
+      // _this.bg2 = document.querySelector(".index__bg2");
+      // _this.bg3 = document.querySelector(".index__bg3");
       //各sctionの高さを設定
       //800より小さければそれ以上コンテンツを可変しない
 
