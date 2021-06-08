@@ -150,6 +150,7 @@ export default {
       params.append("term", this.term);
       params.append("message", this.message);
       params.append("attentionCheck", this.attentionCheck);
+      params.append("token", this.$store.state.token);
       const _this = this;
 
       axios
@@ -166,6 +167,7 @@ export default {
             this.$store.state.inputData.illustForm.term = "";
             this.$store.state.inputData.illustForm.message = "";
             this.$store.state.inputData.illustForm.attentionCheck = false;
+            this.$store.state.token = "";
             window.removeEventListener(
               "beforeunload",
               _this.beforeunload,

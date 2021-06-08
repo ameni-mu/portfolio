@@ -107,6 +107,7 @@ export default {
       params.append("deadDate", this.deadDate);
       params.append("budget", this.budget);
       params.append("detailtext", this.detailtext);
+      params.append("token", this.$store.state.token);
       const _this = this;
 
       axios
@@ -124,6 +125,7 @@ export default {
             this.$store.state.inputData.frontForm.deadDate = "";
             this.$store.state.inputData.frontForm.budget = "";
             this.$store.state.inputData.frontForm.detailtext = "";
+            this.$store.state.token = "";
             this.$router.push({ path: "/frontcontact/contactdone/" });
           } else {
             alert(
