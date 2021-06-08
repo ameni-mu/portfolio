@@ -90,8 +90,8 @@
         </ul>
       </div>
       <div class="front__block">
-        <h2 class="front__secondary-heading">勉強中</h2>
-        <p class="front__text">Vue Nuxt / Laravel</p>
+        <h2 class="front__secondary-heading">勉強中、今後勉強予定</h2>
+        <p class="front__text">Vue Nuxt / Laravel / Jest</p>
       </div>
     </div>
 

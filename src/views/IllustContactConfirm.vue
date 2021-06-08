@@ -72,6 +72,11 @@ import axios from "axios";
 
 export default {
   components: {},
+  data() {
+    return {
+      isSend: false,
+    };
+  },
   mounted() {
     window.addEventListener("beforeunload", this.beforeunload, false);
     //確認ページでストアに内容が保存されていなかったら記入ページに遷移
@@ -130,6 +135,8 @@ export default {
     },
     sendMail(e) {
       e.preventDefault();
+      if (this.isSend) return;
+      this.isSend = true;
       const sendUrl = "https://atelier-ameni.com/illust_mail_send.php";
 
       let params = new URLSearchParams();
@@ -169,6 +176,7 @@ export default {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
+            this.isSend = false;
           }
         })
         .catch((error) => {
@@ -177,6 +185,7 @@ export default {
           alert(
             "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
           );
+          this.isSend = false;
         });
     },
     returnPage(e) {

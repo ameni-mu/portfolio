@@ -38,6 +38,11 @@ import axios from "axios";
 
 export default {
   components: {},
+  data() {
+    return {
+      isSend: false,
+    };
+  },
   mounted() {
     window.addEventListener("beforeunload", this.beforeunload, false);
     //確認ページでストアに内容が保存されていなかったら記入ページに遷移
@@ -72,6 +77,8 @@ export default {
     },
     sendMail(e) {
       e.preventDefault();
+      if (this.isSend) return;
+      this.isSend = true;
       const sendUrl = "https://atelier-ameni.com/other_mail_send.php";
 
       let params = new URLSearchParams();
@@ -89,11 +96,16 @@ export default {
               this.beforeunload,
               false
             );
+            this.$store.state.inputData.otherForm.companyName = "";
+            this.$store.state.inputData.otherForm.clientName = "";
+            this.$store.state.inputData.otherForm.mailAddress = "";
+            this.$store.state.inputData.otherForm.message = "";
             this.$router.push({ path: "/othercontact/contactdone/" });
           } else {
             alert(
               "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
             );
+            this.isSend = false;
           }
         })
         .catch((error) => {
@@ -101,6 +113,7 @@ export default {
           alert(
             "送信できませんでした。\n大変申し訳ございませんがinfo@atelier-ameni.comまで直接メールをお願いします。"
           );
+          this.isSend = false;
         });
     },
     returnPage() {
