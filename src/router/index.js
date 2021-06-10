@@ -22,7 +22,7 @@ const routes = [
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
     meta: {
       title: "プロフィール | atelier ameni アトリエあめに",
-      desc: "フロントエンドエンジニア・イラストレーターあめにのプロフィールページです。一日のスケジュールなどをご紹介します。",
+      desc: "フロントエンドエンジニア・イラストレーターあめにのプロフィールページです。",
     },
   },
   {
@@ -196,7 +196,11 @@ const router = createRouter({
       };
     }
     if (savedPosition) {
-      return savedPosition;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(savedPosition);
+        });
+      });
     }
     return { left: 0, top: 0 };
   },

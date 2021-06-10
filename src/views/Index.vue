@@ -1,9 +1,11 @@
 <template>
   <div class="index">
     <AmeniNav :isOtherPage="false"></AmeniNav>
-    <div class="index__bg1 index__bg"></div>
-    <div class="index__bg2 index__bg"></div>
-    <div class="index__bg3 index__bg"></div>
+    <div class="index__bg-wrap">
+      <div class="index__bg1 index__bg"></div>
+      <div class="index__bg2 index__bg"></div>
+      <div class="index__bg3 index__bg"></div>
+    </div>
     <section
       :class="{
         main: true,
@@ -31,10 +33,7 @@
           />
         </h1>
         <p class="main__lead">
-          <span
-            >フロントエンドエンジニア・イラストレーター
-            <br />あめにのポートフォリオサイトです。</span
-          >
+          <span>フロント構築、イラスト制作 おまかせください <br /></span>
         </p>
         <ul class="main__nav">
           <li class="main__nav-li">
@@ -86,7 +85,6 @@ import Footer from "@/components/Footer";
 import UpdateAnim from "@/components/UpdateAnim";
 import DotImgSrc from "@/assets/img/index/dot.svg";
 import { gsap } from "gsap";
-// import $ from "jquery";
 
 export default {
   name: "Index",
@@ -137,19 +135,18 @@ export default {
     this.isMinW = window.innerWidth <= 740 ? true : false;
     if (this.isMinW) this.isLoading = false;
 
+    //パララックスオブジェクト表示
+    this.bg1 = document.querySelector(".index__bg1");
+    this.bg2 = document.querySelector(".index__bg2");
+    this.bg3 = document.querySelector(".index__bg3");
+    const bgWrap = document.querySelector(".index__bg-wrap");
+    //パララックス背景の高さを指定
+    const h = this.winH * 5;
+    this.bg1.style.height = h + "px";
+    this.bg2.style.height = h + "px";
+    this.bg3.style.height = h + "px";
+
     setTimeout(() => {
-      // _this.bg1 = document.querySelector(".index__bg1");
-      // _this.bg2 = document.querySelector(".index__bg2");
-      // _this.bg3 = document.querySelector(".index__bg3");
-      //各sctionの高さを設定
-      //800より小さければそれ以上コンテンツを可変しない
-
-      //パララックス背景の高さを指定
-      // const h = _this.winH * 5;
-      // _this.bg1.style.height = h + 'px';
-      // _this.bg2.style.height = h + 'px';
-      // _this.bg3.style.height = h + 'px';
-
       //canvasの設定
       _this.stage = document.querySelector("canvas");
       if (!_this.stage || !_this.stage.getContext) {
@@ -159,6 +156,18 @@ export default {
         _this.ctx = _this.stage.getContext("2d");
         _this.initStage();
       }
+      //パララックス背景
+      this.scrollY = window.scrollY;
+      this.bg1.style.transform = "translateY(" + -(this.scrollY / 2) + "px)";
+      this.bg2.style.transform = "translateY(" + -(this.scrollY / 5) + "px)";
+      this.bg3.style.transform = "translateY(" + -(this.scrollY / 10) + "px)";
+      gsap.to(bgWrap, {
+        delay: 1,
+        duration: 2,
+        opacity: 1,
+        ease: "easePower1.easeOut",
+      });
+
       //resize event
       window.addEventListener("resize", _this.onResize);
       //scroll event
@@ -173,6 +182,9 @@ export default {
   methods: {
     onScroll() {
       this.scrollY = window.scrollY;
+      this.bg1.style.transform = "translateY(" + -(this.scrollY / 2) + "px)";
+      this.bg2.style.transform = "translateY(" + -(this.scrollY / 5) + "px)";
+      this.bg3.style.transform = "translateY(" + -(this.scrollY / 10) + "px)";
     },
     initStage() {
       const stageH = Math.floor(window.innerHeight * 0.8);
@@ -228,14 +240,6 @@ export default {
         this.renderCircle.bind(this)
       );
       if (this.isMinW) return;
-      // bg dot パララックス用
-      // this.bgCalc1 += ~~Number((this.scrollY / 3) - this.bgCalc1) * this.bgEase1;
-      // this.bgCalc2 += ~~Number((this.scrollY / 2) - this.bgCalc2) * this.bgEase2;
-      // this.bgCalc3 += ~~Number((this.scrollY / 1) - this.bgCalc3) * this.bgEase3;
-
-      // this.bg1.style.transform = 'translateY('+ -(this.bgCalc1) +'px)';
-      // this.bg2.style.transform = 'translateY('+ -(this.bgCalc2) +'px)';
-      // this.bg3.style.transform = 'translateY('+ -(this.bgCalc3) +'px)';
 
       //canvas render
       this.ctx.clearRect(0, 0, this.stage.width, this.stage.height);
@@ -450,18 +454,24 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    background-position: center top;
-    height: 1600px;
-    transition: translateY 0.5s ease;
+    background-position: left top;
+    height: 6000px;
+    transition: translateY 1s ease;
+  }
+  &__bg-wrap {
+    opacity: 0;
   }
   &__bg1 {
     background-image: url("../assets/img/index/bg_dot.svg");
+    z-index: 3;
   }
   &__bg2 {
     background-image: url("../assets/img/index/bg_dot2.svg");
+    z-index: 2;
   }
   &__bg3 {
     background-image: url("../assets/img/index/bg_dot3.svg");
+    z-index: 1;
   }
   .main {
     width: 100%;
@@ -473,6 +483,7 @@ export default {
     background-color: #f8e9e7;
     z-index: 100;
     min-height: 800px;
+    z-index: 10;
     @include max-screen($sp) {
       width: auto;
       box-sizing: border-box;
