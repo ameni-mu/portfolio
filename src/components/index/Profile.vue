@@ -2,10 +2,19 @@
   <section class="prof section">
     <div class="section__inner">
       <h2 class="prof__heading heading">PROFILE</h2>
+      <p class="prof__name">すがや</p>
+      <p class="prof__name-title">フロントエンドエンジニア</p>
       <p class="prof__name">あめに</p>
-      <p class="prof__name-title">フロントエンドエンジニア、イラストレーター</p>
+      <p class="prof__name-title">イラストレーター</p>
       <div class="prof__text text">
-        <p class="prof__lead">新潟県出身 神奈川県在住。</p>
+        <p class="prof__lead">
+          名前が違いますが同一人物です。<br />
+          フロント構築は本名の方が良いかと思い「すがや」としています。<br />
+          フリーでの活動はイラスト制作が先だったので、名前を変更することが難しく別々の名前になっています。<br />
+          お呼びいただく場合はお好きな方でお呼びください。<br />
+          <br />
+          新潟県出身 神奈川県在住。
+        </p>
         <ul class="prof__lists bottom-line">
           <li>2009年〜webデザイナー、コーダーとして会社勤務</li>
           <li>2012年〜フロントエンドエンジニアとして会社勤務</li>
@@ -33,9 +42,11 @@ export default {
   min-height: 700px;
   display: block;
   padding-top: 150px;
+  padding-bottom: 150px;
   font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic,
     "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro", "メイリオ",
     Meiryo, sans-serif;
+  z-index: 10;
   @include max-screen($sp) {
     padding-top: 50px;
     padding-bottom: 40px;
@@ -93,7 +104,7 @@ export default {
     }
   }
   &__lead {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
   }
   &__lists {
     > li {

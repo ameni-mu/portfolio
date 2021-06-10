@@ -34,6 +34,7 @@ export default {
 <style scoped lang="scss">
 .frontend {
   background-color: #f8e9e7;
+  z-index: 10;
   &.section {
     display: block;
     min-height: auto;

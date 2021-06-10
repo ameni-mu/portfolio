@@ -3,19 +3,26 @@
     <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="profile__inner otherpage__inner">
       <h1 class="profile__heading heading otherpage__heading">PROFILE</h1>
-      <div class="profile__block">
-        <p class="profile__name">あめに</p>
+      <div class="profile__block profile__img-wrap">
+        <p class="profile__name">すがや</p>
         <p class="profile__name-title">
-          フロントエンドエンジニア、イラストレーター
+          フロントエンドエンジニア(webデザインも)
         </p>
-        <p class="profile__text text">
-          新潟県出身 神奈川県在住。<br />
-          育児と仕事の両立を求めて働き方を模索しています。<br />
-          <br />
-          web: atelier-ameni.com<br />
-          mail: info@atelier-ameni.com<br />
-        </p>
+        <p class="profile__name">あめに</p>
+        <p class="profile__name-title">イラストレーター</p>
       </div>
+      <p class="profile__text text profile__block">
+        名前が違いますが同一人物です。<br />
+        フロント構築は本名の方が良いかと思い「すがや」としています。<br />
+        フリーでの活動はイラスト制作が先だったので、名前を変更することが難しく別々の名前になっています。<br />
+        お呼びいただく場合はお好きな方でお呼びください。<br />
+        <br />
+        新潟県出身 神奈川県在住。<br />
+        育児と仕事の両立を求めて働き方を模索しています。<br />
+        <br />
+        web: atelier-ameni.com<br />
+        mail: info@atelier-ameni.com<br />
+      </p>
       <!-- <ul class="profile__pagelink">
         <li>
           <a href="#koremade">これまで</a>
@@ -24,86 +31,35 @@
           <a href="#koremade">一日のスケジュール</a>
         </li>
       </ul> -->
-      <div class="profile__block">
-        <h2 class="profile__secondary-heading">簡単な経歴</h2>
-        <ul class="profile__career">
-          <li class="profile__career-li">
-            <p class="profile__year"><span>2007</span></p>
-            <p class="profile__ca-detail">
-              独学でweb制作を学び、フリーランスでイラスト制作やweb制作を請け負う
-            </p>
-          </li>
-          <li class="profile__career-li">
-            <p class="profile__year"><span>2009</span></p>
-            <p class="profile__ca-detail">
-              デジハリオンラインスクールWebデザイナー講座受講<br />
-              webデザイナー、コーダーとして会社勤務<br />
-              株式会社クスールでAS3を学ぶ<br />
-              フリー素材配布サイト「ガーリー素材」を運営
-            </p>
-          </li>
-          <li class="profile__career-li">
-            <p class="profile__year"><span>2012</span></p>
-            <p class="profile__ca-detail">
-              フロントエンドエンジニアに転職。<br />
-              様々な企業を転々とし色々な開発に携わらせていただく。
-            </p>
-          </li>
-          <li class="profile__career-li">
-            <p class="profile__year"><span>2015</span></p>
-            <p class="profile__ca-detail">
-              著書「Girls’ Design Materials」SBクリエイティブ様より刊行
-            </p>
-          </li>
-          <li class="profile__career-li">
-            <p class="profile__year"><span>2019</span></p>
-            <p class="profile__ca-detail">
-              妊娠出産を機に育児との両立を目指してフリーランスへ
-            </p>
-          </li>
-        </ul>
-      </div>
-
-      <h2 class="profile__secondary-heading">平日のスケジュール</h2>
-      <p class="profile__sup">
-        基本的に土日以外の平日に仕事をしています。<br />
-        必要があれば土日も対応可能です。
-      </p>
-      <ul class="profile__sche">
-        <li class="profile__sche-li">
-          <p class="profile__time"><span>6:00</span></p>
-          <p class="profile__sche-detail">
-            起床、朝食、家事タイム。子供を保育園へ送り届ける。
+      <h2 class="profile__secondary-heading">簡単な経歴</h2>
+      <ul class="profile__career">
+        <li class="profile__career-li">
+          <p class="profile__year"><span>2007</span></p>
+          <p class="profile__ca-detail">
+            独学でweb制作を学び、フリーランスでイラスト制作やweb制作を請け負う
           </p>
         </li>
-        <li class="profile__sche-li">
-          <p class="profile__time profile__time--work"><span>9:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--1">
-            <span class="em">仕事開始</span>
+        <li class="profile__career-li">
+          <p class="profile__year"><span>2009</span></p>
+          <p class="profile__ca-detail">
+            デジハリオンラインスクールWebデザイナー講座受講<br />
+            webデザイナー、コーダーとして会社勤務<br />
+            株式会社クスールでAS3を学ぶ<br />
+            フリー素材配布サイト「ガーリー素材」を運営
           </p>
         </li>
-        <li class="profile__sche-li">
-          <p class="profile__time"><span>16:00</span></p>
-          <p class="profile__sche-detail">
-            保育園へ子供を迎えに行く。帰宅後は育児、家事タイム。
+        <li class="profile__career-li">
+          <p class="profile__year"><span>2012</span></p>
+          <p class="profile__ca-detail">
+            フロントエンドエンジニアに転職。<br />
+            様々な企業を転々とし色々な開発に携わらせていただく。
           </p>
         </li>
-        <li class="profile__sche-li">
-          <p class="profile__time"><span>18:00</span></p>
-          <p class="profile__sche-detail">
-            ご飯、お風呂。<br />
-            21:00〜寝かしつけ。
+        <li class="profile__career-li">
+          <p class="profile__year"><span>2019</span></p>
+          <p class="profile__ca-detail">
+            妊娠出産を機に育児との両立を目指してフリーランスへ
           </p>
-        </li>
-        <li class="profile__sche-li">
-          <p class="profile__time profile__time--work"><span>22:00</span></p>
-          <p class="profile__sche-detail profile__height-margin--2">
-            <span class="em">仕事開始</span>
-          </p>
-        </li>
-        <li class="profile__sche-li">
-          <p class="profile__time"><span>0:00</span></p>
-          <p class="profile__sche-detail">就寝</p>
         </li>
       </ul>
     </div>
@@ -148,6 +104,34 @@ export default {
       margin-bottom: 40px;
     }
   }
+  &__img-wrap {
+    padding-left: 120px;
+    padding-top: 10px;
+    background-image: url("../assets/img/profile/prof.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 80px auto;
+    @include max-screen($sp) {
+      padding: 100px 0 0 0;
+      background-position: center top;
+      position: relative;
+    }
+    &:before {
+      @include max-screen($sp) {
+        content: "";
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -50px;
+        background-image: url("../assets/img/profile/prof.png");
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 80px auto;
+      }
+    }
+  }
   &__block {
     @include max-screen($sp) {
       padding-bottom: 40px;
@@ -156,6 +140,7 @@ export default {
       background-repeat: repeat-x;
       background-position: left bottom;
       background-size: 150px auto;
+      margin-bottom: 30px;
     }
   }
   &__name {
@@ -165,6 +150,12 @@ export default {
     padding-left: 20px;
     padding-top: 10px;
     margin-bottom: 5px;
+    @include max-screen($sp) {
+      font-size: 18px;
+      padding-left: 15px;
+      padding-top: 6px;
+      margin-bottom: 0;
+    }
     &:before {
       content: "";
       width: 8px;
@@ -174,12 +165,21 @@ export default {
       left: 0;
       top: 0;
       height: 65px;
+      @include max-screen($sp) {
+        width: 6px;
+        height: 55px;
+      }
     }
   }
   &__name-title {
     font-size: 14px;
     margin-bottom: 40px;
     padding-left: 20px;
+    @include max-screen($sp) {
+      padding-left: 15px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
   }
   &__text {
     line-height: 28px;
@@ -225,7 +225,7 @@ export default {
   &__career {
     width: 100%;
     position: relative;
-    margin-bottom: 200px;
+    margin-bottom: 160px;
     @include max-screen($sp) {
       margin-bottom: 0;
     }

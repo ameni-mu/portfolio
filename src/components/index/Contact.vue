@@ -43,6 +43,7 @@ export default {
   min-height: auto;
   padding-top: 150px;
   padding-bottom: 200px;
+  z-index: 10;
   @include max-screen($sp) {
     padding-top: 40px;
     padding-bottom: 60px;
