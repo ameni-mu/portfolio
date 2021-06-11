@@ -33,7 +33,7 @@
           />
         </h1>
         <p class="main__lead">
-          <span>フロント構築、イラスト制作 おまかせください <br /></span>
+          <span>web制作(フロント構築、デザイン)、イラスト制作 おまかせください <br /></span>
         </p>
         <ul class="main__nav">
           <li class="main__nav-li">
