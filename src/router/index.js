@@ -8,7 +8,7 @@ const routes = [
     name: "Index",
     component: Index,
     meta: {
-      title: "atelier ameni アトリエあめに",
+      title: "アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
     },
   },
@@ -21,8 +21,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
     meta: {
-      title: "プロフィール | atelier ameni アトリエあめに",
+      title: "プロフィール | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニア・イラストレーターあめにのプロフィールページです。",
+    },
+  },
+  {
+    path: "/privacypolicy",
+    name: "privacypolicy",
+    component: () =>
+      import(/* webpackChunkName: "illust" */ "../views/Privacypolicy.vue"),
+    meta: {
+      title: "プライバシーポリシー | アトリエあめに atelier ameni",
+      desc: "アトリエあめにのプライバシーポリシー（個人情報の取り扱い）につきまして",
     },
   },
   {
@@ -31,7 +41,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "illust" */ "../views/Illust.vue"),
     meta: {
-      title: "イラスト | atelier ameni アトリエあめに",
+      title: "イラスト | アトリエあめに atelier ameni",
       desc: "イラストレーターあめにのイラストポートフォリオページです",
     },
   },
@@ -41,7 +51,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "frontend" */ "../views/Frontend.vue"),
     meta: {
-      title: "フロントエンド | atelier ameni アトリエあめに",
+      title: "フロントエンド | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニアあめにのスキルや構築で使用するツールなど。",
     },
     props: true,
@@ -52,7 +62,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "frontworks" */ "../views/FrontWorks.vue"),
     meta: {
-      title: "フロントエンド | atelier ameni アトリエあめに",
+      title: "フロントエンド | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニアあめにのこれまで携わってきた制作物",
     },
   },
@@ -62,7 +72,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "contact" */ "../views/Contact.vue"),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "フロント構築や、イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
   },
@@ -74,7 +84,7 @@ const routes = [
         /* webpackChunkName: "frontcontact" */ "../views/FrontContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "フロント構築のご依頼やお問い合わせはこちらのページからお願いします。",
     },
     props: true,
@@ -110,7 +120,7 @@ const routes = [
         /* webpackChunkName: "illustcontact" */ "../views/IllustContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
     props: true,
@@ -146,7 +156,7 @@ const routes = [
         /* webpackChunkName: "othercontact" */ "../views/OtherContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "お問い合わせはこちらのページからお願いします。",
     },
     props: true,

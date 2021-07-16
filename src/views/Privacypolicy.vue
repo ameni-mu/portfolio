@@ -1,69 +1,38 @@
 <template>
-  <div class="profile otherpage">
+  <div class="otherpage">
     <AmeniNav :isOtherPage="true"></AmeniNav>
-    <div class="profile__inner otherpage__inner">
-      <h1 class="profile__heading heading otherpage__heading">PROFILE</h1>
-      <div class="profile__block profile__img-wrap">
-        <p class="profile__name">すがや</p>
-        <p class="profile__name-title">
-          フロントエンドエンジニア(webデザインも)
-        </p>
-        <p class="profile__name">あめに</p>
-        <p class="profile__name-title">
-          フロントエンドエンジニア・イラストレーター
-        </p>
-      </div>
-      <p class="profile__text text profile__block">
-        名前が違いますが同一人物です。<br />
-        フロント構築は本名の方が良いかと思い「すがや」としています。<br />
-        フリーでの活動はイラスト制作が先だったので、名前を変更することが難しく別々の名前になっています。<br />
-        お呼びいただく場合はお好きな方でお呼びください。<br />
-        <br />
-        新潟県出身 神奈川県在住。<br />
-        育児と仕事の両立を求めて働き方を模索しています。<br />
-        <br />
-        web: atelier-ameni.com<br />
-        mail: info@atelier-ameni.com<br />
+    <div class="otherpage__inner">
+      <h1 class="heading otherpage__heading">Privacy Policy</h1>
+      <p class="otherpage__text text">
+        「アトリエあめに」は、本ウェブサイトのお問い合わせや業務に伴いお預かりした個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。
       </p>
-      <!-- <ul class="profile__pagelink">
-        <li>
-          <a href="#koremade">これまで</a>
-        </li>
-        <li>
-          <a href="#koremade">一日のスケジュール</a>
-        </li>
-      </ul> -->
-      <h2 class="profile__secondary-heading">簡単な経歴</h2>
-      <ul class="profile__career">
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2007</span></p>
-          <p class="profile__ca-detail">
-            独学でweb制作を学び、フリーランスでイラスト制作やweb制作を請け負う
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2009</span></p>
-          <p class="profile__ca-detail">
-            デジハリオンラインスクールWebデザイナー講座受講<br />
-            webデザイナー、コーダーとして会社勤務<br />
-            株式会社クスールでAS3を学ぶ<br />
-            <!-- フリー素材配布サイト「ガーリー素材」を運営 -->
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2012</span></p>
-          <p class="profile__ca-detail">
-            フロントエンドエンジニアに転職。<br />
-            様々な企業を転々とし色々な開発に携わらせていただく。
-          </p>
-        </li>
-        <li class="profile__career-li">
-          <p class="profile__year"><span>2019</span></p>
-          <p class="profile__ca-detail">
-            妊娠出産を機に育児との両立を目指してフリーランスへ
-          </p>
-        </li>
-      </ul>
+      <h2 class="otherpage__ttl">個人情報につきまして</h2>
+      <p class="otherpage__text text">
+        「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。
+      </p>
+      <h2 class="otherpage__ttl">個人情報の収集方法</h2>
+      <p class="otherpage__text text">
+        案件のご相談やご依頼時にお問い合わせフォームからご記入いただいた情報や、案件の進行に伴い、必要に合わせて個人情報をお預かりする場合があります。
+      </p>
+      <h2 class="otherpage__ttl">個人情報の利用目的</h2>
+      <p class="otherpage__text text">
+        案件の進行上必要なため。案件進行以外を目的としたことには利用いたしません。
+      </p>
+      <h2 class="otherpage__ttl">個人情報の第三者提供</h2>
+      <p class="otherpage__text text">
+        業務委託の際など、第三者への情報開示が必要になった場合はご依頼者様ご本人のご了承を得たうえで情報を共有させていただきます。<br />
+        ご依頼者様ご本人の同意が無い場合は第三者へ情報を開示することはございません。<br />
+        ただし、以下の場合を除かせていただきます。<br />
+        <br />
+        ・ご依頼者様ご本人または第三者の生命，身体，財産その他の権利利益を害するおそれがある場合<br />
+        ・アトリエあめにの業務の適正な実施に著しい支障を及ぼすおそれがある場合<br />
+        ・その他法令に違反することとなる場合
+      </p>
+      <h2 class="otherpage__ttl">プライバシーポリシーの変更</h2>
+      <p class="otherpage__text text">
+        本ポリシーの内容は，事前に通知することなく更新することができるものとします。<br />
+        変更後のプライバシーポリシーは，本ウェブサイトに掲載したときから効力を生じるものとします。
+      </p>
     </div>
     <Footer :styleType="2"></Footer>
   </div>

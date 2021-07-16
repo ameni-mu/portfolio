@@ -23,16 +23,7 @@
       <span
         >イラストを正式に発注いただける場合は「お仕事確認書」を発行させていただきます。</span
       ><br />
-      内容をご確認いただき、ご署名と捺印をお願いいたします。<br />
-      認識齟齬によるトラブルを防ぐための書類になりますので、ご協力のほどよろしくお願いいたします。<br />
-      お仕事確認書の詳細につきましては、森
-      流一郎さんが書かれている下記記事をご覧ください。<br />
-      <a
-        href="https://note.com/moriryuichiro/n/n8aaaeae73a3e"
-        target="_blank"
-        class="illust__icon-link icon-link"
-        >イラストレーター必須のツール 「お仕事確認書」について知ろう！</a
-      >
+      認識齟齬によるトラブルを防ぐための書類になりますので、ご確認のほどよろしくお願いいたします。
     </li>
   </ul>
   <p class="btn btn--normal contact__lead-btn wave-line">
@@ -48,10 +39,7 @@
     <h3 class="contact__third-heading">
       <span>イラスト制作のご依頼・ご相談</span>
     </h3>
-    <p class="contact__note">
-      <span class="em">*</span>は必須項目です。<br />
-      まだ決まっていない項目は「未定」とご記入ください。
-    </p>
+    <p class="contact__note"><span class="em">*</span>は必須項目です。<br /></p>
     <ul class="contact__form contact__form--jobs">
       <li class="contact__form-li">
         <p class="contact__form-li-ttl">
@@ -348,6 +336,13 @@ export default {
       var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
+    },
+    toPageTop(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     },
     onValidate(e) {
       e.preventDefault();

@@ -6,8 +6,14 @@
 
 <script>
 import setMetaDesc from "@/mixin/setMetaDesc";
+
 export default {
   mixins: [setMetaDesc],
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {},
 };
 </script>
 <style lang="scss">

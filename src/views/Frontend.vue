@@ -77,7 +77,7 @@
           <li>
             <p class="front__skill-ttl">デザインツール</p>
             <p class="front__skill-detail">
-              Adobe photoshop / Adobe Illustrator / Sketch<br />
+              Adobe photoshop / Adobe Illustrator / AdobeXd / Sketch /<br />
               <span class="em">
                 *上記以外のツールで作成されたデザインファイルをお渡し予定の場合はご連絡ください。可能な限り、事前に環境を整えさせていただきます。
               </span>
@@ -149,7 +149,7 @@ export default {
     },
     authenticate(e) {
       e.preventDefault();
-      const sendUrl = "https://atelier-ameni.com/access.php";
+      const sendUrl = "access.php";
       let params = new URLSearchParams();
       params.append("id", this.fwid);
       params.append("pass", this.fwpass);

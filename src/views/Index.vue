@@ -33,7 +33,9 @@
           />
         </h1>
         <p class="main__lead">
-          <span>web制作(フロント構築、デザイン)、イラスト制作 おまかせください <br /></span>
+          <span
+            >web制作(フロント構築、デザイン)、イラスト制作 おまかせください <br
+          /></span>
         </p>
         <ul class="main__nav">
           <li class="main__nav-li">
@@ -135,44 +137,49 @@ export default {
     this.isMinW = window.innerWidth <= 740 ? true : false;
     if (this.isMinW) this.isLoading = false;
 
-    //パララックスオブジェクト表示
-    this.bg1 = document.querySelector(".index__bg1");
-    this.bg2 = document.querySelector(".index__bg2");
-    this.bg3 = document.querySelector(".index__bg3");
-    const bgWrap = document.querySelector(".index__bg-wrap");
-    //パララックス背景の高さを指定
-    const h = this.winH * 5;
-    this.bg1.style.height = h + "px";
-    this.bg2.style.height = h + "px";
-    this.bg3.style.height = h + "px";
+    this.$nextTick(function () {
+      //パララックスオブジェクト表示
+      this.bg1 = document.querySelector(".index__bg1");
+      this.bg2 = document.querySelector(".index__bg2");
+      this.bg3 = document.querySelector(".index__bg3");
+      const bgWrap = document.querySelector(".index__bg-wrap");
+      //パララックス背景の高さを指定
+      const h = this.winH * 5;
+      this.bg1.style.height = h + "px";
+      this.bg2.style.height = h + "px";
+      this.bg3.style.height = h + "px";
 
-    setTimeout(() => {
-      //canvasの設定
-      _this.stage = document.querySelector("canvas");
-      if (!_this.stage || !_this.stage.getContext) {
-        _this.isCvs = false;
-        _this.animEnter();
-      } else {
-        _this.ctx = _this.stage.getContext("2d");
-        _this.initStage();
-      }
-      //パララックス背景
-      this.scrollY = window.scrollY;
-      this.bg1.style.transform = "translateY(" + -(this.scrollY / 2) + "px)";
-      this.bg2.style.transform = "translateY(" + -(this.scrollY / 5) + "px)";
-      this.bg3.style.transform = "translateY(" + -(this.scrollY / 10) + "px)";
-      gsap.to(bgWrap, {
-        delay: 1,
-        duration: 2,
-        opacity: 1,
-        ease: "easePower1.easeOut",
-      });
+      setTimeout(() => {
+        //canvasの設定
+        _this.stage = document.querySelector("canvas");
+        if (!_this.stage || !_this.stage.getContext) {
+          _this.isCvs = false;
+          _this.animEnter();
+        } else {
+          _this.ctx = _this.stage.getContext("2d");
+          _this.initStage();
+        }
+        //パララックス背景
+        _this.scrollY = window.scrollY;
+        _this.bg1.style.transform =
+          "translateY(" + -(_this.scrollY / 2) + "px)";
+        _this.bg2.style.transform =
+          "translateY(" + -(_this.scrollY / 5) + "px)";
+        _this.bg3.style.transform =
+          "translateY(" + -(_this.scrollY / 10) + "px)";
+        gsap.to(bgWrap, {
+          delay: 1,
+          duration: 2,
+          opacity: 1,
+          ease: "easePower1.easeOut",
+        });
 
-      //resize event
-      window.addEventListener("resize", _this.onResize);
-      //scroll event
-      window.addEventListener("scroll", _this.onScroll);
-    }, 600);
+        //resize event
+        window.addEventListener("resize", _this.onResize);
+        //scroll event
+        window.addEventListener("scroll", _this.onScroll);
+      }, 300);
+    });
   },
   unmounted() {
     window.removeEventListener("resize", this.onResize);
@@ -332,9 +339,7 @@ export default {
       const logo = document.getElementsByClassName("main__logo");
       const lead = document.getElementsByClassName("main__lead");
       const nav = document.getElementsByClassName("main__nav-li");
-      const workImg = document.getElementsByClassName("main__work-img");
-      const obj1 = document.getElementsByClassName("main__deco-img--1");
-      const obj2 = document.getElementsByClassName("main__deco-img--2");
+      const decoWrap = document.getElementsByClassName("main__deco-wrap");
       const scroll = document.getElementsByClassName("main__scroll");
       const cvs = document.getElementsByClassName("cvs");
 
@@ -364,14 +369,14 @@ export default {
         ease: "CircIn",
       });
       gsap.to(lead, {
-        delay: 0.5,
-        duration: 0.5,
+        delay: 0.6,
+        duration: 1,
         opacity: 1,
         ease: "CircIn",
       });
       gsap.to(nav, {
         delay: 0.6,
-        duration: 0.2,
+        duration: 0.4,
         opacity: 1,
         translateY: 0,
         ease: "Back.easeOuteaseOut.config(1.71.7)",
@@ -380,28 +385,15 @@ export default {
           amount: 0.4,
         },
       });
-      gsap.to(workImg, {
-        delay: 1.1,
-        duration: 0.3,
-        opacity: 1,
-        translateY: 0,
-        ease: "CircIn",
-      });
-      gsap.to(obj1, {
-        delay: 1.2,
-        duration: 0.6,
-        opacity: 1,
-        ease: "CircIn",
-      });
-      gsap.to(obj2, {
-        delay: 1.4,
-        duration: 0.6,
+      gsap.to(decoWrap, {
+        delay: 1.5,
+        duration: 0.4,
         opacity: 1,
         ease: "CircIn",
       });
       gsap.to(scroll, {
-        delay: 1.6,
-        duration: 0.3,
+        delay: 1.5,
+        duration: 0.8,
         opacity: 1,
         ease: "CircIn",
       });
@@ -656,9 +648,11 @@ export default {
       }
     }
     &__deco-wrap {
+      opacity: 0;
       @include max-screen($sp) {
         position: relative;
         padding-bottom: 70px;
+        opacity: 1;
       }
     }
     &__work-img {
@@ -668,7 +662,6 @@ export default {
       left: 50%;
       bottom: 50px;
       margin-left: -90px;
-      opacity: 0;
       @include max-screen($sp) {
         position: static;
         margin-left: auto;
@@ -682,7 +675,6 @@ export default {
       bottom: 95px;
       width: 290px;
       margin-left: -150px;
-      opacity: 0;
       animation-name: fuwafuwa1;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
@@ -701,7 +693,6 @@ export default {
       width: 500px;
       margin-left: -240px;
       bottom: 110px;
-      opacity: 0;
       animation-name: fuwafuwa2;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;

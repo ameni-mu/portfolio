@@ -1,0 +1,32 @@
+AuthUserFile /home/users/1/staba.jp-hainotest/web/.htpasswd
+AuthGroupFile /dev/null
+AuthName "attention"
+AuthType Basic
+require valid-user
+
+RewriteEngine On
+
+# vue router使用のための記述　index.html以外にアクセスした時、既存のページじゃなければindex.htmlを表示させる
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+# vueの記述ここまで
+
+# www無しのURLに統一
+RewriteCond %{HTTP_HOST} ^\.hainotest.staba.jp/\.com
+RewriteRule ^(.*) http://hainotest.staba.jp/$1 [R=301,L]
+
+# www無しのURLに統一
+RewriteCond %{HTTP_HOST} ^www\.hainotest.staba.jp/\.com
+RewriteRule ^(.*) http://hainotest.staba.jp/$1 [R=301,L]
+
+# index.html無しのURLに統一
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ http://hainotest.staba.jp/$1 [R=301,L]
+
+# httpをhttpsに統一
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
