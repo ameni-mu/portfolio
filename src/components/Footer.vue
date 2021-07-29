@@ -1,5 +1,16 @@
 <template name="fade">
   <section class="footer" :class="'footer--style' + styleType">
+    <!-- <div class="ld__wrap" @click="toPageTop" v-if="catVisible != '2'">
+      <span class="ld__c1"></span>
+      <span class="ld__c2">
+        <span class="ld__c8"></span>
+      </span>
+      <span class="ld__c3"></span>
+      <span class="ld__c4"></span>
+      <span class="ld__c5"></span>
+      <span class="ld__c6"></span>
+      <span class="ld__c7"></span>
+    </div> -->
     <div class="footer__links">
       <router-link to="/" tag="li" class="footer__li" exact
         >トップページ</router-link
@@ -29,7 +40,9 @@
 
 <script>
 export default {
-  props: ["styleType"],
+  props: ["styleType", "catVisible"],
+  mounted(){
+  },
   methods: {
     toPageTop(e) {
       e.preventDefault();

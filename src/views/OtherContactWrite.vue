@@ -2,7 +2,35 @@
   <h1 class="contact__heading heading otherpage__heading">
     その他の<br />お問い合わせ
   </h1>
-
+  <div class="contact__panli">
+    <p class="contact__panttl">お問い合わせ</p>
+    <ul class="contact__panlink">
+      <li>
+        <router-link
+          to="/illcontact/illcontactwrite"
+          active-class="current"
+          exact
+          >イラスト</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/frontcontact/frontcontactwrite"
+          active-class="current"
+          exact
+          >フロント構築</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/othercontact/othercontactwrite"
+          active-class="current"
+          exact
+          >その他</router-link
+        >
+      </li>
+    </ul>
+  </div>
   <Form id="form" @submit="onSubmit" name="otherForm" ref="otherForm">
     <p class="contact__note contact__note--left">
       <span class="em">*</span>は必須項目です。<br />

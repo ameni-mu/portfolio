@@ -286,9 +286,9 @@
               ■ 対応デバイス：PC,tablet,SP<br />
               ■ レスポンシブ<br />
               ■ 機能：<br />
+              pjaxでのモーション付き遷移<br>
               APIからJSONを取得し、デザインに反映<br />
-              検索システム<br />
-              管理画面からの自動デザイン変更
+              検索システム、管理画面からの自動デザイン変更
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -613,7 +613,7 @@
               data-imglength="1"
               data-id="7"
             >
-              ■ 担当箇所：マークアップ<br />
+              ■ 担当箇所：デザイン、マークアップ<br />
               ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>

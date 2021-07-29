@@ -5,7 +5,7 @@
       <p class="prof__name">すがや</p>
       <p class="prof__name-title">フロントエンドエンジニア</p>
       <p class="prof__name">あめに</p>
-      <p class="prof__name-title">フロントエンドエンジニア・イラストレーター</p>
+      <p class="prof__name-title">イラストレーター</p>
       <div class="prof__text text">
         <p class="prof__lead">
           名前が違いますが同一人物です。<br />
