@@ -5,9 +5,7 @@
       <h1 class="profile__heading heading otherpage__heading">PROFILE</h1>
       <div class="profile__block profile__img-wrap">
         <p class="profile__name">すがや</p>
-        <p class="profile__name-title">
-          フロントエンドエンジニア(webデザインも)
-        </p>
+        <p class="profile__name-title">フロントエンドエンジニア</p>
         <p class="profile__name">あめに</p>
         <p class="profile__name-title">イラストレーター</p>
       </div>
@@ -45,7 +43,7 @@
             デジハリオンラインスクールWebデザイナー講座受講<br />
             webデザイナー、コーダーとして会社勤務<br />
             株式会社クスールでAS3を学ぶ<br />
-            フリー素材配布サイト「ガーリー素材」を運営
+            <!-- フリー素材配布サイト「ガーリー素材」を運営 -->
           </p>
         </li>
         <li class="profile__career-li">
@@ -60,6 +58,49 @@
           <p class="profile__ca-detail">
             妊娠出産を機に育児との両立を目指してフリーランスへ
           </p>
+        </li>
+      </ul>
+      <h2 class="profile__secondary-heading">平日のスケジュール</h2>
+      <p class="profile__sup">
+        基本的に土日以外の平日に仕事をしています。<br />
+        必要があれば土日も対応可能です。
+      </p>
+      <ul class="profile__sche">
+        <li class="profile__sche-li">
+          <p class="profile__time"><span>6:00</span></p>
+          <p class="profile__sche-detail">
+            起床、朝食、家事。<br />子供を保育園へ送り届ける。
+          </p>
+        </li>
+        <li class="profile__sche-li">
+          <p class="profile__time profile__time--work"><span>9:00</span></p>
+          <p class="profile__sche-detail profile__height-margin--1">
+            <span class="em">仕事開始</span>
+          </p>
+        </li>
+        <li class="profile__sche-li">
+          <p class="profile__time"><span>16:30</span></p>
+          <p class="profile__sche-detail">
+            保育園へ子供を迎えに行く。<br />
+            育児、家事。
+          </p>
+        </li>
+        <li class="profile__sche-li">
+          <p class="profile__time"><span>18:00</span></p>
+          <p class="profile__sche-detail">
+            ご飯、お風呂。<br />
+            21:00〜寝かしつけ。
+          </p>
+        </li>
+        <li class="profile__sche-li">
+          <p class="profile__time profile__time--work"><span>22:00</span></p>
+          <p class="profile__sche-detail profile__height-margin--2">
+            <span class="em">仕事開始</span>
+          </p>
+        </li>
+        <li class="profile__sche-li">
+          <p class="profile__time"><span>0:00</span></p>
+          <p class="profile__sche-detail">就寝</p>
         </li>
       </ul>
     </div>
@@ -111,6 +152,7 @@ export default {
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 80px auto;
+    min-height: 100px;
     @include max-screen($sp) {
       padding: 100px 0 0 0;
       background-position: center top;

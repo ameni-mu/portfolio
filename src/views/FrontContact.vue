@@ -4,7 +4,7 @@
     <div class="otherpage__inner">
       <router-view />
     </div>
-    <Footer :styleType="2"></Footer>
+    <Footer :styleType="2" :catVisible="2"></Footer>
   </div>
 </template>
 

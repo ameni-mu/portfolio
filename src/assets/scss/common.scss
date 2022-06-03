@@ -137,7 +137,317 @@ a.altText:hover {
     background-size: 170px auto;
   }
 }
+.ld {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #f8e9e7;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  transition: all 1s ease-in-out;
+  border-radius: 0;
+  transform: translateY(0);
+  &.before {
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    height: 30px;
+    background-image: url("../assets/img/common/loading/wave.svg");
+    background-size: 70px auto;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+  }
+  &.is-loaded {
+    transform: translateY(-150vh);
+  }
 
+  &__ol {
+    width: 150px;
+    height: 123px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    &.is-loaded {
+      opacity: 0;
+    }
+  }
+  &__wrap {
+    width: 300px;
+    height: 246px;
+    position: absolute;
+    right: -150px;
+    bottom: 26px;
+    transform: scale(0.3, 0.3);
+    animation: walk-sp 35s 0s linear infinite;
+    z-index: 9999;
+    cursor: pointer;
+    @include max-screen($sp) {
+      transform: scale(0.3, 0.3);
+      animation: walk-sp 16s 0s linear infinite;
+      bottom: auto;
+      top: -140px;
+      right: -180px;
+    }
+    span {
+      background-repeat: no-repeat;
+      background-position: left top;
+      display: block;
+      position: absolute;
+      z-index: 9999;
+    }
+  }
+  @keyframes walk {
+    0% {
+      transform: scale(0.5, 0.5) translateX(0);
+    }
+    to {
+      transform: scale(0.5, 0.5) translateX(-200vw);
+    }
+  }
+  @keyframes walk-sp {
+    0% {
+      transform: scale(0.3, 0.3) translateX(0);
+    }
+    to {
+      transform: scale(0.3, 0.3) translateX(-400vw);
+    }
+  }
+  @keyframes flower1 {
+    0% {
+      transform: translateX(-300px);
+    }
+    to {
+      transform: translateX(300px);
+    }
+  }
+  @keyframes body {
+    0% {
+      transform: translateY(2px);
+    }
+    to {
+      transform: translateY(-2px);
+    }
+  }
+  @keyframes head {
+    0% {
+      transform: translateY(2px);
+    }
+    to {
+      transform: translateY(-2px);
+    }
+  }
+  @keyframes fukidashi {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes eye {
+    0% {
+      transform: scale(1, 1);
+    }
+    46% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 0.1);
+    }
+    53% {
+      transform: scale(1, 1);
+    }
+    68% {
+      transform: scale(1, 1);
+    }
+    70% {
+      transform: scale(1, 0.1);
+    }
+    73% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes tail {
+    0% {
+      transform: rotate(10deg) translateY(2px);
+    }
+    to {
+      transform: rotate(20deg) translateY(-2px);
+    }
+  }
+  @keyframes leg1 {
+    0% {
+      transform: rotate(-10deg) translateY(-3px);
+    }
+    30% {
+      transform: rotate(-5deg) translateY(-5px);
+    }
+    50% {
+      transform: rotate(0deg) translateY(3px);
+    }
+    100% {
+      transform: rotate(-10deg) translateY(-3px);
+    }
+  }
+  @keyframes leg2 {
+    0% {
+      transform: rotate(5deg) translateY(3px);
+    }
+    30% {
+      transform: rotate(0deg) translateY(-2px);
+    }
+    50% {
+      transform: rotate(-5deg) translateY(0);
+    }
+    100% {
+      transform: rotate(5deg) translateY(3px);
+    }
+  }
+  @keyframes leg4 {
+    0% {
+      transform: rotate(-10deg) translateY(-3px);
+    }
+    30% {
+      transform: rotate(0deg) translateY(-8px);
+    }
+    50% {
+      transform: rotate(5deg) translateY(0);
+    }
+    100% {
+      transform: rotate(-10deg) translateY(-3px);
+    }
+  }
+  &__pagetop {
+    background-image: url("../assets/img/common/loading/fukidashi.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 300px auto;
+    width: 300px;
+    height: 300px;
+    left: -160px;
+    top: -150px;
+    animation: fukidashi 3s -1s linear infinite;
+  }
+  &__logo {
+    background-image: url("../assets/img/common/loading/logo.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 84px auto;
+    width: 84px;
+    height: 84px;
+    left: 65px;
+    top: 25px;
+  }
+  &__f1 {
+    background-image: url("../assets/img/common/loading/flower1.svg");
+    background-size: 130px auto;
+    width: 130px;
+    height: 80px;
+    left: 200px;
+    bottom: -49px;
+    animation: flower1 7s -5s linear infinite;
+  }
+  &__c1 {
+    background-image: url("../assets/img/common/loading/cat1.svg");
+    background-size: 290px auto;
+    width: 290px;
+    height: 246px;
+    left: 0;
+    top: 0;
+    animation: body 0.6s 0s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+  &__c2 {
+    background-image: url("../assets/img/common/loading/cat2.svg");
+    background-size: 135px auto;
+    width: 142px;
+    height: 111px;
+    left: 0;
+    top: 15px;
+    animation: head 0.6s 0s ease-in-out infinite alternate;
+    transform-origin: 122px 80px 0;
+  }
+  &__c3 {
+    background-image: url("../assets/img/common/loading/cat3.svg");
+    background-size: 80px auto;
+    width: 80px;
+    height: 100px;
+    right: 10px;
+    top: 0;
+    animation: tail 0.6s 0s ease-in-out infinite alternate;
+    transform-origin: -10px 80px;
+  }
+  &__c4 {
+    background-image: url("../assets/img/common/loading/cat4.svg");
+    background-size: 75px auto;
+    width: 80px;
+    height: 100px;
+    left: 15px;
+    top: 120px;
+    animation: leg1 0.8s 0s ease-in-out infinite;
+    transform-origin: 50px 10px;
+  }
+  &__c5 {
+    background-image: url("../assets/img/common/loading/cat5.svg");
+    background-size: 70px auto;
+    width: 80px;
+    height: 100px;
+    left: 61px;
+    top: 124px;
+    animation: leg1 0.8s -0.4s ease-in-out infinite;
+    transform-origin: 50px 10px;
+  }
+  &__c6 {
+    background-image: url("../assets/img/common/loading/cat6.svg");
+    background-size: 73px auto;
+    width: 80px;
+    height: 100px;
+    right: 70px;
+    top: 128px;
+    animation: leg4 0.8s 0s ease-in-out infinite;
+    transform-origin: 50px 10px;
+  }
+  &__c7 {
+    background-image: url("../assets/img/common/loading/cat7.svg");
+    background-size: 68px auto;
+    width: 80px;
+    height: 100px;
+    right: 19px;
+    top: 107px;
+    animation: leg4 0.8s -0.4s ease-in-out infinite;
+    transform-origin: 50px 10px;
+  }
+  &__c8 {
+    background-image: url("../assets/img/common/loading/cat8.svg");
+    background-size: 60px auto;
+    width: 70px;
+    height: 20px;
+    left: 36px;
+    top: 55px;
+    animation: eye 3s 0s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+}
 .heading {
   font-size: 40px;
   @extend .raleway;
@@ -149,6 +459,12 @@ a.altText:hover {
     font-size: 30px;
     padding-left: 40px;
     margin-bottom: 20px;
+  }
+  .sp-block {
+    display: none;
+    @include max-screen($sp) {
+      display: block;
+    }
   }
   &:before {
     width: 35px;
@@ -351,7 +667,7 @@ a.altText:hover {
     box-sizing: border-box;
     margin: 0 auto;
     padding-top: 90px;
-    padding-bottom: 250px;
+    padding-bottom: 100px;
     @include max-screen($tablet) {
       padding-left: 0;
       width: 600px;
@@ -363,6 +679,7 @@ a.altText:hover {
       width: 100%;
       box-sizing: border-box;
       padding-top: 50px;
+      padding-bottom: 50px;
     }
   }
   .nav {
@@ -426,6 +743,21 @@ a.altText:hover {
       font-size: 14px;
       line-height: 22px;
       margin-bottom: 10px;
+    }
+  }
+  &__text {
+    line-height: 32px;
+    @include max-screen($sp) {
+      font-size: 14px;
+      line-height: 28px;
+    }
+  }
+  &__ttl {
+    font-size: 24px;
+    margin: 50px 0 15px 0;
+    @include max-screen($sp) {
+      font-size: 20px;
+      margin: 40px 0 15px 0;
     }
   }
 }

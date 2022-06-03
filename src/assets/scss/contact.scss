@@ -9,11 +9,50 @@
     margin-top: 30px;
   }
   &__heading {
-    margin-bottom: 50px;
+    margin-bottom: 22px;
     font-size: 30px;
     @include max-screen($sp) {
       font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  &__panli {
+    display: flex;
+    background-color: #fff;
+    // border: 1px solid #e4e2e0;
+    font-size: 12px;
+    padding: 4px 0;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    @include max-screen($sp) {
       margin-bottom: 30px;
+    }
+  }
+  &__panttl {
+    padding-right: 15px;
+  }
+  &__panlink {
+    display: flex;
+    > li {
+      padding-left: 12px;
+      margin-right: 10px;
+      background-image: url("../assets/img/common/list_arrow_gray.svg");
+      background-size: 10px auto;
+      background-repeat: no-repeat;
+      background-position: left 2px;
+    }
+    a {
+      color: #666;
+      &.current {
+        color: #ccc;
+        cursor: default;
+      }
+      &:hover {
+        &:before {
+          display: none;
+        }
+      }
     }
   }
   &__lead-btn {
@@ -57,10 +96,13 @@
   &__attention {
     font-size: 14px;
     line-height: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     @include max-screen($sp) {
       line-height: 22px;
       margin-bottom: 10px;
+    }
+    &.front {
+      margin-bottom: 60px;
     }
     li {
       padding-left: 17px;
@@ -190,6 +232,12 @@
       @include max-screen($sp) {
         display: none;
       }
+    }
+  }
+  &__select-wrap {
+    margin-bottom: 10px;
+    @include max-screen($sp) {
+      margin-bottom: 5px;
     }
   }
   &__select-detail {

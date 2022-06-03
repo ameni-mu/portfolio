@@ -7,15 +7,16 @@
         jsを使用したフロントエンドエンジニア歴は7年ほどになります。
       </p>
       <ul class="front__link">
-        <li>
+        <li class="btn">
           <a href="https://github.com/ameni-mu" target="_blank">
             <i class="fab fa-github"></i><span>github ></span>
           </a>
         </li>
-        <li>
+        <li class="btn">
           <a href="#" @click="toFrontWorks">
             <i class="fas fa-lock"></i><span>制作実績 ></span>
           </a>
+          <span class="sup">※制作実績の認証ID/PASSはお問い合わせください</span>
         </li>
       </ul>
 
@@ -23,7 +24,7 @@
         <h2 class="front__secondary-heading">制作環境</h2>
         <ul class="front__text">
           <li>Main => MacBook / macOS Big Sur 11.3.1</li>
-          <li>Sub => Windows7</li>
+          <li>Sub => Windows10</li>
         </ul>
       </div>
 
@@ -67,7 +68,11 @@
           <li>
             <p class="front__skill-ttl">自宅での検証環境<br />(実機)</p>
             <p class="front__skill-detail">
-              Macbook / windows7 / ipad Pro / Android8(ASUS zenphone)
+              Macbook / windows10 / ipad Pro / iphone7 / Android8(ASUS
+              zenphone)<br />
+              <span class="em"
+                >※実機で検証が必要な端末がありましたら事前にお知らせください。</span
+              >
             </p>
           </li>
           <li>
@@ -77,9 +82,19 @@
           <li>
             <p class="front__skill-ttl">デザインツール</p>
             <p class="front__skill-detail">
-              Adobe photoshop / Adobe Illustrator / Sketch<br />
+              Adobe photoshop / Adobe Illustrator / AdobeXD /<br />
               <span class="em">
                 *上記以外のツールで作成されたデザインファイルをお渡し予定の場合はご連絡ください。可能な限り、事前に環境を整えさせていただきます。
+              </span>
+            </p>
+          </li>
+          <li>
+            <p class="front__skill-ttl">対応ブラウザ</p>
+            <p class="front__skill-detail">
+              Chrome / FireFox / Safari / Edge 各種最新版<br />
+              <span class="em">
+                ※IEは基本的に対応いたしません。<br />
+                事前に確認しますので必要であれば対応しますが、アニメーションが複雑な場合など対応が難しい場合は別途料金をいただき、プログレッシブエンハンスメントとして専用の表示になるように調整させていただきます。
               </span>
             </p>
           </li>
@@ -221,38 +236,49 @@ export default {
   &__link {
     width: 100%;
     display: block;
-    height: 40px;
     margin-bottom: 70px;
     font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
       YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
       "メイリオ", Meiryo, sans-serif;
     @include max-screen($sp) {
-      margin-bottom: 30px;
+      margin-bottom: 50px;
+      height: auto;
     }
     li {
-      float: left;
-      padding-left: 30px;
-      @include max-screen($sp) {
-        padding-left: 15px;
-      }
-      &:first-child {
-        padding-left: 0;
-      }
+      display: block;
+      margin-bottom: 10px;
     }
     span {
       font-size: 16px;
       display: inline-block;
       padding-left: 5px;
       letter-spacing: 1px;
+      line-height: 20px;
       @include max-screen($sp) {
         font-size: 14px;
       }
+      &.sup {
+        font-size: 14px;
+        padding-left: 0;
+        padding-top: 5px;
+        display: block;
+        @include max-screen($sp) {
+          font-size: 12px;
+        }
+      }
     }
     a {
-      color: #666666;
+      color: #fff;
       font-size: 20px;
+      padding: 14px 33px 14px 25px;
       @include max-screen($sp) {
         font-size: 14px;
+        padding: 9px 22px 9px 20px;
+      }
+      > i {
+        @include max-screen($sp) {
+          padding-top: 3px;
+        }
       }
     }
   }

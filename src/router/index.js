@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Index from "../views/Index.vue";
-import store from "../store";
+//import store from "../store";
 
 const routes = [
   {
@@ -8,8 +8,8 @@ const routes = [
     name: "Index",
     component: Index,
     meta: {
-      title: "atelier ameni アトリエあめに",
-      desc: "フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
+      title: "アトリエあめに atelier ameni",
+      desc: "web制作、イラスト制作のアトリエあめにです。web制作はフロントエンド構築をメインにお仕事させていただいています。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
     },
   },
   {
@@ -21,8 +21,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
     meta: {
-      title: "プロフィール | atelier ameni アトリエあめに",
+      title: "プロフィール | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニア・イラストレーターあめにのプロフィールページです。",
+    },
+  },
+  {
+    path: "/privacypolicy",
+    name: "privacypolicy",
+    component: () =>
+      import(/* webpackChunkName: "illust" */ "../views/Privacypolicy.vue"),
+    meta: {
+      title: "プライバシーポリシー | アトリエあめに atelier ameni",
+      desc: "アトリエあめにのプライバシーポリシー（個人情報の取り扱い）につきまして",
     },
   },
   {
@@ -31,7 +41,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "illust" */ "../views/Illust.vue"),
     meta: {
-      title: "イラスト | atelier ameni アトリエあめに",
+      title: "イラスト | アトリエあめに atelier ameni",
       desc: "イラストレーターあめにのイラストポートフォリオページです",
     },
   },
@@ -41,7 +51,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "frontend" */ "../views/Frontend.vue"),
     meta: {
-      title: "フロントエンド | atelier ameni アトリエあめに",
+      title: "フロントエンド | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニアあめにのスキルや構築で使用するツールなど。",
     },
     props: true,
@@ -52,8 +62,28 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "frontworks" */ "../views/FrontWorks.vue"),
     meta: {
-      title: "フロントエンド | atelier ameni アトリエあめに",
+      title: "フロントエンド | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニアあめにのこれまで携わってきた制作物",
+    },
+  },
+  {
+    path: "/webdesign",
+    name: "WebDesign",
+    component: () =>
+      import(/* webpackChunkName: "webdesign" */ "../views/WebDesign.vue"),
+    meta: {
+      title: "web design | アトリエあめに atelier ameni",
+      desc: "atelier ameni のwebdesign実績",
+    },
+  },
+  {
+    path: "/works",
+    name: "Works",
+    component: () =>
+      import(/* webpackChunkName: "works" */ "../views/Works.vue"),
+    meta: {
+      title: "works | アトリエあめに atelier ameni",
+      desc: "atelier ameni の実績",
     },
   },
   {
@@ -62,7 +92,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "contact" */ "../views/Contact.vue"),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "フロント構築や、イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
   },
@@ -74,7 +104,7 @@ const routes = [
         /* webpackChunkName: "frontcontact" */ "../views/FrontContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "フロント構築のご依頼やお問い合わせはこちらのページからお願いします。",
     },
     props: true,
@@ -110,7 +140,7 @@ const routes = [
         /* webpackChunkName: "illustcontact" */ "../views/IllustContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "イラスト作成のご依頼やお問い合わせはこちらのページからお願いします。",
     },
     props: true,
@@ -146,7 +176,7 @@ const routes = [
         /* webpackChunkName: "othercontact" */ "../views/OtherContact.vue"
       ),
     meta: {
-      title: "お問い合わせ | atelier ameni アトリエあめに",
+      title: "お問い合わせ | アトリエあめに atelier ameni",
       desc: "お問い合わせはこちらのページからお願いします。",
     },
     props: true,
@@ -206,14 +236,15 @@ const router = createRouter({
   },
 });
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.state.isAuthenticated;
-  if (to.name == "FrontWorks") {
-    if (isAuthenticated) {
-      next();
-    } else {
-      alert("認証されていません。");
-      next({ name: "Frontend" });
-    }
+  //const isAuthenticated = store.state.isAuthenticated;
+  if (to.name == "FrontWorks" || to.name == "WebDesign") {
+    // if (isAuthenticated) {
+    //   next();
+    // } else {
+    //   alert("認証されていません。");
+    //   next({ name: "Works" });
+    // }
+    next();
   } else {
     next();
   }

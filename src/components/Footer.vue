@@ -1,5 +1,36 @@
 <template name="fade">
   <section class="footer" :class="'footer--style' + styleType">
+    <!-- <div class="ld__wrap" @click="toPageTop" v-if="catVisible != '2'">
+      <span class="ld__c1"></span>
+      <span class="ld__c2">
+        <span class="ld__c8"></span>
+      </span>
+      <span class="ld__c3"></span>
+      <span class="ld__c4"></span>
+      <span class="ld__c5"></span>
+      <span class="ld__c6"></span>
+      <span class="ld__c7"></span>
+    </div> -->
+    <div class="footer__links">
+      <router-link to="/" tag="li" class="footer__li" exact
+        >トップページ</router-link
+      >
+      <router-link to="/profile" tag="li" class="footer__li" exact
+        >プロフィール</router-link
+      >
+      <router-link to="/frontend" tag="li" class="footer__li" exact
+        >フロントエンド</router-link
+      >
+      <router-link to="/illust" tag="li" class="footer__li" exact
+        >イラスト</router-link
+      >
+      <router-link to="/contact" tag="li" class="footer__li" exact
+        >お問い合わせ</router-link
+      >
+      <router-link to="/privacypolicy" tag="li" class="footer__li" exact
+        >プライバシーポリシー</router-link
+      >
+    </div>
     <p class="footer__copy">&copy; atelier-ameni</p>
     <a href="#" class="to-pagetop footer__to-pagetop" @click="toPageTop"
       >ページトップへ</a
@@ -9,7 +40,8 @@
 
 <script>
 export default {
-  props: ["styleType"],
+  props: ["styleType", "catVisible"],
+  mounted() {},
   methods: {
     toPageTop(e) {
       e.preventDefault();
@@ -25,13 +57,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   min-height: 60px;
   text-align: center;
   background: #fff;
   z-index: 10;
+  position: relative;
+  z-index: 1000;
+  box-sizing: border-box;
+  padding: 0 40px 20px;
   @include max-screen($sp) {
     font-size: 12px;
     min-height: 40px;
@@ -55,13 +90,49 @@ export default {
   }
   &__copy {
     z-index: 10;
-    height: 100px;
     width: 100%;
-    line-height: 100px;
     color: #999999;
+    padding-top: 10px;
+    display: block;
     @include max-screen($sp) {
-      height: 60px;
-      line-height: 60px;
+    }
+  }
+  &__links {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    @include max-screen($sp) {
+      padding-top: 20px;
+    }
+  }
+  &__li {
+    color: #999 !important;
+    margin: 0 13px 15px 0;
+    position: relative;
+    left: 10px;
+    padding-left: 8px;
+    font-size: 14px;
+    display: inline-block;
+    @include max-screen($sp) {
+      margin: 0 13px 10px 0;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    &:before {
+      display: none;
+    }
+    &:after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: #ddd;
+      border-radius: 5px;
+      left: 0;
+      top: 6px;
+      position: absolute;
     }
   }
   &__to-pagetop {
@@ -79,8 +150,8 @@ export default {
     position: absolute;
     z-index: 9000;
     left: 50%;
-    margin-left: 550px;
-    bottom: 130px;
+    margin-left: 500px;
+    bottom: 150px;
     @include max-screen(1240px) {
       display: none;
     }

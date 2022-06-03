@@ -2,7 +2,50 @@
   <h1 class="contact__heading heading otherpage__heading">
     フロント構築の<br />お問い合わせ
   </h1>
-
+  <div class="contact__panli">
+    <p class="contact__panttl">お問い合わせ</p>
+    <ul class="contact__panlink">
+      <li>
+        <router-link
+          to="/illcontact/illcontactwrite"
+          active-class="current"
+          exact
+          >イラスト</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/frontcontact/frontcontactwrite"
+          active-class="current"
+          exact
+          >フロント構築</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/othercontact/othercontactwrite"
+          active-class="current"
+          exact
+          >その他</router-link
+        >
+      </li>
+    </ul>
+  </div>
+  <ul class="contact__attention front">
+    <li>
+      お問い合わせいただき、必要な情報をいただきましたら概算見積書を作成させていただきます。
+    </li>
+    <li>
+      デザイン、仕様書（あれば）を拝見した後に見積書を作成、工数をお伝えさせていただきます。
+    </li>
+    <li>
+      見積書をお渡しした後に追加対応が発生した場合は内容の大きさによりますが追加料金をいただきます。<br />
+      また、その際に工数も改めて算出しますのでご了承ください。
+    </li>
+    <li>
+      工数は内容によりますが3、4日のバッファを含めて算出させていただきます。
+    </li>
+  </ul>
   <Form id="form" @submit="onSubmit" name="frontform" ref="frontform">
     <p class="contact__note contact__note--left">
       <span class="em">*</span>は必須項目です。<br />
@@ -67,12 +110,78 @@
       <li class="contact__form-li">
         <p class="contact__form-li-ttl"><span class="em">*</span>ご予算</p>
         <div class="contact__select-detail">
-          <Field
+          <!-- <Field
             name="budget"
             type="text"
             rules="required"
             v-model="inputData.budget"
-          />
+          /> -->
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget1"
+              value="3〜5万円"
+              v-model="inputData.budget"
+            />
+            <label for="budget1"><span>3〜5万円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget2"
+              value="5〜10万円"
+              v-model="inputData.budget"
+            />
+            <label for="budget2"><span>5〜10万円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget3"
+              value="10〜30万円"
+              v-model="inputData.budget"
+            />
+            <label for="budget3"><span>10〜30万円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget4"
+              value="30〜50万円"
+              v-model="inputData.budget"
+            />
+            <label for="budget4"><span>30〜50万円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget5"
+              value="50万円以上"
+              v-model="inputData.budget"
+            />
+            <label for="budget5"><span>50万円以上</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget6"
+              value="その他"
+              v-model="inputData.budget"
+            />
+            <label for="budget6"><span>その他</span></label>
+          </div>
           <ErrorMessage name="budget" class="error" />
         </div>
       </li>

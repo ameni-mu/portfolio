@@ -42,7 +42,7 @@ export default {
   background-color: #f8e9e7;
   min-height: auto;
   padding-top: 150px;
-  padding-bottom: 200px;
+  padding-bottom: 130px;
   z-index: 10;
   @include max-screen($sp) {
     padding-top: 40px;

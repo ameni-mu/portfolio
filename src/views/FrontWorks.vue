@@ -2,21 +2,153 @@
   <div class="fw otherpage">
     <AmeniNav :isOtherPage="true"></AmeniNav>
     <div class="fw__inner otherpage__inner">
-      <h1 class="fw__heading heading otherpage__heading">Front-end Works</h1>
+      <h1 class="fw__heading heading otherpage__heading">Front-end <br class="sp-block">Works</h1>
       <ul class="fw__lead otherpage__list wave-line">
         <li>年代別に掲載しています。</li>
-        <li>
-          <span class="em"
-            >大変申し訳ございませんが、2015年以降は制作物のデータを保存しておかなかったため、制作に携わったものを少ししか掲載できていません。</span
-          >
-        </li>
       </ul>
+      <div class="fw__block fw__block--1 wave-line">
+        <h2 class="fw__secondary-heading">2021〜</h2>
+        <div class="otherpage__lead">
+        </div>
+        <ul class="fw__thumb-lists">
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/35/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">東京地下ラボ<br>イベント特設サイト</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="2"
+              data-imglength="1"
+              data-id="35"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC/SP/Tablet<br />
+              ■ 機能：<br />
+              パララックス<br>
+              MVのcanvasモーション<br>
+              SVGモーション<br>
+              cssアニメーション
+            </div>
+          </li>
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/37/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">東京地下ラボ<br>イベント後 作品展示サイト</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="37"
+              data-size="large"
+            >
+              ■ 担当箇所：マークアップ / js<br />
+              ■ 対応デバイス：PC/SP/Tablet<br />
+              ■ 機能：<br />
+              canvasモーション、パララックス、web漫画(スライダー実装)
+            </div>
+          </li>
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/36/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">八ヶ岳WORK&LIFE</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="2"
+              data-imglength="1"
+              data-id="36"
+            >
+              ■ 担当箇所：マークアップ / js (Wordpress導入前のフロント構築のみ)<br />
+              ■ 対応デバイス：PC/SP/Tablet<br />
+            </div>
+          </li>
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/38/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">若者フォーラム2021</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="38"
+              data-size="large"
+            >
+              ■ 担当箇所：マークアップ / js / PHP<br />
+              ■ 対応デバイス：PC/SP/Tablet<br />
+              ■ 機能：<br />
+              canvasモーション、cssモーション、パララックス、キーワード入力によるページの振り分け
+            </div>
+          </li>
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/39/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">beardpapa's fresh'n natural cream puffs</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="3"
+              data-id="39"
+              data-size="large"
+            >
+              ■ 担当箇所：マークアップ / js / wordpress<br />
+              ■ 対応デバイス：PC/SP/Tablet<br />
+              ■ 機能：<br />
+              動画の遅延ロード、スクロールに合わせたモーション、wordpressオリジナルテンプレート作成
+            </div>
+          </li>
+          <li class="fw__thumb-list" @click="onModal">
+            <div class="fw__thumb-wrap">
+              <img src="../assets/img/frontworks/40/1.jpg" />
+            </div>
+            <p class="fw__tumb-ttl">
+              <span class="ico">coding</span>
+              <span class="text">ティザーサイト</span>
+            </p>
+            <div
+              class="fw__modaldesc"
+              data-type="1"
+              data-imglength="4"
+              data-id="40"
+              data-size="large"
+            >
+              ■ 担当箇所：マークアップ / js<br>
+              ■ 対応デバイス：PC/SP/Tablet<br />
+              ■ 機能：<br />
+              パララックス、スクロール芸モーション
+            </div>
+          </li>
+        </ul>
+      </div>
       <div class="fw__block fw__block--1 wave-line">
         <h2 class="fw__secondary-heading">2017〜2019</h2>
         <div class="otherpage__lead">
           <p>
             様々なwebページ構築に携わる。<br />
             コーポレートサイト、ゲームのオフィシャルページ、スペシャルサイト、ゲームのポータルサイト、ゲームのECサイト、ソーシャルゲーム内のwebページ、等。
+          </p>
+          <p>
+            <span class="em"
+              >大変申し訳ございませんが、2015年〜2019年は制作物のデータを保存しておかなかったため、制作に携わったものを少ししか掲載できていません。</span
+            >
           </p>
         </div>
         <ul class="fw__thumb-lists">
@@ -25,7 +157,7 @@
               <img src="../assets/img/frontworks/31/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico">movie</span>
+              <span class="ico">coding</span>
               <span class="text">ソーシャルゲームの特設ページ</span>
             </p>
             <div
@@ -46,7 +178,7 @@
               <img src="../assets/img/frontworks/32/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">ゲームポータルサイト内コンテンツ</span>
             </p>
             <div
@@ -67,7 +199,7 @@
               <img src="../assets/img/frontworks/33/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico">movie</span>
+              <span class="ico">coding</span>
               <span class="text">ゲームポータルサイト特設ページ</span>
             </p>
             <div
@@ -88,7 +220,7 @@
               <img src="../assets/img/frontworks/34/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">ゲームポータルサイトwebアプリ版</span>
             </p>
             <div
@@ -119,7 +251,7 @@
               <img src="../assets/img/frontworks/23/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">コーポレートメディアページ</span>
             </p>
             <div
@@ -138,7 +270,7 @@
               <img src="../assets/img/frontworks/24/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">コーポレート採用サイト</span>
             </p>
             <div
@@ -157,7 +289,7 @@
               <img src="../assets/img/frontworks/25/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">ドラマ公式サイト</span>
             </p>
             <div
@@ -176,7 +308,7 @@
               <img src="../assets/img/frontworks/26/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">技術メディアサイト</span>
             </p>
             <div
@@ -193,7 +325,7 @@
               <img src="../assets/img/frontworks/27/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">対談記事特設サイトリニューアル</span>
             </p>
             <div
@@ -212,7 +344,7 @@
               <img src="../assets/img/frontworks/28/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">プロダクトメディアサイト</span>
             </p>
             <div
@@ -231,7 +363,7 @@
               <img src="../assets/img/frontworks/29/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">市民音楽祭紹介メディアサイト</span>
             </p>
             <div
@@ -249,7 +381,7 @@
               <img src="../assets/img/frontworks/30/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">メディアサイト</span>
             </p>
             <div
@@ -273,7 +405,7 @@
               <img src="../assets/img/frontworks/12/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">カスタムヘッドフォンECサイト</span>
             </p>
             <div
@@ -286,9 +418,9 @@
               ■ 対応デバイス：PC,tablet,SP<br />
               ■ レスポンシブ<br />
               ■ 機能：<br />
+              pjaxでのモーション付き遷移<br />
               APIからJSONを取得し、デザインに反映<br />
-              検索システム<br />
-              管理画面からの自動デザイン変更
+              検索システム、管理画面からの自動デザイン変更
             </div>
           </li>
           <li class="fw__thumb-list" @click="onModal">
@@ -296,7 +428,7 @@
               <img src="../assets/img/frontworks/13/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">ユーザー投稿サイト</span>
             </p>
             <div
@@ -318,7 +450,7 @@
               <img src="../assets/img/frontworks/14/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">イベントサイトティザーページ</span>
             </p>
             <div
@@ -339,7 +471,7 @@
               <img src="../assets/img/frontworks/15/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">コーポレートサイト</span>
             </p>
             <div
@@ -359,7 +491,7 @@
               <img src="../assets/img/frontworks/16/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">期間限定スペシャルサイト</span>
             </p>
             <div
@@ -377,7 +509,7 @@
               <img src="../assets/img/frontworks/17/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">期間限定サイト</span>
             </p>
             <div
@@ -395,7 +527,7 @@
               <img src="../assets/img/frontworks/18/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">期間限定スペシャルサイト</span>
             </p>
             <div
@@ -413,7 +545,7 @@
               <img src="../assets/img/frontworks/19/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">プロダクトサイト</span>
             </p>
             <div
@@ -431,7 +563,7 @@
               <img src="../assets/img/frontworks/20/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">アプリ紹介PCページ</span>
             </p>
             <div
@@ -450,7 +582,7 @@
               <img src="../assets/img/frontworks/21/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">プロダクトスペシャルサイト</span>
             </p>
             <div
@@ -469,7 +601,7 @@
               <img src="../assets/img/frontworks/22/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">プロダクトスペシャルサイト</span>
             </p>
             <div
@@ -493,7 +625,7 @@
               <img src="../assets/img/frontworks/1/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">高速バスチケット販売サイト</span>
             </p>
             <div
@@ -511,7 +643,7 @@
               <img src="../assets/img/frontworks/2/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">バスチケット販売サイト</span>
             </p>
             <div
@@ -529,7 +661,7 @@
               <img src="../assets/img/frontworks/3/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">医学イベントティザーページ</span>
             </p>
             <div
@@ -547,7 +679,7 @@
               <img src="../assets/img/frontworks/4/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text"
                 >キャンペーンサイト<br />
                 (フィーチャーフォン対応)</span
@@ -568,7 +700,7 @@
               <img src="../assets/img/frontworks/5/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">医学イベントサイト</span>
             </p>
             <div
@@ -586,7 +718,7 @@
               <img src="../assets/img/frontworks/6/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span>
               <span class="text">SNSモバイルゲーム</span>
             </p>
             <div
@@ -604,7 +736,7 @@
               <img src="../assets/img/frontworks/7/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">化粧品ブランドサイト</span>
             </p>
             <div
@@ -613,7 +745,7 @@
               data-imglength="1"
               data-id="7"
             >
-              ■ 担当箇所：マークアップ<br />
+              ■ 担当箇所：デザイン、マークアップ<br />
               ■ 対応デバイス：PC(IE6+)<br />
             </div>
           </li>
@@ -622,7 +754,7 @@
               <img src="../assets/img/frontworks/8/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">化粧品ブランドサイト</span>
             </p>
             <div
@@ -642,7 +774,7 @@
               <img src="../assets/img/frontworks/9/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">化粧品ブランド メールマガジン</span>
             </p>
             <div
@@ -660,7 +792,7 @@
               <img src="../assets/img/frontworks/10/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">医学イベントサイト</span>
             </p>
             <div
@@ -678,7 +810,7 @@
               <img src="../assets/img/frontworks/11/1.jpg" />
             </div>
             <p class="fw__tumb-ttl">
-              <span class="ico img">img</span>
+              <span class="ico">coding</span><span class="ico second">design</span>
               <span class="text">個人運営素材配布サイト</span>
             </p>
             <div
@@ -703,6 +835,7 @@
       :ModaldescText="ModaldescText"
       :dataID="dataID"
       :title="title"
+      :size="size"
     >
     </WorksModal>
 
@@ -732,6 +865,7 @@ export default {
       modalHtmlElement: "",
       dataID: 0,
       title: "",
+      size: "",
     };
   },
   methods: {
@@ -747,6 +881,7 @@ export default {
       this.ModaldescText = this.modalHtmlElement.innerHTML;
       const dataType = Number(this.modalHtmlElement.dataset.type);
       const dataLength = Number(this.modalHtmlElement.dataset.imglength);
+      this.size = this.modalHtmlElement.dataset.size;
       this.dataID = Number(this.modalHtmlElement.dataset.id);
       this.isMovie = dataType == 1 ? false : true;
       if (!this.isMovie) {
@@ -772,15 +907,13 @@ export default {
   .nav {
     margin-top: 30px;
   }
+  .em {
+    background-color: #f8f0eb;
+  }
   &__lead {
     margin-bottom: 60px;
     @include max-screen($sp) {
       margin-bottom: 30px;
-    }
-    > li {
-      .em {
-        background-color: #f8f0eb;
-      }
     }
   }
   &__block {
@@ -855,7 +988,8 @@ export default {
       box-sizing: border-box;
       border-radius: 3px;
       padding: 0 10px;
-      &.img {
+      margin-right: 5px;
+      &.second {
         background-color: #fcf7df;
         color: #d6b931;
       }

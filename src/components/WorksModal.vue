@@ -3,39 +3,41 @@
     <div class="ol"></div>
     <div class="fw-detail__container">
       <div class="fw-detail">
-        <div class="fw-detail__inner">
+        <div class="fw-detail__inner" :class="{large:size}">
           <p class="fw-detail__ttl" v-html="title"></p>
-          <img
+          <div class="fw-detail__img-wrap">
+            <img
             src="../assets/img/common/loading.gif"
             v-if="isLoading"
             class="fw-detail__loading"
           />
-          <div class="fw-detail__img-lists">
-            <swiper
-              :spaceBetween="50"
-              :navigation="true"
-              :pagination="{ dynamicBullets: true }"
-              class="fw__swiper"
-              v-if="!isMovie"
-            >
-              <swiper-slide v-for="n of imgLength" :key="n">
-                <img
-                  :src="
-                    require('../assets/img/frontworks/' +
-                      dataID +
-                      '/' +
-                      n +
-                      '.jpg')
-                  "
-                />
-              </swiper-slide>
-            </swiper>
+            <div class="fw-detail__img-lists" :class="{large:size}" v-if="!isMovie">
+              <swiper
+                :spaceBetween="50"
+                :navigation="true"
+                :pagination="{ dynamicBullets: true }"
+                class="fw__swiper"
+                v-if="!isMovie"
+              >
+                <swiper-slide v-for="n of imgLength" :key="n">
+                  <img
+                    :src="
+                      require('../assets/img/frontworks/' +
+                        dataID +
+                        '/' +
+                        n +
+                        '.jpg')
+                    "
+                  />
+                </swiper-slide>
+              </swiper>
+            </div>
+            <video
+              :src="require('../assets/img/frontworks/' + dataID + '/1.mp4')"
+              v-if="isMovie"
+              class="fw-detail__movie"
+            ></video>
           </div>
-          <video
-            :src="require('../assets/img/frontworks/' + dataID + '/1.mp4')"
-            v-if="isMovie"
-            class="fw-detail__movie"
-          ></video>
           <div class="fw-detail__desc" v-html="ModaldescText"></div>
         </div>
       </div>
@@ -51,7 +53,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 SwiperCore.use([Navigation, Pagination]);
 
 export default {
-  props: ["isMovie", "imgLength", "ModaldescText", "dataID", "title"],
+  props: ["isMovie", "imgLength", "ModaldescText", "dataID", "title", "size"],
   components: {
     Swiper,
     SwiperSlide,
@@ -67,6 +69,7 @@ export default {
       v.loop = true;
       v.play();
     }
+    console.log(this.size);
   },
   methods: {
     onCloseModal(e) {
@@ -94,7 +97,7 @@ export default {
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 9100;
+  z-index: 9200;
   left: 0;
   top: 0;
 }
@@ -111,38 +114,63 @@ export default {
   align-items: center;
   flex-flow: column;
   box-sizing: border-box;
-  @include max-screen($sp) {
-    padding: 100px 20px 20px 20px;
-    width: 100%;
-    left: 0;
-    margin-left: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    z-index: 9999;
-    display: block;
-  }
+
+  padding: 100px 10px 20px 10px;
+  width: 100%;
+  left: 0;
+  margin-left: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 9999;
+  display: block;
+  // @include max-screen($sp) {
+  //   padding: 100px 10px 20px 10px;
+  //   width: 100%;
+  //   left: 0;
+  //   margin-left: 0;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   height: 100%;
+  //   z-index: 9999;
+  //   display: block;
+  // }
   &__container {
-    @include max-screen($sp) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      overflow-y: scroll;
-      z-index: 9999;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    z-index: 9999;
+  }
+  &__img-wrap {
+    position: relative;
+    display:flex;
+    justify-content: center;
   }
   &__inner {
-    width: 600px;
-    margin-bottom: 60px;
+    width: 100%;
+    //width: 600px;
+    margin: 0 auto 60px auto;
     position: relative;
-    @include max-screen($sp) {
-      width: 100%;
-      padding-bottom: 50px;
+    padding-bottom: 50px;
+    &.large {
+      width: 800px;
+      @include max-screen($sp) {
+        width: 100%;
+      }
+    }
+    .fw-detail__desc {
+      padding: 0 100px;
+      box-sizing:border-box;
+      @include max-screen($sp) {
+        padding: 0 20px;
+      }
     }
     video {
       position: relative;
@@ -154,8 +182,8 @@ export default {
   }
   &__close {
     position: fixed;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     background-image: url("../assets/img/common/close.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -180,11 +208,12 @@ export default {
     }
   }
   &__desc {
-    width: 400px;
+    width: 100%;
     margin: 40px auto 0 auto;
     background-color: #ffffff;
     font-size: 16px;
     line-height: 30px;
+    max-width: 800px;
     @include max-screen($sp) {
       margin: 10px auto 0 auto;
       font-size: 14px;
@@ -197,9 +226,11 @@ export default {
     font-size: 20px;
     margin-bottom: 50px;
     text-align: center;
+    line-height: 30px;
     @include max-screen($sp) {
       font-size: 16px;
       margin-bottom: 20px;
+      line-height: 26px;
     }
   }
   &__movie {
@@ -208,7 +239,8 @@ export default {
   &__loading {
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 50%;
+    transform: translateY(-5px);
     z-index: 9001;
   }
   &__img-lists {
@@ -222,9 +254,18 @@ export default {
     img {
       width: 100%;
     }
+    &.large {
+      width: 700px;
+      @include max-screen($sp) {
+        width:100%;
+      }
+    }
   }
   .swiper-container {
     padding: 0 50px 40px 50px;
+    @include max-screen($sp) {
+      padding: 0 30px 40px 30px;
+    }
   }
   .swiper-button-disabled {
     display: none;
@@ -237,6 +278,7 @@ export default {
       background-position: center;
       background-size: 40px auto;
       transform: scale(-1, 1);
+      right:0;
     }
     &:after {
       @include max-screen($sp) {
@@ -251,6 +293,7 @@ export default {
       background-image: url("../assets/img/common/arrow_swiper_left.svg");
       background-position: center;
       background-size: 40px auto;
+      left: 0;
     }
     &:after {
       @include max-screen($sp) {

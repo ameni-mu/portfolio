@@ -21,6 +21,11 @@
               >
             </li>
             <li class="nav__list">
+              <router-link to="/works" active-class="current" exact
+                >Works</router-link
+              >
+            </li>
+            <li class="nav__list">
               <router-link to="/frontend" active-class="current" exact
                 >Frontend</router-link
               >
@@ -30,10 +35,42 @@
                 >Illust</router-link
               >
             </li>
-            <li class="nav__list">
-              <router-link to="/contact" active-class="current" exact
-                >contact</router-link
-              >
+            <li
+              class="nav__list"
+              @mouseover="onListMouseOver"
+              @mouseleave="onListMouseLeave"
+            >
+              <router-link to="/contact" active-class="current" exact>
+                Contact
+              </router-link>
+              <transition name="listfade">
+                <ul class="nav__c-lists" v-if="isContactCListShow">
+                  <li class="nav__c-list">
+                    <router-link
+                      to="/illcontact/illcontactwrite"
+                      active-class="current"
+                      exact
+                      >イラスト</router-link
+                    >
+                  </li>
+                  <li class="nav__c-list">
+                    <router-link
+                      to="/frontcontact/frontcontactwrite"
+                      active-class="current"
+                      exact
+                      >フロント構築</router-link
+                    >
+                  </li>
+                  <li class="nav__c-list">
+                    <router-link
+                      to="/othercontact/othercontactwrite"
+                      active-class="current"
+                      exact
+                      >その他</router-link
+                    >
+                  </li>
+                </ul>
+              </transition>
             </li>
           </ul>
         </div>
@@ -59,6 +96,11 @@
           >
         </li>
         <li class="nav__list">
+          <router-link to="/works" active-class="current" exact
+            >Works</router-link
+          >
+        </li>
+        <li class="nav__list">
           <router-link to="/frontend" active-class="current" exact
             >Frontend</router-link
           >
@@ -70,7 +112,7 @@
         </li>
         <li class="nav__list">
           <router-link to="/contact" active-class="current" exact
-            >contact</router-link
+            >Contact</router-link
           >
         </li>
       </ul>
@@ -93,6 +135,7 @@ export default {
       isResize: false,
       animName: "fade",
       isNavOpen: false,
+      isContactCListShow: false,
     };
   },
   beforeCreate() {
@@ -114,6 +157,12 @@ export default {
     window.removeEventListener("resize", this.onResize);
   },
   methods: {
+    onListMouseOver() {
+      this.isContactCListShow = true;
+    },
+    onListMouseLeave() {
+      this.isContactCListShow = false;
+    },
     onScroll() {
       if (this.isOtherPage) return;
       if (!this.isNavSetting) {
@@ -205,8 +254,8 @@ export default {
     position: fixed;
     z-index: 9200;
     text-indent: -9999px;
-    right: 30px;
-    top: 30px;
+    right: 20px;
+    top: 20px;
     cursor: pointer;
     display: none;
     @include max-screen($tablet) {
@@ -303,6 +352,23 @@ export default {
       }
     }
   }
+  &__c-lists {
+    margin-top: 10px;
+  }
+  &__c-list {
+    padding: 5px 0 8px 30px;
+    font-size: 16px;
+    a {
+      color: #888;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+      background-image: url("../assets/img/common/list_arrow_gray.svg");
+      background-repeat: no-repeat;
+      background-position: left 3px;
+      background-size: 14px auto;
+      padding-left: 16px;
+    }
+  }
 }
 .noAnim {
   transition: transform 0s !important;
@@ -346,6 +412,49 @@ export default {
 .fade-leave-to {
   opacity: 0;
   transform: translateY(20vh);
+  @include max-screen($tablet) {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+.listfade-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+  @include max-screen($tablet) {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+.listfade-enter-active {
+  transition: all 0.6s;
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
+}
+.listfade-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
+}
+.listfade-leave {
+  opacity: 1;
+  transform: translateY(0);
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
+}
+.listfade-leave-active {
+  transition: all 0.6s;
+  @include max-screen($tablet) {
+    transform: translateY(0) !important;
+  }
+}
+.listfade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
   @include max-screen($tablet) {
     opacity: 1 !important;
     transform: translateY(0) !important;

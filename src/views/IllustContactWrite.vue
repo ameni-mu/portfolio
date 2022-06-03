@@ -2,6 +2,35 @@
   <h1 class="contact__heading heading otherpage__heading">
     イラスト制作の<br />お問い合わせ
   </h1>
+  <div class="contact__panli">
+    <p class="contact__panttl">お問い合わせ</p>
+    <ul class="contact__panlink">
+      <li>
+        <router-link
+          to="/illcontact/illcontactwrite"
+          active-class="current"
+          exact
+          >イラスト</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/frontcontact/frontcontactwrite"
+          active-class="current"
+          exact
+          >フロント構築</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          to="/othercontact/othercontactwrite"
+          active-class="current"
+          exact
+          >その他</router-link
+        >
+      </li>
+    </ul>
+  </div>
   <h2 class="contact__secondary-heading">
     <span>イラストご依頼時の注意点</span>
   </h2>
@@ -23,16 +52,7 @@
       <span
         >イラストを正式に発注いただける場合は「お仕事確認書」を発行させていただきます。</span
       ><br />
-      内容をご確認いただき、ご署名と捺印をお願いいたします。<br />
-      認識齟齬によるトラブルを防ぐための書類になりますので、ご協力のほどよろしくお願いいたします。<br />
-      お仕事確認書の詳細につきましては、森
-      流一郎さんが書かれている下記記事をご覧ください。<br />
-      <a
-        href="https://note.com/moriryuichiro/n/n8aaaeae73a3e"
-        target="_blank"
-        class="illust__icon-link icon-link"
-        >イラストレーター必須のツール 「お仕事確認書」について知ろう！</a
-      >
+      認識齟齬によるトラブルを防ぐための書類になりますので、ご確認のほどよろしくお願いいたします。
     </li>
   </ul>
   <p class="btn btn--normal contact__lead-btn wave-line">
@@ -48,10 +68,7 @@
     <h3 class="contact__third-heading">
       <span>イラスト制作のご依頼・ご相談</span>
     </h3>
-    <p class="contact__note">
-      <span class="em">*</span>は必須項目です。<br />
-      まだ決まっていない項目は「未定」とご記入ください。
-    </p>
+    <p class="contact__note"><span class="em">*</span>は必須項目です。<br /></p>
     <ul class="contact__form contact__form--jobs">
       <li class="contact__form-li">
         <p class="contact__form-li-ttl">
@@ -157,12 +174,78 @@
       <li class="contact__form-li">
         <p class="contact__form-li-ttl"><span class="em">*</span>ご予算</p>
         <div class="contact__select-detail">
-          <Field
+          <!-- <Field
             name="budget"
             type="text"
             rules="required"
             v-model="inputData.budget"
-          />
+          /> -->
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget1"
+              value="3,000円〜10,000円"
+              v-model="inputData.budget"
+            />
+            <label for="budget1"><span>3,000円〜10,000円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget2"
+              value="10,000円〜30,000円"
+              v-model="inputData.budget"
+            />
+            <label for="budget2"><span>10,000円〜30,000円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget3"
+              value="30,000円〜50,000円"
+              v-model="inputData.budget"
+            />
+            <label for="budget3"><span>30,000円〜50,000円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget4"
+              value="50,000円〜100,000円"
+              v-model="inputData.budget"
+            />
+            <label for="budget4"><span>50,000円〜100,000円</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget5"
+              value="100,000円以上"
+              v-model="inputData.budget"
+            />
+            <label for="budget5"><span>100,000円以上</span></label>
+          </div>
+          <div class="contact__select-wrap">
+            <Field
+              name="budget"
+              type="radio"
+              rules="required"
+              id="budget6"
+              value="その他"
+              v-model="inputData.budget"
+            />
+            <label for="budget6"><span>その他</span></label>
+          </div>
           <ErrorMessage name="budget" class="error" />
         </div>
       </li>
@@ -348,6 +431,13 @@ export default {
       var confirmMessage = "内容が消去されますがよろしいですか？";
       e.returnValue = confirmMessage;
       return confirmMessage;
+    },
+    toPageTop(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     },
     onValidate(e) {
       e.preventDefault();
