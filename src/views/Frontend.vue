@@ -24,7 +24,7 @@
         <h2 class="front__secondary-heading">制作環境</h2>
         <ul class="front__text">
           <li>Main => MacBook / macOS Big Sur 11.3.1</li>
-          <li>Sub => Windows7(IE11検証用)</li>
+          <li>Sub => Windows10</li>
         </ul>
       </div>
 
@@ -68,8 +68,11 @@
           <li>
             <p class="front__skill-ttl">自宅での検証環境<br />(実機)</p>
             <p class="front__skill-detail">
-              Macbook / windows7 / ipad Pro / Android8(ASUS zenphone)<br>
-              <span class="em">※実機で検証が必要な端末がありましたら事前にお知らせください。</span>
+              Macbook / windows10 / ipad Pro / iphone7 / Android8(ASUS
+              zenphone)<br />
+              <span class="em"
+                >※実機で検証が必要な端末がありましたら事前にお知らせください。</span
+              >
             </p>
           </li>
           <li>
@@ -79,7 +82,7 @@
           <li>
             <p class="front__skill-ttl">デザインツール</p>
             <p class="front__skill-detail">
-              Adobe photoshop / Adobe Illustrator / AdobeXd / Sketch /<br />
+              Adobe photoshop / Adobe Illustrator / AdobeXD /<br />
               <span class="em">
                 *上記以外のツールで作成されたデザインファイルをお渡し予定の場合はご連絡ください。可能な限り、事前に環境を整えさせていただきます。
               </span>
@@ -88,9 +91,9 @@
           <li>
             <p class="front__skill-ttl">対応ブラウザ</p>
             <p class="front__skill-detail">
-              Chrome / FireFox / Safari / Edge 各種最新版<br>
+              Chrome / FireFox / Safari / Edge 各種最新版<br />
               <span class="em">
-                ※IEは基本的に対応いたしません。<br>
+                ※IEは基本的に対応いたしません。<br />
                 事前に確認しますので必要であれば対応しますが、アニメーションが複雑な場合など対応が難しい場合は別途料金をいただき、プログレッシブエンハンスメントとして専用の表示になるように調整させていただきます。
               </span>
             </p>
@@ -161,7 +164,7 @@ export default {
     },
     authenticate(e) {
       e.preventDefault();
-      const sendUrl = "access.php";
+      const sendUrl = "https://atelier-ameni.com/access.php";
       let params = new URLSearchParams();
       params.append("id", this.fwid);
       params.append("pass", this.fwpass);

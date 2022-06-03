@@ -41,8 +41,7 @@
 <script>
 export default {
   props: ["styleType", "catVisible"],
-  mounted(){
-  },
+  mounted() {},
   methods: {
     toPageTop(e) {
       e.preventDefault();

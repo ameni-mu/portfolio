@@ -28,7 +28,7 @@
       @leave-cancelled="leaveCancelled"
     > -->
     <!-- <transition name="cat" mode="out-in"> -->
-      <router-view />
+    <router-view />
     <!-- </transition> -->
     <!-- <div class="ld">
       <div class="ld__ol">
@@ -60,11 +60,9 @@ export default {
       // loadingAnim: false,
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     // beforeEnter() {
-
     // },
     // enter(){
     // },
@@ -122,25 +120,25 @@ body {
 }
 .cat-leave {
   opacity: 1;
-  &+ .ld {
+  & + .ld {
     display: block;
   }
 }
 .cat-leave-active {
   transition: opacity 0.6s;
-  &+ .ld {
+  & + .ld {
     display: block;
   }
 }
 .cat-leave-to {
   opacity: 0;
-  &+ .ld {
+  & + .ld {
     display: block;
   }
 }
 .cat-move {
   transition: opacity 1s;
-  &+ .ld {
+  & + .ld {
     display: block;
   }
 }

@@ -5,9 +5,7 @@
       <h1 class="profile__heading heading otherpage__heading">PROFILE</h1>
       <div class="profile__block profile__img-wrap">
         <p class="profile__name">すがや</p>
-        <p class="profile__name-title">
-          フロントエンドエンジニア(webデザインも)
-        </p>
+        <p class="profile__name-title">フロントエンドエンジニア</p>
         <p class="profile__name">あめに</p>
         <p class="profile__name-title">イラストレーター</p>
       </div>
@@ -71,7 +69,7 @@
         <li class="profile__sche-li">
           <p class="profile__time"><span>6:00</span></p>
           <p class="profile__sche-detail">
-            起床、朝食、家事。<br>子供を保育園へ送り届ける。
+            起床、朝食、家事。<br />子供を保育園へ送り届ける。
           </p>
         </li>
         <li class="profile__sche-li">
@@ -83,7 +81,7 @@
         <li class="profile__sche-li">
           <p class="profile__time"><span>16:30</span></p>
           <p class="profile__sche-detail">
-            保育園へ子供を迎えに行く。<br>
+            保育園へ子供を迎えに行く。<br />
             育児、家事。
           </p>
         </li>

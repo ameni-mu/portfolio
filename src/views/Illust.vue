@@ -11,9 +11,9 @@
           >
         </p>
         <p class="btn btn--normal">
-          <router-link to="/illust#illustflow" @click="toIllustFlow">
+          <a href="#illustflow" @click="toIllustFlow">
             ご依頼から納品までの流れ
-          </router-link>
+          </a>
         </p>
       </div>
       <p class="illust__lead"><span>ILLUST TYPE</span></p>
@@ -342,7 +342,8 @@ export default {
         behavior: "smooth",
       });
     },
-    toIllustFlow() {
+    toIllustFlow(e) {
+      e.preventDefault();
       const y = document.getElementById("illustflow").offsetTop - 50;
       window.scrollTo({
         top: y,

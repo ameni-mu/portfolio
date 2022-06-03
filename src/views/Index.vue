@@ -6,24 +6,40 @@
       <div class="index__bg2 index__bg"></div>
       <div class="index__bg3 index__bg"></div>
     </div>
+    <transition name="fade" mode="out-in">
+      <div class="ol" v-if="isLoading">
+        <div class="loader ball-spin-fade-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </transition>
     <section
       :class="{
         main: true,
         section: true,
         'is-minH': isMinH,
         'is-no-canvas': !isCvs,
+        active: mainAnimated,
       }"
       class="wave wave--bottom"
     >
-      <div class="loader ball-spin-fade-loader" v-if="isLoading">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      <div class="work" v-if="isWorkShow">
+        <div class="work__ol">
+          <div class="work__close" @click="toggleWork">close</div>
+          <p class="work__ttl">◆ お仕事状況</p>
+          <ul class="work__list">
+            <li><span>6月</span>対応可能です</li>
+            <li><span>7月</span>お問い合わせください</li>
+          </ul>
+          <p class="sup">※日々状況が変わりますのでまずはお問い合わせください</p>
+        </div>
       </div>
       <div class="main__container" :class="{ isNoCanvas: !isCvs }">
         <h1 class="main__logo">
@@ -33,16 +49,17 @@
           />
         </h1>
         <p class="main__lead">
-          <span
-            >web制作(フロント構築、デザイン)、イラスト制作 おまかせください <br
-          /></span>
+          <span>フロント構築、イラスト制作 おまかせください <br /></span>
         </p>
+        <div class="work__btn">
+          <a href="#" @click="toggleWork">現在のお仕事状況</a>
+        </div>
         <ul class="main__nav">
           <li class="main__nav-li">
-            <router-link to="/" active-class="current" exact>Index</router-link>
+            <router-link to="/profile">Profile</router-link>
           </li>
           <li class="main__nav-li">
-            <router-link to="/profile">Profile</router-link>
+            <router-link to="/works">Works</router-link>
           </li>
           <li class="main__nav-li">
             <router-link to="/frontend">Frontend</router-link>
@@ -51,7 +68,7 @@
             <router-link to="/illust">Illust</router-link>
           </li>
           <li class="main__nav-li">
-            <router-link to="/contact">contact</router-link>
+            <router-link to="/contact">Contact</router-link>
           </li>
         </ul>
         <div class="main__deco-wrap">
@@ -65,7 +82,6 @@
         <canvas class="cvs" v-show="isShowCvs"></canvas>
       </div>
     </section>
-
     <Profile></Profile>
     <Frontend></Frontend>
     <Illust></Illust>
@@ -125,6 +141,7 @@ export default {
       animation: function () {},
       isLoading: true,
       mainAnimated: false,
+      isWorkShow: false,
     };
   },
   mounted() {
@@ -143,7 +160,7 @@ export default {
       this.bg2 = document.querySelector(".index__bg2");
       this.bg3 = document.querySelector(".index__bg3");
       const bgWrap = document.querySelector(".index__bg-wrap");
-      //パララックス背景の高さを指定
+      // //パララックス背景の高さを指定
       const h = this.winH * 5;
       this.bg1.style.height = h + "px";
       this.bg2.style.height = h + "px";
@@ -160,13 +177,13 @@ export default {
           _this.initStage();
         }
         //パララックス背景
-        _this.scrollY = window.scrollY;
-        _this.bg1.style.transform =
-          "translateY(" + -(_this.scrollY / 2) + "px)";
-        _this.bg2.style.transform =
-          "translateY(" + -(_this.scrollY / 5) + "px)";
-        _this.bg3.style.transform =
-          "translateY(" + -(_this.scrollY / 10) + "px)";
+        // _this.scrollY = window.scrollY;
+        // _this.bg1.style.transform =
+        //   "translateY(" + -(_this.scrollY / 2) + "px)";
+        // _this.bg2.style.transform =
+        //   "translateY(" + -(_this.scrollY / 5) + "px)";
+        // _this.bg3.style.transform =
+        //   "translateY(" + -(_this.scrollY / 10) + "px)";
         gsap.to(bgWrap, {
           delay: 1,
           duration: 2,
@@ -187,11 +204,14 @@ export default {
     window.cancelAnimationFrame(this.animation);
   },
   methods: {
+    toggleWork() {
+      this.isWorkShow = !this.isWorkShow;
+    },
     onScroll() {
       this.scrollY = window.scrollY;
-      this.bg1.style.transform = "translateY(" + -(this.scrollY / 2) + "px)";
-      this.bg2.style.transform = "translateY(" + -(this.scrollY / 5) + "px)";
-      this.bg3.style.transform = "translateY(" + -(this.scrollY / 10) + "px)";
+      // this.bg1.style.transform = "translateY(" + -(this.scrollY / 2) + "px)";
+      // this.bg2.style.transform = "translateY(" + -(this.scrollY / 5) + "px)";
+      // this.bg3.style.transform = "translateY(" + -(this.scrollY / 10) + "px)";
     },
     initStage() {
       const stageH = Math.floor(window.innerHeight * 0.8);
@@ -334,69 +354,9 @@ export default {
     },
     animEnter() {
       if (this.isMinW) return;
-      this.mainAnimated = true;
-      const container = document.querySelector(".main__container");
-      const logo = document.getElementsByClassName("main__logo");
-      const lead = document.getElementsByClassName("main__lead");
-      const nav = document.getElementsByClassName("main__nav-li");
-      const decoWrap = document.getElementsByClassName("main__deco-wrap");
-      const scroll = document.getElementsByClassName("main__scroll");
-      const cvs = document.getElementsByClassName("cvs");
-
-      container.style.opacity = "1";
-
-      gsap.set(cvs, {
-        duration: 0,
-        translateY: 30,
-      });
-      gsap.to(cvs, {
-        duration: 0.2,
-        translateY: -30,
-        opacity: 0.8,
-        ease: "CircIn",
-      });
-      gsap.to(cvs, {
-        delay: 0.3,
-        duration: 0.5,
-        translateY: 0,
-        opacity: 1,
-        ease: "easeInOut",
-      });
-      gsap.to(logo, {
-        delay: 0.4,
-        duration: 0.5,
-        opacity: 1,
-        ease: "CircIn",
-      });
-      gsap.to(lead, {
-        delay: 0.6,
-        duration: 1,
-        opacity: 1,
-        ease: "CircIn",
-      });
-      gsap.to(nav, {
-        delay: 0.6,
-        duration: 0.4,
-        opacity: 1,
-        translateY: 0,
-        ease: "Back.easeOuteaseOut.config(1.71.7)",
-        stagger: {
-          from: "start",
-          amount: 0.4,
-        },
-      });
-      gsap.to(decoWrap, {
-        delay: 1.5,
-        duration: 0.4,
-        opacity: 1,
-        ease: "CircIn",
-      });
-      gsap.to(scroll, {
-        delay: 1.5,
-        duration: 0.8,
-        opacity: 1,
-        ease: "CircIn",
-      });
+      setTimeout(() => {
+        this.mainAnimated = true;
+      }, 300);
       this.isLoading = false;
     },
     //-------------------
@@ -435,11 +395,20 @@ export default {
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
-    z-index: 9 !important;
+    z-index: 9999 !important;
     margin-top: -60px;
     > div {
-      background-color: #f1bcb5 !important;
+      background-color: #e98e92 !important;
     }
+  }
+  .ol {
+    background-color: #f5dfde;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
   }
   &__bg {
     position: fixed;
@@ -464,6 +433,122 @@ export default {
   &__bg3 {
     background-image: url("../assets/img/index/bg_dot3.svg");
     z-index: 1;
+  }
+  .work {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include max-screen($sp) {
+      background-color: rgba($color: #ffffff, $alpha: 0.5);
+    }
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      a {
+        background-color: #8ca836;
+        color: #fff;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 5px 10px 7px 10px;
+        border-radius: 4px;
+        &:hover {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+    &__close {
+      background-image: url("../assets/img/common/ico_close.svg");
+      background-size: 20px auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #999;
+      border-radius: 40px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: 9999;
+      width: 40px;
+      height: 40px;
+      display: block;
+      @include texthidden();
+      cursor: pointer;
+      transform: translate(180px, -160px);
+      @include max-screen($sp) {
+        left: auto;
+        right: 5vw;
+        top: 80px;
+        transform: translate(0, 0);
+      }
+    }
+    &__ol {
+      background-color: #fff;
+      width: 400px;
+      height: 300px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-200px, -150px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 30px;
+      font-size: 14px;
+      line-height: 26px;
+      flex-direction: column;
+      text-align: left;
+      box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      z-index: 9999;
+      @include max-screen($sp) {
+        width: 85vw;
+        height: auto;
+        transform: inherit;
+        left: 7vw;
+        top: 100px;
+        box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.4);
+      }
+    }
+    &__ttl {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    &__list {
+      li {
+        margin-bottom: 10px;
+        @include max-screen($sp) {
+          flex-wrap: wrap;
+        }
+      }
+      span {
+        display: inline-block;
+        padding: 3px;
+        margin-right: 10px;
+        width: 50px;
+        text-align: center;
+        font-weight: bold;
+        background-color: #f7e6e4;
+        box-sizing: border-box;
+      }
+    }
+    .sup {
+      color: #7e7d7d;
+    }
+  }
+  .work-detail {
+    display: inline-block;
   }
   .main {
     width: 100%;
@@ -490,6 +575,7 @@ export default {
       z-index: 100;
       margin-top: -20px;
       opacity: 0;
+      transition: opacity 0.6s 0s ease-in-out;
       @include max-screen($sp) {
         margin-top: 0;
         background-color: #ffffff;
@@ -500,6 +586,7 @@ export default {
         height: auto;
         overflow: hidden;
         opacity: 1;
+        transition: none;
       }
       &.isNoCanvas {
         margin: 0 30px;
@@ -513,10 +600,44 @@ export default {
         opacity: 1;
         min-height: 560px;
         width: 100%;
+        @include max-screen($sp) {
+          margin: 0;
+          min-height: auto;
+        }
         .main__deco-wrap {
-          position: absolute;
-          left: 50%;
-          bottom: 50px;
+          margin-top: 80px;
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .main__work-img {
+          bottom: auto;
+          top: 0;
+        }
+        .main__deco-img--1 {
+          top: -20px;
+          bottom: auto;
+          margin-left: -165px;
+          @include max-screen($sp) {
+            margin-left: -100px;
+            top: -40px;
+          }
+        }
+        .main__deco-img--2 {
+          top: -20px;
+          bottom: auto;
+          margin-left: -247px;
+          @include max-screen($sp) {
+            margin-left: -166px;
+            top: -40px;
+          }
+        }
+        .main__scroll {
+          opacity: 1;
+          top: 225px;
+          @include max-screen($sp) {
+            top: 161px;
+          }
         }
       }
     }
@@ -524,10 +645,9 @@ export default {
       width: 160px;
       height: auto;
       margin: 0 auto 20px auto;
-      opacity: 0;
       @include max-screen($sp) {
-        opacity: 1;
         width: 130px;
+        transition: none;
       }
     }
     &__lead {
@@ -535,9 +655,8 @@ export default {
       padding-bottom: 5px;
       display: inline-block;
       position: relative;
-      margin-bottom: 35px;
+      margin-bottom: 15px;
       font-size: 12px;
-      opacity: 0;
       font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium",
         YuGothic, "游ゴシック体", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic Pro",
         "メイリオ", Meiryo, sans-serif;
@@ -546,7 +665,7 @@ export default {
         margin-left: 30px;
         line-height: 24px;
         margin-bottom: 10px;
-        opacity: 1;
+        transition: none;
       }
       br {
         display: none;
@@ -591,8 +710,9 @@ export default {
       }
       > li {
         padding: 0 9px;
-        opacity: 0;
-        transform: translateY(10px);
+        // opacity: 0;
+        // transform: translateY(10px);
+        //transition: all 0.6s 1s ease-in-out;
         @include max-screen($sp) {
           margin-bottom: 0;
           opacity: 1;
@@ -648,11 +768,10 @@ export default {
       }
     }
     &__deco-wrap {
-      opacity: 0;
+      //transition: opacity 0.6s 1.4s ease-in-out;
       @include max-screen($sp) {
         position: relative;
         padding-bottom: 70px;
-        opacity: 1;
       }
     }
     &__work-img {
@@ -749,6 +868,29 @@ export default {
         }
       }
     }
+    &.active {
+      .main__container {
+        opacity: 1;
+      }
+      // .cvs {
+      //   animation: cvs 0.6s 0s ease-in-out forwards;
+      // }
+      // .main__logo {
+      //   opacity: 1;
+      // }
+      // .main__lead {
+      //   opacity: 1;
+      // }
+      // .main__nav {
+      //   >li {
+      //     opacity: 1;
+      //     transform: translateY(0px);
+      //   }
+      // }
+      // .main__deco-wrap {
+      //   opacity: 1;
+      // }
+    }
   }
   .cvs-wrap {
     width: 100%;
@@ -777,11 +919,19 @@ export default {
     position: absolute;
     display: block;
     z-index: 0;
-    opacity: 0;
-    margin-top: -20px;
+    transform: translateY(-20px);
     @include max-screen($sp) {
       display: none;
     }
+  }
+}
+@keyframes cvs {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 @keyframes fuwafuwa1 {
@@ -799,5 +949,26 @@ export default {
   100% {
     transform: translateY(8px);
   }
+}
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 0.6s;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: opacity 0.6s;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-move {
+  transition: transform 1s;
 }
 </style>

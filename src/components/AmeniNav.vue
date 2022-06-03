@@ -21,6 +21,11 @@
               >
             </li>
             <li class="nav__list">
+              <router-link to="/works" active-class="current" exact
+                >Works</router-link
+              >
+            </li>
+            <li class="nav__list">
               <router-link to="/frontend" active-class="current" exact
                 >Frontend</router-link
               >
@@ -36,7 +41,7 @@
               @mouseleave="onListMouseLeave"
             >
               <router-link to="/contact" active-class="current" exact>
-                contact
+                Contact
               </router-link>
               <transition name="listfade">
                 <ul class="nav__c-lists" v-if="isContactCListShow">
@@ -91,6 +96,11 @@
           >
         </li>
         <li class="nav__list">
+          <router-link to="/works" active-class="current" exact
+            >Works</router-link
+          >
+        </li>
+        <li class="nav__list">
           <router-link to="/frontend" active-class="current" exact
             >Frontend</router-link
           >
@@ -102,7 +112,7 @@
         </li>
         <li class="nav__list">
           <router-link to="/contact" active-class="current" exact
-            >contact</router-link
+            >Contact</router-link
           >
         </li>
       </ul>
@@ -244,8 +254,8 @@ export default {
     position: fixed;
     z-index: 9200;
     text-indent: -9999px;
-    right: 30px;
-    top: 30px;
+    right: 20px;
+    top: 20px;
     cursor: pointer;
     display: none;
     @include max-screen($tablet) {

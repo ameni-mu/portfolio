@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Index from "../views/Index.vue";
-import store from "../store";
+//import store from "../store";
 
 const routes = [
   {
@@ -9,7 +9,7 @@ const routes = [
     component: Index,
     meta: {
       title: "アトリエあめに atelier ameni",
-      desc: "フロントエンドエンジニア、イラストレーターあめにのポートフォリオサイトです。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
+      desc: "web制作、イラスト制作のアトリエあめにです。web制作はフロントエンド構築をメインにお仕事させていただいています。女性らしさのある柔らかいイラストの作成、vue.jsやcanvasアニメーションなどjsを使用したwebページを作成します。",
     },
   },
   {
@@ -64,6 +64,26 @@ const routes = [
     meta: {
       title: "フロントエンド | アトリエあめに atelier ameni",
       desc: "フロントエンドエンジニアあめにのこれまで携わってきた制作物",
+    },
+  },
+  {
+    path: "/webdesign",
+    name: "WebDesign",
+    component: () =>
+      import(/* webpackChunkName: "webdesign" */ "../views/WebDesign.vue"),
+    meta: {
+      title: "web design | アトリエあめに atelier ameni",
+      desc: "atelier ameni のwebdesign実績",
+    },
+  },
+  {
+    path: "/works",
+    name: "Works",
+    component: () =>
+      import(/* webpackChunkName: "works" */ "../views/Works.vue"),
+    meta: {
+      title: "works | アトリエあめに atelier ameni",
+      desc: "atelier ameni の実績",
     },
   },
   {
@@ -216,14 +236,15 @@ const router = createRouter({
   },
 });
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.state.isAuthenticated;
-  if (to.name == "FrontWorks") {
-    if (isAuthenticated) {
-      next();
-    } else {
-      alert("認証されていません。");
-      next({ name: "Frontend" });
-    }
+  //const isAuthenticated = store.state.isAuthenticated;
+  if (to.name == "FrontWorks" || to.name == "WebDesign") {
+    // if (isAuthenticated) {
+    //   next();
+    // } else {
+    //   alert("認証されていません。");
+    //   next({ name: "Works" });
+    // }
+    next();
   } else {
     next();
   }
